@@ -13,10 +13,8 @@ export type Lang = {
 export type LangCode = Lang["code"];
 
 export const supportedLanguages: Lang[] = [
-  { code: "de", name: "Deutsch", flag: "🇩🇪" },
+  { code: "id", name: "Bahasa Indonesia", flag: "🇮🇩" },
   { code: "en", name: "English", flag: "🇺🇸" },
-  { code: "fi", name: "Suomi", flag: "🇫🇮" },
-  { code: "sv", name: "Svenska", flag: "🇸🇪" },
 ];
 
 export const FALLBACK_LANGUAGE_CODE: LangCode = "en";
@@ -41,9 +39,7 @@ i18next
     fallbackLng: {
       default: [FALLBACK_LANGUAGE_CODE],
       "en-GB": [FALLBACK_LANGUAGE_CODE],
-      fi: ["fi-FI", FALLBACK_LANGUAGE_CODE],
-      sv: ["sv-SE", FALLBACK_LANGUAGE_CODE],
-      de: ["de-DE", FALLBACK_LANGUAGE_CODE],
+      id: ["id-ID", FALLBACK_LANGUAGE_CODE],
     },
     fallbackNS: ["common", "ui", "dialog"],
     debug: import.meta.env.MODE === "development",
