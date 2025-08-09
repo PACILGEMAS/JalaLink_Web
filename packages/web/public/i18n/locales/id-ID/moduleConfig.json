@@ -1,0 +1,448 @@
+{
+	"page": {
+		"tabAmbientLighting": "Ambient Lighting",
+		"tabAudio": "Audio",
+		"tabCannedMessage": "Canned",
+		"tabDetectionSensor": "Detection Sensor",
+		"tabExternalNotification": "Ext Notif",
+		"tabMqtt": "MQTT",
+		"tabNeighborInfo": "Neighbor Info",
+		"tabPaxcounter": "Paxcounter",
+		"tabRangeTest": "Range Test",
+		"tabSerial": "Serial",
+		"tabStoreAndForward": "S&F",
+		"tabTelemetry": "Telemetry"
+	},
+	"ambientLighting": {
+		"title": "Pengaturan Ambient Lighting",
+		"description": "Pengaturan untuk modul Ambient Lighting",
+		"ledState": {
+			"label": "Status LED",
+			"description": "Atur LED hidup atau mati"
+		},
+		"current": {
+			"label": "Arus",
+			"description": "Atur arus untuk output LED. Default adalah 10"
+		},
+		"red": {
+			"label": "Merah",
+			"description": "Atur level LED merah. Nilai 0-255"
+		},
+		"green": {
+			"label": "Hijau",
+			"description": "Atur level LED hijau. Nilai 0-255"
+		},
+		"blue": {
+			"label": "Biru",
+			"description": "Atur level LED biru. Nilai 0-255"
+		}
+	},
+	"audio": {
+		"title": "Pengaturan Audio",
+		"description": "Pengaturan untuk modul Audio",
+		"codec2Enabled": {
+			"label": "Codec 2 Diaktifkan",
+			"description": "Aktifkan encoding audio Codec 2"
+		},
+		"pttPin": {
+			"label": "Pin PTT",
+			"description": "Pin GPIO untuk digunakan sebagai PTT"
+		},
+		"bitrate": {
+			"label": "Bitrate",
+			"description": "Bitrate yang digunakan untuk encoding audio"
+		},
+		"i2sWs": {
+			"label": "i2S WS",
+			"description": "Pin GPIO untuk digunakan sebagai i2S WS"
+		},
+		"i2sSd": {
+			"label": "i2S SD",
+			"description": "Pin GPIO untuk digunakan sebagai i2S SD"
+		},
+		"i2sDin": {
+			"label": "i2S DIN",
+			"description": "Pin GPIO untuk digunakan sebagai i2S DIN"
+		},
+		"i2sSck": {
+			"label": "i2S SCK",
+			"description": "Pin GPIO untuk digunakan sebagai i2S SCK"
+		}
+	},
+	"cannedMessage": {
+		"title": "Pengaturan Canned Message",
+		"description": "Pengaturan untuk modul Canned Message",
+		"moduleEnabled": {
+			"label": "Modul Diaktifkan",
+			"description": "Aktifkan Canned Message"
+		},
+		"rotary1Enabled": {
+			"label": "Rotary Encoder #1 Diaktifkan",
+			"description": "Aktifkan rotary encoder"
+		},
+		"inputbrokerPinA": {
+			"label": "Pin Encoder A",
+			"description": "Nilai Pin GPIO (1-39) Untuk port encoder A"
+		},
+		"inputbrokerPinB": {
+			"label": "Pin Encoder B",
+			"description": "Nilai Pin GPIO (1-39) Untuk port encoder B"
+		},
+		"inputbrokerPinPress": {
+			"label": "Pin Press Encoder",
+			"description": "Nilai Pin GPIO (1-39) Untuk Press encoder"
+		},
+		"inputbrokerEventCw": {
+			"label": "Event searah jarum jam",
+			"description": "Pilih event input."
+		},
+		"inputbrokerEventCcw": {
+			"label": "Event berlawanan jarum jam",
+			"description": "Pilih event input."
+		},
+		"inputbrokerEventPress": {
+			"label": "Event press",
+			"description": "Pilih event input"
+		},
+		"updown1Enabled": {
+			"label": "Up Down diaktifkan",
+			"description": "Aktifkan encoder up / down"
+		},
+		"allowInputSource": {
+			"label": "Izinkan Input Source",
+			"description": "Pilih dari: '_any', 'rotEnc1', 'upDownEnc1', 'cardkb'"
+		},
+		"sendBell": {
+			"label": "Kirim Bell",
+			"description": "Kirim karakter bell dengan setiap pesan"
+		}
+	},
+	"detectionSensor": {
+		"title": "Pengaturan Detection Sensor",
+		"description": "Pengaturan untuk modul Detection Sensor",
+		"enabled": {
+			"label": "Diaktifkan",
+			"description": "Aktifkan atau nonaktifkan Modul Detection Sensor"
+		},
+		"minimumBroadcastSecs": {
+			"label": "Detik Minimum Broadcast",
+			"description": "Interval dalam detik seberapa sering kita dapat mengirim pesan ke mesh ketika perubahan status terdeteksi"
+		},
+		"stateBroadcastSecs": {
+			"label": "Detik Broadcast Status",
+			"description": "Interval dalam detik seberapa sering kita harus mengirim pesan ke mesh dengan status saat ini terlepas dari perubahan"
+		},
+		"sendBell": {
+			"label": "Kirim Bell",
+			"description": "Kirim bell ASCII dengan pesan alert"
+		},
+		"name": {
+			"label": "Nama Ramah",
+			"description": "Digunakan untuk memformat pesan yang dikirim ke mesh, maksimal 20 Karakter"
+		},
+		"monitorPin": {
+			"label": "Pin Monitor",
+			"description": "Pin GPIO yang dipantau untuk perubahan status"
+		},
+		"detectionTriggerType": {
+			"label": "Tipe Trigger Deteksi",
+			"description": "Jenis event trigger yang akan digunakan"
+		},
+		"usePullup": {
+			"label": "Gunakan Pullup",
+			"description": "Apakah menggunakan mode INPUT_PULLUP untuk pin GPIO atau tidak"
+		}
+	},
+	"externalNotification": {
+		"title": "Pengaturan External Notification",
+		"description": "Konfigurasi modul external notification",
+		"enabled": {
+			"label": "Modul Diaktifkan",
+			"description": "Aktifkan External Notification"
+		},
+		"outputMs": {
+			"label": "Output MS",
+			"description": "Output MS"
+		},
+		"output": {
+			"label": "Output",
+			"description": "Output"
+		},
+		"outputVibra": {
+			"label": "Output Getar",
+			"description": "Output Getar"
+		},
+		"outputBuzzer": {
+			"label": "Output Buzzer",
+			"description": "Output Buzzer"
+		},
+		"active": {
+			"label": "Aktif",
+			"description": "Aktif"
+		},
+		"alertMessage": {
+			"label": "Pesan Alert",
+			"description": "Pesan Alert"
+		},
+		"alertMessageVibra": {
+			"label": "Getar Pesan Alert",
+			"description": "Getar Pesan Alert"
+		},
+		"alertMessageBuzzer": {
+			"label": "Buzzer Pesan Alert",
+			"description": "Buzzer Pesan Alert"
+		},
+		"alertBell": {
+			"label": "Bell Alert",
+			"description": "Apakah alert harus dipicu saat menerima bell masuk?"
+		},
+		"alertBellVibra": {
+			"label": "Getar Bell Alert",
+			"description": "Getar Bell Alert"
+		},
+		"alertBellBuzzer": {
+			"label": "Buzzer Bell Alert",
+			"description": "Buzzer Bell Alert"
+		},
+		"usePwm": {
+			"label": "Gunakan PWM",
+			"description": "Gunakan PWM"
+		},
+		"nagTimeout": {
+			"label": "Timeout Nag",
+			"description": "Timeout Nag"
+		},
+		"useI2sAsBuzzer": {
+			"label": "Gunakan Pin I²S sebagai Buzzer",
+			"description": "Jadikan Pin I²S sebagai Output Buzzer"
+		}
+	},
+	"mqtt": {
+		"title": "Pengaturan MQTT",
+		"description": "Pengaturan untuk modul MQTT",
+		"enabled": {
+			"label": "Diaktifkan",
+			"description": "Aktifkan atau nonaktifkan MQTT"
+		},
+		"address": {
+			"label": "Alamat Server MQTT",
+			"description": "Alamat server MQTT untuk digunakan pada server default/custom"
+		},
+		"username": {
+			"label": "Username MQTT",
+			"description": "Username MQTT untuk digunakan pada server default/custom"
+		},
+		"password": {
+			"label": "Password MQTT",
+			"description": "Password MQTT untuk digunakan pada server default/custom"
+		},
+		"encryptionEnabled": {
+			"label": "Enkripsi Diaktifkan",
+			"description": "Aktifkan atau nonaktifkan enkripsi MQTT. Catatan: Semua pesan dikirim ke broker MQTT tanpa enkripsi jika opsi ini tidak diaktifkan, bahkan ketika uplink channel Anda memiliki encryption key yang diatur. Ini termasuk data posisi."
+		},
+		"jsonEnabled": {
+			"label": "JSON Diaktifkan",
+			"description": "Apakah mengirim/menerima paket JSON pada MQTT"
+		},
+		"tlsEnabled": {
+			"label": "TLS Diaktifkan",
+			"description": "Aktifkan atau nonaktifkan TLS"
+		},
+		"root": {
+			"label": "Topic root",
+			"description": "Topic root MQTT untuk digunakan pada server default/custom"
+		},
+		"proxyToClientEnabled": {
+			"label": "Proxy Client MQTT Diaktifkan",
+			"description": "Memanfaatkan koneksi jaringan untuk mem-proxy pesan MQTT ke client."
+		},
+		"mapReportingEnabled": {
+			"label": "Map Reporting Diaktifkan",
+			"description": "Node Anda akan secara berkala mengirim paket laporan peta yang tidak dienkripsi ke server MQTT yang dikonfigurasi, ini termasuk id, nama pendek dan panjang, lokasi perkiraan, model hardware, peran, versi firmware, wilayah LoRa, preset modem dan nama channel utama."
+		},
+		"mapReportSettings": {
+			"publishIntervalSecs": {
+				"label": "Interval Publikasi Laporan Peta (s)",
+				"description": "Interval dalam detik untuk mempublikasi laporan peta"
+			},
+			"positionPrecision": {
+				"label": "Lokasi Perkiraan",
+				"description": "Posisi yang dibagikan akan akurat dalam jarak ini",
+				"options": {
+					"metric_km23": "Dalam radius 23 km",
+					"metric_km12": "Dalam radius 12 km",
+					"metric_km5_8": "Dalam radius 5,8 km",
+					"metric_km2_9": "Dalam radius 2,9 km",
+					"metric_km1_5": "Dalam radius 1,5 km",
+					"metric_m700": "Dalam radius 700 m",
+					"metric_m350": "Dalam radius 350 m",
+					"metric_m200": "Dalam radius 200 m",
+					"metric_m90": "Dalam radius 90 m",
+					"metric_m50": "Dalam radius 50 m",
+					"imperial_mi15": "Dalam radius 15 mil",
+					"imperial_mi7_3": "Dalam radius 7,3 mil",
+					"imperial_mi3_6": "Dalam radius 3,6 mil",
+					"imperial_mi1_8": "Dalam radius 1,8 mil",
+					"imperial_mi0_9": "Dalam radius 0,9 mil",
+					"imperial_mi0_5": "Dalam radius 0,5 mil",
+					"imperial_mi0_2": "Dalam radius 0,2 mil",
+					"imperial_ft600": "Dalam radius 600 kaki",
+					"imperial_ft300": "Dalam radius 300 kaki",
+					"imperial_ft150": "Dalam radius 150 kaki"
+				}
+			}
+		}
+	},
+	"neighborInfo": {
+		"title": "Pengaturan Neighbor Info",
+		"description": "Pengaturan untuk modul Neighbor Info",
+		"enabled": {
+			"label": "Diaktifkan",
+			"description": "Aktifkan atau nonaktifkan Modul Neighbor Info"
+		},
+		"updateInterval": {
+			"label": "Interval Update",
+			"description": "Interval dalam detik seberapa sering kita harus mencoba mengirim Neighbor Info kita ke mesh"
+		}
+	},
+	"paxcounter": {
+		"title": "Pengaturan Paxcounter",
+		"description": "Pengaturan untuk modul Paxcounter",
+		"enabled": {
+			"label": "Modul Diaktifkan",
+			"description": "Aktifkan Paxcounter"
+		},
+		"paxcounterUpdateInterval": {
+			"label": "Interval Update (detik)",
+			"description": "Berapa lama menunggu antara mengirim paket paxcounter"
+		},
+		"wifiThreshold": {
+			"label": "Threshold RSSI WiFi",
+			"description": "Pada level RSSI WiFi berapa counter harus bertambah. Default ke -80."
+		},
+		"bleThreshold": {
+			"label": "Threshold RSSI BLE",
+			"description": "Pada level RSSI BLE berapa counter harus bertambah. Default ke -80."
+		}
+	},
+	"rangeTest": {
+		"title": "Pengaturan Range Test",
+		"description": "Pengaturan untuk modul Range Test",
+		"enabled": {
+			"label": "Modul Diaktifkan",
+			"description": "Aktifkan Range Test"
+		},
+		"sender": {
+			"label": "Interval Pesan",
+			"description": "Berapa lama menunggu antara mengirim paket test"
+		},
+		"save": {
+			"label": "Simpan CSV ke storage",
+			"description": "Khusus ESP32"
+		}
+	},
+	"serial": {
+		"title": "Pengaturan Serial",
+		"description": "Pengaturan untuk modul Serial",
+		"enabled": {
+			"label": "Modul Diaktifkan",
+			"description": "Aktifkan output Serial"
+		},
+		"echo": {
+			"label": "Echo",
+			"description": "Semua paket yang Anda kirim akan di-echo kembali ke perangkat Anda"
+		},
+		"rxd": {
+			"label": "Pin Receive",
+			"description": "Atur pin GPIO ke pin RXD yang telah Anda atur."
+		},
+		"txd": {
+			"label": "Pin Transmit",
+			"description": "Atur pin GPIO ke pin TXD yang telah Anda atur."
+		},
+		"baud": {
+			"label": "Baud Rate",
+			"description": "Baud rate serial"
+		},
+		"timeout": {
+			"label": "Timeout",
+			"description": "Detik untuk menunggu sebelum kita menganggap paket Anda sebagai 'selesai'"
+		},
+		"mode": {
+			"label": "Mode",
+			"description": "Pilih Mode"
+		},
+		"overrideConsoleSerialPort": {
+			"label": "Override Console Serial Port",
+			"description": "Jika Anda memiliki serial port yang terhubung ke console, ini akan meng-override-nya."
+		}
+	},
+	"storeForward": {
+		"title": "Pengaturan Store & Forward",
+		"description": "Pengaturan untuk modul Store & Forward",
+		"enabled": {
+			"label": "Modul Diaktifkan",
+			"description": "Aktifkan Store & Forward"
+		},
+		"heartbeat": {
+			"label": "Heartbeat Diaktifkan",
+			"description": "Aktifkan heartbeat Store & Forward"
+		},
+		"records": {
+			"label": "Jumlah record",
+			"description": "Jumlah record untuk disimpan"
+		},
+		"historyReturnMax": {
+			"label": "Maksimum return history",
+			"description": "Jumlah maksimum record untuk dikembalikan"
+		},
+		"historyReturnWindow": {
+			"label": "Window return history",
+			"description": "Jumlah maksimum record untuk dikembalikan"
+		}
+	},
+	"telemetry": {
+		"title": "Pengaturan Telemetry",
+		"description": "Pengaturan untuk modul Telemetry",
+		"deviceUpdateInterval": {
+			"label": "Metrik Perangkat",
+			"description": "Interval update metrik perangkat (detik)"
+		},
+		"environmentUpdateInterval": {
+			"label": "Interval update metrik environment (detik)",
+			"description": ""
+		},
+		"environmentMeasurementEnabled": {
+			"label": "Modul Diaktifkan",
+			"description": "Aktifkan Telemetry Environment"
+		},
+		"environmentScreenEnabled": {
+			"label": "Ditampilkan di Layar",
+			"description": "Tampilkan Modul Telemetry di OLED"
+		},
+		"environmentDisplayFahrenheit": {
+			"label": "Tampilan Fahrenheit",
+			"description": "Tampilkan suhu dalam Fahrenheit"
+		},
+		"airQualityEnabled": {
+			"label": "Kualitas Udara Diaktifkan",
+			"description": "Aktifkan Telemetry Kualitas Udara"
+		},
+		"airQualityInterval": {
+			"label": "Interval Update Kualitas Udara",
+			"description": "Seberapa sering mengirim data Kualitas Udara melalui mesh"
+		},
+		"powerMeasurementEnabled": {
+			"label": "Pengukuran Daya Diaktifkan",
+			"description": "Aktifkan Telemetry Pengukuran Daya"
+		},
+		"powerUpdateInterval": {
+			"label": "Interval Update Daya",
+			"description": "Seberapa sering mengirim data Daya melalui mesh"
+		},
+		"powerScreenEnabled": {
+			"label": "Layar Daya Diaktifkan",
+			"description": "Aktifkan Layar Telemetry Daya"
+		}
+	}
+}

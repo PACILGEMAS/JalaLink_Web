@@ -1,0 +1,428 @@
+{
+	"page": {
+		"title": "Konfigurasi",
+		"tabBluetooth": "Bluetooth",
+		"tabDevice": "Perangkat",
+		"tabDisplay": "Tampilan",
+		"tabLora": "LoRa",
+		"tabNetwork": "Jaringan",
+		"tabPosition": "Posisi",
+		"tabPower": "Daya",
+		"tabSecurity": "Keamanan"
+	},
+	"sidebar": {
+		"label": "Modul"
+	},
+	"device": {
+		"title": "Pengaturan Perangkat",
+		"description": "Pengaturan untuk perangkat",
+		"buttonPin": {
+			"description": "Override pin tombol",
+			"label": "Pin Tombol"
+		},
+		"buzzerPin": {
+			"description": "Override pin buzzer",
+			"label": "Pin Buzzer"
+		},
+		"disableTripleClick": {
+			"description": "Nonaktifkan triple click",
+			"label": "Nonaktifkan Triple Click"
+		},
+		"doubleTapAsButtonPress": {
+			"description": "Perlakukan double tap sebagai penekanan tombol",
+			"label": "Double Tap Sebagai Tekan Tombol"
+		},
+		"ledHeartbeatDisabled": {
+			"description": "Nonaktifkan LED berkedip default",
+			"label": "LED Heartbeat Dinonaktifkan"
+		},
+		"nodeInfoBroadcastInterval": {
+			"description": "Seberapa sering broadcast info node",
+			"label": "Interval Broadcast Info Node"
+		},
+		"posixTimezone": {
+			"description": "String timezone POSIX untuk perangkat",
+			"label": "Timezone POSIX"
+		},
+		"rebroadcastMode": {
+			"description": "Cara menangani rebroadcast",
+			"label": "Mode Rebroadcast"
+		},
+		"role": {
+			"description": "Peran yang dimainkan perangkat di mesh",
+			"label": "Peran"
+		}
+	},
+	"bluetooth": {
+		"title": "Pengaturan Bluetooth",
+		"description": "Pengaturan untuk modul Bluetooth",
+		"note": "Catatan: Beberapa perangkat (ESP32) tidak dapat menggunakan Bluetooth dan WiFi secara bersamaan.",
+		"enabled": {
+			"description": "Aktifkan atau nonaktifkan Bluetooth",
+			"label": "Diaktifkan"
+		},
+		"pairingMode": {
+			"description": "Perilaku pemilihan pin.",
+			"label": "Mode Pairing"
+		},
+		"pin": {
+			"description": "Pin yang digunakan saat pairing",
+			"label": "Pin"
+		}
+	},
+	"display": {
+		"description": "Pengaturan untuk tampilan perangkat",
+		"title": "Pengaturan Tampilan",
+		"headingBold": {
+			"description": "Tebalkan teks heading",
+			"label": "Heading Tebal"
+		},
+		"carouselDelay": {
+			"description": "Seberapa cepat berpindah antar jendela",
+			"label": "Delay Carousel"
+		},
+		"compassNorthTop": {
+			"description": "Tetapkan utara di bagian atas kompas",
+			"label": "Kompas Utara di Atas"
+		},
+		"displayMode": {
+			"description": "Varian tata letak layar",
+			"label": "Mode Tampilan"
+		},
+		"displayUnits": {
+			"description": "Tampilkan satuan metrik atau imperial",
+			"label": "Satuan Tampilan"
+		},
+		"flipScreen": {
+			"description": "Putar tampilan 180 derajat",
+			"label": "Putar Layar"
+		},
+		"gpsDisplayUnits": {
+			"description": "Format tampilan koordinat",
+			"label": "Satuan Tampilan GPS"
+		},
+		"oledType": {
+			"description": "Jenis layar OLED yang terpasang pada perangkat",
+			"label": "Tipe OLED"
+		},
+		"screenTimeout": {
+			"description": "Matikan tampilan setelah durasi ini",
+			"label": "Timeout Layar"
+		},
+		"twelveHourClock": {
+			"description": "Gunakan format jam 12-jam",
+			"label": "Jam 12-Jam"
+		},
+		"wakeOnTapOrMotion": {
+			"description": "Bangunkan perangkat saat tap atau gerakan",
+			"label": "Bangun saat Tap atau Gerakan"
+		}
+	},
+	"lora": {
+		"title": "Pengaturan Mesh",
+		"description": "Pengaturan untuk mesh LoRa",
+		"bandwidth": {
+			"description": "Bandwidth channel dalam MHz",
+			"label": "Bandwidth"
+		},
+		"boostedRxGain": {
+			"description": "Gain RX yang ditingkatkan",
+			"label": "Gain RX Ditingkatkan"
+		},
+		"codingRate": {
+			"description": "Penyebut dari coding rate",
+			"label": "Coding Rate"
+		},
+		"frequencyOffset": {
+			"description": "Offset frekuensi untuk mengoreksi kesalahan kalibrasi kristal",
+			"label": "Offset Frekuensi"
+		},
+		"frequencySlot": {
+			"description": "Nomor channel frekuensi LoRa",
+			"label": "Slot Frekuensi"
+		},
+		"hopLimit": {
+			"description": "Jumlah maksimum hop",
+			"label": "Batas Hop"
+		},
+		"ignoreMqtt": {
+			"description": "Jangan teruskan pesan MQTT melalui mesh",
+			"label": "Abaikan MQTT"
+		},
+		"modemPreset": {
+			"description": "Preset modem yang digunakan",
+			"label": "Preset Modem"
+		},
+		"okToMqtt": {
+			"description": "Ketika diatur true, konfigurasi ini menunjukkan bahwa user menyetujui paket diunggah ke MQTT. Jika false, node remote diminta untuk tidak meneruskan paket ke MQTT",
+			"label": "OK ke MQTT"
+		},
+		"overrideDutyCycle": {
+			"description": "Override Duty Cycle",
+			"label": "Override Duty Cycle"
+		},
+		"overrideFrequency": {
+			"description": "Override frekuensi",
+			"label": "Override Frekuensi"
+		},
+		"region": {
+			"description": "Mengatur wilayah untuk node Anda",
+			"label": "Wilayah"
+		},
+		"spreadingFactor": {
+			"description": "Menunjukkan jumlah chirp per simbol",
+			"label": "Spreading Factor"
+		},
+		"transmitEnabled": {
+			"description": "Aktifkan/Nonaktifkan transmit (TX) dari radio LoRa",
+			"label": "Transmit Diaktifkan"
+		},
+		"transmitPower": {
+			"description": "Daya transmit maksimum",
+			"label": "Daya Transmit"
+		},
+		"usePreset": {
+			"description": "Gunakan salah satu preset modem yang telah ditentukan",
+			"label": "Gunakan Preset"
+		},
+		"meshSettings": {
+			"description": "Pengaturan untuk mesh LoRa",
+			"label": "Pengaturan Mesh"
+		},
+		"waveformSettings": {
+			"description": "Pengaturan untuk waveform LoRa",
+			"label": "Pengaturan Waveform"
+		},
+		"radioSettings": {
+			"label": "Pengaturan Radio",
+			"description": "Pengaturan untuk radio LoRa"
+		}
+	},
+	"network": {
+		"title": "Konfigurasi WiFi",
+		"description": "Konfigurasi radio WiFi",
+		"note": "Catatan: Beberapa perangkat (ESP32) tidak dapat menggunakan Bluetooth dan WiFi secara bersamaan.",
+		"addressMode": {
+			"description": "Pemilihan penugasan alamat",
+			"label": "Mode Alamat"
+		},
+		"dns": {
+			"description": "Server DNS",
+			"label": "DNS"
+		},
+		"ethernetEnabled": {
+			"description": "Aktifkan atau nonaktifkan port Ethernet",
+			"label": "Diaktifkan"
+		},
+		"gateway": {
+			"description": "Gateway Default",
+			"label": "Gateway"
+		},
+		"ip": {
+			"description": "Alamat IP",
+			"label": "IP"
+		},
+		"psk": {
+			"description": "Password jaringan",
+			"label": "PSK"
+		},
+		"ssid": {
+			"description": "Nama jaringan",
+			"label": "SSID"
+		},
+		"subnet": {
+			"description": "Subnet Mask",
+			"label": "Subnet"
+		},
+		"wifiEnabled": {
+			"description": "Aktifkan atau nonaktifkan radio WiFi",
+			"label": "Diaktifkan"
+		},
+		"meshViaUdp": {
+			"label": "Mesh via UDP"
+		},
+		"ntpServer": {
+			"label": "Server NTP"
+		},
+		"rsyslogServer": {
+			"label": "Server Rsyslog"
+		},
+		"ethernetConfigSettings": {
+			"description": "Konfigurasi port Ethernet",
+			"label": "Konfigurasi Ethernet"
+		},
+		"ipConfigSettings": {
+			"description": "Konfigurasi IP",
+			"label": "Konfigurasi IP"
+		},
+		"ntpConfigSettings": {
+			"description": "Konfigurasi NTP",
+			"label": "Konfigurasi NTP"
+		},
+		"rsyslogConfigSettings": {
+			"description": "Konfigurasi Rsyslog",
+			"label": "Konfigurasi Rsyslog"
+		},
+		"udpConfigSettings": {
+			"description": "Konfigurasi UDP over Mesh",
+			"label": "Konfigurasi UDP"
+		}
+	},
+	"position": {
+		"title": "Pengaturan Posisi",
+		"description": "Pengaturan untuk modul posisi",
+		"broadcastInterval": {
+			"description": "Seberapa sering posisi Anda dikirim melalui mesh",
+			"label": "Interval Broadcast"
+		},
+		"enablePin": {
+			"description": "Override pin enable modul GPS",
+			"label": "Pin Enable"
+		},
+		"fixedPosition": {
+			"description": "Jangan laporkan posisi GPS, tetapi posisi yang ditentukan manual",
+			"label": "Posisi Tetap"
+		},
+		"gpsMode": {
+			"description": "Konfigurasi apakah GPS perangkat Diaktifkan, Dinonaktifkan, atau Tidak Ada",
+			"label": "Mode GPS"
+		},
+		"gpsUpdateInterval": {
+			"description": "Seberapa sering fix GPS harus diperoleh",
+			"label": "Interval Update GPS"
+		},
+		"positionFlags": {
+			"description": "Field opsional untuk disertakan saat menyusun pesan posisi. Semakin banyak field yang dipilih, semakin besar pesan akan menyebabkan penggunaan airtime lebih lama dan risiko packet loss lebih tinggi.",
+			"label": "Flag Posisi"
+		},
+		"receivePin": {
+			"description": "Override pin RX modul GPS",
+			"label": "Pin Receive"
+		},
+		"smartPositionEnabled": {
+			"description": "Hanya kirim posisi ketika ada perubahan lokasi yang berarti",
+			"label": "Aktifkan Smart Position"
+		},
+		"smartPositionMinDistance": {
+			"description": "Jarak minimum (dalam meter) yang harus ditempuh sebelum update posisi dikirim",
+			"label": "Jarak Minimum Smart Position"
+		},
+		"smartPositionMinInterval": {
+			"description": "Interval minimum (dalam detik) yang harus berlalu sebelum update posisi dikirim",
+			"label": "Interval Minimum Smart Position"
+		},
+		"transmitPin": {
+			"description": "Override pin TX modul GPS",
+			"label": "Pin Transmit"
+		},
+		"intervalsSettings": {
+			"description": "Seberapa sering mengirim update posisi",
+			"label": "Interval"
+		},
+		"flags": {
+			"placeholder": "Pilih flag posisi...",
+			"altitude": "Ketinggian",
+			"altitudeGeoidalSeparation": "Separasi Geoidal Ketinggian",
+			"altitudeMsl": "Ketinggian adalah Mean Sea Level",
+			"dop": "Dilution of precision (DOP) PDOP digunakan secara default",
+			"hdopVdop": "Jika DOP diatur, gunakan nilai HDOP / VDOP sebagai pengganti PDOP",
+			"numSatellites": "Jumlah satelit",
+			"sequenceNumber": "Nomor urut",
+			"timestamp": "Timestamp",
+			"unset": "Tidak diatur",
+			"vehicleHeading": "Arah kendaraan",
+			"vehicleSpeed": "Kecepatan kendaraan"
+		}
+	},
+	"power": {
+		"adcMultiplierOverride": {
+			"description": "Digunakan untuk menyesuaikan pembacaan tegangan baterai",
+			"label": "Rasio Override ADC Multiplier"
+		},
+		"ina219Address": {
+			"description": "Alamat monitor baterai INA219",
+			"label": "Alamat INA219"
+		},
+		"lightSleepDuration": {
+			"description": "Berapa lama perangkat akan dalam light sleep",
+			"label": "Durasi Light Sleep"
+		},
+		"minimumWakeTime": {
+			"description": "Waktu minimum perangkat akan tetap terjaga setelah menerima paket",
+			"label": "Waktu Bangun Minimum"
+		},
+		"noConnectionBluetoothDisabled": {
+			"description": "Jika perangkat tidak menerima koneksi Bluetooth, radio BLE akan dinonaktifkan setelah waktu ini",
+			"label": "Bluetooth Dinonaktifkan Tanpa Koneksi"
+		},
+		"powerSavingEnabled": {
+			"description": "Pilih jika ditenagai dari sumber arus rendah (mis. solar), untuk meminimalkan konsumsi daya sebanyak mungkin.",
+			"label": "Aktifkan mode hemat daya"
+		},
+		"shutdownOnBatteryDelay": {
+			"description": "Matikan node otomatis setelah waktu ini saat menggunakan baterai, 0 untuk tak terbatas",
+			"label": "Delay shutdown saat baterai"
+		},
+		"superDeepSleepDuration": {
+			"description": "Berapa lama perangkat akan dalam super deep sleep",
+			"label": "Durasi Super Deep Sleep"
+		},
+		"powerConfigSettings": {
+			"description": "Pengaturan untuk modul daya",
+			"label": "Konfigurasi Daya"
+		},
+		"sleepSettings": {
+			"description": "Pengaturan sleep untuk modul daya",
+			"label": "Pengaturan Sleep"
+		}
+	},
+	"security": {
+		"description": "Pengaturan untuk konfigurasi Keamanan",
+		"title": "Pengaturan Keamanan",
+		"button_backupKey": "Backup Key",
+		"adminChannelEnabled": {
+			"description": "Izinkan kontrol perangkat masuk melalui channel admin legacy yang tidak aman",
+			"label": "Izinkan Admin Legacy"
+		},
+		"enableDebugLogApi": {
+			"description": "Output debug logging langsung melalui serial, lihat dan export log perangkat dengan posisi yang disunting melalui Bluetooth",
+			"label": "Aktifkan Debug Log API"
+		},
+		"managed": {
+			"description": "Jika diaktifkan, opsi konfigurasi perangkat hanya dapat diubah secara remote oleh node Remote Admin melalui pesan admin. Jangan aktifkan opsi ini kecuali setidaknya satu node Remote Admin yang sesuai telah diatur, dan public key disimpan di salah satu field di atas.",
+			"label": "Dikelola"
+		},
+		"privateKey": {
+			"description": "Digunakan untuk membuat shared key dengan perangkat remote",
+			"label": "Private Key"
+		},
+		"publicKey": {
+			"description": "Dikirim ke node lain di mesh untuk memungkinkan mereka menghitung shared secret key",
+			"label": "Public Key"
+		},
+		"primaryAdminKey": {
+			"description": "Public key utama yang diotorisasi untuk mengirim pesan admin ke node ini",
+			"label": "Primary Admin Key"
+		},
+		"secondaryAdminKey": {
+			"description": "Public key sekunder yang diotorisasi untuk mengirim pesan admin ke node ini",
+			"label": "Secondary Admin Key"
+		},
+		"serialOutputEnabled": {
+			"description": "Serial Console melalui Stream API",
+			"label": "Output Serial Diaktifkan"
+		},
+		"tertiaryAdminKey": {
+			"description": "Public key tersier yang diotorisasi untuk mengirim pesan admin ke node ini",
+			"label": "Tertiary Admin Key"
+		},
+		"adminSettings": {
+			"description": "Pengaturan untuk Admin",
+			"label": "Pengaturan Admin"
+		},
+		"loggingSettings": {
+			"description": "Pengaturan untuk Logging",
+			"label": "Pengaturan Logging"
+		}
+	}
+}

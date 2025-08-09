@@ -1,0 +1,69 @@
+{
+	"page": {
+		"sectionLabel": "Channel",
+		"channelName": "Channel: {{channelName}}",
+		"broadcastLabel": "Utama",
+		"channelIndex": "Ch {{index}}"
+	},
+	"validation": {
+		"pskInvalid": "Masukkan PSK {{bits}} bit yang valid."
+	},
+	"settings": {
+		"label": "Pengaturan Channel",
+		"description": "Pengaturan crypto, MQTT & lain-lain"
+	},
+	"role": {
+		"label": "Peran",
+		"description": "Telemetri perangkat dikirim melalui PRIMARY. Hanya satu PRIMARY yang diperbolehkan",
+		"options": {
+			"primary": "PRIMARY",
+			"disabled": "NONAKTIF",
+			"secondary": "SECONDARY"
+		}
+	},
+	"psk": {
+		"label": "Pre-Shared Key",
+		"description": "Panjang PSK yang didukung: 256-bit, 128-bit, 8-bit, Kosong (0-bit)",
+		"generate": "Generate"
+	},
+	"name": {
+		"label": "Nama",
+		"description": "Nama unik untuk channel <12 bytes, kosongkan untuk default"
+	},
+	"uplinkEnabled": {
+		"label": "Uplink Diaktifkan",
+		"description": "Kirim pesan dari mesh lokal ke MQTT"
+	},
+	"downlinkEnabled": {
+		"label": "Downlink Diaktifkan",
+		"description": "Kirim pesan dari MQTT ke mesh lokal"
+	},
+	"positionPrecision": {
+		"label": "Lokasi",
+		"description": "Presisi lokasi yang dibagikan dengan channel. Dapat dinonaktifkan.",
+		"options": {
+			"none": "Jangan bagikan lokasi",
+			"precise": "Lokasi Presisi",
+			"metric_km23": "Dalam radius 23 kilometer",
+			"metric_km12": "Dalam radius 12 kilometer",
+			"metric_km5_8": "Dalam radius 5,8 kilometer",
+			"metric_km2_9": "Dalam radius 2,9 kilometer",
+			"metric_km1_5": "Dalam radius 1,5 kilometer",
+			"metric_m700": "Dalam radius 700 meter",
+			"metric_m350": "Dalam radius 350 meter",
+			"metric_m200": "Dalam radius 200 meter",
+			"metric_m90": "Dalam radius 90 meter",
+			"metric_m50": "Dalam radius 50 meter",
+			"imperial_mi15": "Dalam radius 15 mil",
+			"imperial_mi7_3": "Dalam radius 7,3 mil",
+			"imperial_mi3_6": "Dalam radius 3,6 mil",
+			"imperial_mi1_8": "Dalam radius 1,8 mil",
+			"imperial_mi0_9": "Dalam radius 0,9 mil",
+			"imperial_mi0_5": "Dalam radius 0,5 mil",
+			"imperial_mi0_2": "Dalam radius 0,2 mil",
+			"imperial_ft600": "Dalam radius 600 kaki",
+			"imperial_ft300": "Dalam radius 300 kaki",
+			"imperial_ft150": "Dalam radius 150 kaki"
+		}
+	}
+}
