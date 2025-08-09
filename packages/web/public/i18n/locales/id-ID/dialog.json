@@ -1,0 +1,183 @@
+{
+	"deleteMessages": {
+		"description": "Tindakan ini akan menghapus semua riwayat pesan. Ini tidak dapat dibatalkan. Apakah Anda yakin ingin melanjutkan?",
+		"title": "Hapus Semua Pesan"
+	},
+	"deviceName": {
+		"description": "Perangkat akan restart setelah konfigurasi disimpan.",
+		"longName": "Nama Panjang",
+		"shortName": "Nama Pendek",
+		"title": "Ubah Nama Perangkat",
+		"validation": {
+			"longNameMax": "Nama panjang tidak boleh lebih dari 40 karakter",
+			"shortNameMax": "Nama pendek tidak boleh lebih dari 4 karakter",
+			"longNameMin": "Nama panjang harus memiliki minimal 1 karakter",
+			"shortNameMin": "Nama pendek harus memiliki minimal 1 karakter"
+		}
+	},
+	"import": {
+		"description": "Konfigurasi LoRa saat ini akan ditimpa.",
+		"error": {
+			"invalidUrl": "URL Meshtastic tidak valid"
+		},
+		"channelPrefix": "Channel: ",
+		"channelSetUrl": "URL Channel Set/Kode QR",
+		"channels": "Channel:",
+		"usePreset": "Gunakan Preset?",
+		"title": "Import Channel Set"
+	},
+	"locationResponse": {
+		"title": "Lokasi: {{identifier}}",
+		"altitude": "Ketinggian: ",
+		"coordinates": "Koordinat: ",
+		"noCoordinates": "Tidak Ada Koordinat"
+	},
+	"pkiRegenerateDialog": {
+		"title": "Generate Ulang Pre-Shared Key?",
+		"description": "Apakah Anda yakin ingin generate ulang pre-shared key?",
+		"regenerate": "Generate Ulang"
+	},
+	"newDeviceDialog": {
+		"title": "Hubungkan Perangkat Baru",
+		"https": "https",
+		"http": "http",
+		"tabHttp": "HTTP",
+		"tabBluetooth": "Bluetooth",
+		"tabSerial": "Serial",
+
+		"useHttps": "Gunakan HTTPS",
+		"connecting": "Menghubungkan...",
+		"connect": "Hubungkan",
+		"connectionFailedAlert": {
+			"title": "Koneksi Gagal",
+			"descriptionPrefix": "Tidak dapat terhubung ke perangkat. ",
+			"httpsHint": "Jika menggunakan HTTPS, Anda mungkin perlu menerima sertifikat self-signed terlebih dahulu. ",
+			"openLinkPrefix": "Silakan buka ",
+			"openLinkSuffix": " di tab baru",
+			"acceptTlsWarningSuffix": ", terima peringatan TLS jika diminta, kemudian coba lagi",
+			"learnMoreLink": "Pelajari lebih lanjut"
+		},
+		"httpConnection": {
+			"label": "Alamat IP/Hostname",
+			"placeholder": "000.000.000.000 / meshtastic.local"
+		},
+		"serialConnection": {
+			"noDevicesPaired": "Belum ada perangkat yang dipasangkan.",
+			"newDeviceButton": "Perangkat baru",
+			"deviceIdentifier": "# {{index}} - {{vendorId}} - {{productId}}"
+		},
+		"bluetoothConnection": {
+			"noDevicesPaired": "Belum ada perangkat yang dipasangkan.",
+			"newDeviceButton": "Perangkat baru",
+			"connectionFailed": "Koneksi gagal",
+			"deviceDisconnected": "Perangkat terputus",
+			"unknownDevice": "Perangkat Tidak Dikenal",
+			"errorLoadingDevices": "Error memuat perangkat",
+			"unknownErrorLoadingDevices": "Error tidak dikenal saat memuat perangkat"
+		},
+		"validation": {
+			"requiresFeatures": "Tipe koneksi ini memerlukan <0></0>. Silakan gunakan browser yang didukung, seperti Chrome atau Edge.",
+			"requiresSecureContext": "Aplikasi ini memerlukan <0>secure context</0>. Silakan terhubung menggunakan HTTPS atau localhost.",
+			"additionallyRequiresSecureContext": "Selain itu, aplikasi ini memerlukan <0>secure context</0>. Silakan terhubung menggunakan HTTPS atau localhost."
+		}
+	},
+	"nodeDetails": {
+		"message": "Pesan",
+		"requestPosition": "Minta Posisi",
+		"traceRoute": "Trace Route",
+		"airTxUtilization": "Utilisasi Air TX",
+		"allRawMetrics": "Semua Metrik Mentah:",
+		"batteryLevel": "Level baterai",
+		"channelUtilization": "Utilisasi channel",
+		"details": "Detail:",
+		"deviceMetrics": "Metrik Perangkat:",
+		"hardware": "Hardware: ",
+		"lastHeard": "Terakhir Terdengar: ",
+		"nodeHexPrefix": "Node Hex: !",
+		"nodeNumber": "Nomor Node: ",
+		"position": "Posisi:",
+		"role": "Peran: ",
+		"uptime": "Uptime: ",
+		"voltage": "Tegangan",
+		"title": "Detail Node untuk {{identifier}}",
+		"ignoreNode": "Abaikan node",
+		"removeNode": "Hapus node",
+		"unignoreNode": "Jangan abaikan node"
+	},
+	"pkiBackup": {
+		"loseKeysWarning": "Jika Anda kehilangan key, Anda perlu reset perangkat Anda.",
+		"secureBackup": "Penting untuk backup public dan private key Anda dan simpan backup dengan aman!",
+		"footer": "=== END OF KEYS ===",
+		"header": "=== MESHTASTIC KEYS FOR {{longName}} ({{shortName}}) ===",
+		"privateKey": "Private Key:",
+		"publicKey": "Public Key:",
+		"fileName": "meshtastic_keys_{{longName}}_{{shortName}}.txt",
+		"title": "Backup Key"
+	},
+	"pkiBackupReminder": {
+		"description": "Kami menyarankan untuk backup data key Anda secara berkala. Apakah Anda ingin backup sekarang?",
+		"title": "Pengingat Backup",
+		"remindLaterPrefix": "Ingatkan saya dalam",
+		"remindNever": "Jangan pernah ingatkan saya",
+		"backupNow": "Backup sekarang"
+	},
+	"pkiRegenerate": {
+		"description": "Apakah Anda yakin ingin generate ulang key pair?",
+		"title": "Generate Ulang Key Pair"
+	},
+	"qr": {
+		"addChannels": "Tambah Channel",
+		"replaceChannels": "Ganti Channel",
+		"description": "Konfigurasi LoRa saat ini juga akan dibagikan.",
+		"sharableUrl": "URL yang Dapat Dibagikan",
+		"title": "Generate Kode QR"
+	},
+	"rebootOta": {
+		"title": "Jadwalkan Reboot",
+		"description": "Reboot node yang terhubung setelah delay ke mode OTA (Over-the-Air).",
+		"enterDelay": "Masukkan delay (detik)",
+		"scheduled": "Reboot telah dijadwalkan"
+	},
+	"reboot": {
+		"title": "Jadwalkan Reboot",
+		"description": "Reboot node yang terhubung setelah x menit."
+	},
+	"refreshKeys": {
+		"description": {
+			"acceptNewKeys": "Ini akan menghapus node dari perangkat dan meminta key baru.",
+			"keyMismatchReasonSuffix": ". Ini karena public key node remote saat ini tidak cocok dengan key yang tersimpan sebelumnya untuk node ini.",
+			"unableToSendDmPrefix": "Node Anda tidak dapat mengirim pesan langsung ke node: "
+		},
+		"acceptNewKeys": "Terima Key Baru",
+		"title": "Key Tidak Cocok - {{identifier}}"
+	},
+	"removeNode": {
+		"description": "Apakah Anda yakin ingin menghapus Node ini?",
+		"title": "Hapus Node?"
+	},
+	"shutdown": {
+		"title": "Jadwalkan Shutdown",
+		"description": "Matikan node yang terhubung setelah x menit."
+	},
+	"traceRoute": {
+		"routeToDestination": "Rute ke tujuan:",
+		"routeBack": "Rute kembali:"
+	},
+	"tracerouteResponse": {
+		"title": "Traceroute: {{identifier}}"
+	},
+	"unsafeRoles": {
+		"confirmUnderstanding": "Ya, saya tahu yang saya lakukan",
+		"conjunction": " dan blog post tentang ",
+		"postamble": " dan memahami implikasi dari mengubah peran.",
+		"preamble": "Saya telah membaca ",
+		"choosingRightDeviceRole": "Choosing The Right Device Role",
+		"deviceRoleDocumentation": "Device Role Documentation",
+		"title": "Apakah Anda yakin?"
+	},
+	"managedMode": {
+		"confirmUnderstanding": "Ya, saya tahu yang saya lakukan",
+		"title": "Apakah Anda yakin?",
+		"description": "Mengaktifkan Managed Mode akan memblokir aplikasi client (termasuk web client) dari menulis konfigurasi ke radio. Setelah diaktifkan, konfigurasi radio hanya dapat diubah melalui pesan Remote Admin. Pengaturan ini tidak diperlukan untuk administrasi node remote."
+	}
+}

@@ -1,0 +1,64 @@
+{
+	"nodeDetail": {
+		"publicKeyEnabled": {
+			"label": "Public Key Diaktifkan"
+		},
+		"noPublicKey": {
+			"label": "Tidak Ada Public Key"
+		},
+		"directMessage": {
+			"label": "Pesan Langsung {{shortName}}"
+		},
+		"favorite": {
+			"label": "Favorit",
+			"tooltip": "Tambah atau hapus node ini dari favorit Anda"
+		},
+		"notFavorite": {
+			"label": "Bukan Favorit"
+		},
+		"error": {
+			"label": "Error",
+			"text": "Terjadi error saat mengambil detail node. Silakan coba lagi nanti."
+		},
+		"status": {
+			"heard": "Terdengar",
+			"mqtt": "MQTT"
+		},
+		"elevation": {
+			"label": "Ketinggian"
+		},
+		"channelUtil": {
+			"label": "Utilisasi Channel"
+		},
+		"airtimeUtil": {
+			"label": "Utilisasi Airtime"
+		}
+	},
+	"nodesTable": {
+		"headings": {
+			"longName": "Nama Panjang",
+			"connection": "Koneksi",
+			"lastHeard": "Terakhir Terdengar",
+			"encryption": "Enkripsi",
+			"model": "Model",
+			"macAddress": "Alamat MAC"
+		},
+		"connectionStatus": {
+			"direct": "Langsung",
+			"away": "jauh",
+			"unknown": "-",
+			"viaMqtt": ", via MQTT"
+		},
+		"lastHeardStatus": {
+			"never": "Tidak Pernah"
+		}
+	},
+
+	"actions": {
+		"added": "Ditambahkan",
+		"removed": "Dihapus",
+		"ignoreNode": "Abaikan Node",
+		"unignoreNode": "Jangan Abaikan Node",
+		"requestPosition": "Minta Posisi"
+	}
+}

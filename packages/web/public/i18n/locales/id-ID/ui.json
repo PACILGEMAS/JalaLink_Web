@@ -1,0 +1,214 @@
+{
+	"navigation": {
+		"title": "Navigasi",
+		"messages": "Pesan",
+		"map": "Peta",
+		"config": "Konfigurasi",
+		"radioConfig": "Konfigurasi Radio",
+		"moduleConfig": "Konfigurasi Modul",
+		"channels": "Channel",
+		"nodes": "Node"
+	},
+	"app": {
+		"title": "Meshtastic",
+		"logo": "Logo Meshtastic"
+	},
+	"sidebar": {
+		"collapseToggle": {
+			"button": {
+				"open": "Buka sidebar",
+				"close": "Tutup sidebar"
+			}
+		},
+		"deviceInfo": {
+			"volts": "{{voltage}} volt",
+			"firmware": {
+				"title": "Firmware",
+				"version": "v{{version}}",
+				"buildDate": "Tanggal build: {{date}}"
+			},
+			"deviceName": {
+				"title": "Nama Perangkat",
+				"changeName": "Ubah Nama Perangkat",
+				"placeholder": "Masukkan nama perangkat"
+			},
+			"editDeviceName": "Edit nama perangkat"
+		}
+	},
+	"batteryStatus": {
+		"charging": "{{level}}% mengisi daya",
+		"pluggedIn": "Tersambung ke daya",
+		"title": "Baterai"
+	},
+	"search": {
+		"nodes": "Cari node...",
+		"channels": "Cari saluran...",
+		"commandPalette": "Cari perintah..."
+	},
+	"toast": {
+		"positionRequestSent": { "title": "Permintaan posisi telah dikirim." },
+		"requestingPosition": { "title": "Meminta posisi, harap tunggu..." },
+		"sendingTraceroute": { "title": "Mengirim Traceroute, harap tunggu..." },
+		"tracerouteSent": { "title": "Traceroute dikirim." },
+		"savedChannel": { "title": "Channel Disimpan: {{channelName}}" },
+		"messages": {
+			"pkiEncryption": { "title": "Obrolan menggunakan enkripsi PKI." },
+			"pskEncryption": { "title": "Obrolan menggunakan enkripsi PSK." }
+		},
+		"configSaveError": {
+			"title": "Kesalahan Menyimpan Konfigurasi",
+			"description": "Terjadi kesalahan saat menyimpan konfigurasi."
+		},
+		"validationError": {
+			"title": "Terdapat Kesalahan Konfigurasi",
+			"description": "Harap perbaiki kesalahan konfigurasi sebelum menyimpan."
+		},
+		"saveSuccess": {
+			"title": "Menyimpan Konfigurasi",
+			"description": "Perubahan konfigurasi {{case}} telah disimpan."
+		},
+		"favoriteNode": {
+			"title": "{{action}} {{nodeName}} {{direction}} favorit.",
+			"action": {
+				"added": "Ditambahkan",
+				"removed": "Dihapus",
+				"to": "ke",
+				"from": "dari"
+			}
+		},
+		"ignoreNode": {
+			"title": "{{action}} {{nodeName}} {{direction}} daftar abaikan",
+			"action": {
+				"added": "Ditambahkan",
+				"removed": "Dihapus",
+				"to": "ke",
+				"from": "dari"
+			}
+		}
+	},
+	"notifications": {
+		"copied": {
+			"label": "Disalin!"
+		},
+		"copyToClipboard": {
+			"label": "Salin ke clipboard"
+		},
+		"hidePassword": {
+			"label": "Sembunyikan kata sandi"
+		},
+		"showPassword": {
+			"label": "Tampilkan kata sandi"
+		},
+		"deliveryStatus": {
+			"delivered": "Terkirim",
+			"failed": "Gagal Mengirim",
+			"waiting": "Menunggu",
+			"unknown": "Tidak Diketahui"
+		}
+	},
+	"general": {
+		"label": "Umum"
+	},
+	"hardware": {
+		"label": "Perangkat Keras"
+	},
+	"metrics": {
+		"label": "Metrik"
+	},
+	"role": {
+		"label": "Peran"
+	},
+	"filter": {
+		"label": "Filter"
+	},
+	"advanced": {
+		"label": "Lanjutan"
+	},
+	"clearInput": {
+		"label": "Hapus input"
+	},
+	"resetFilters": {
+		"label": "Atur Ulang Filter"
+	},
+	"nodeName": {
+		"label": "Nama/nomor node",
+		"placeholder": "Meshtastic 1234"
+	},
+	"airtimeUtilization": {
+		"label": "Penggunaan Waktu Udara (%)"
+	},
+	"batteryLevel": {
+		"label": "Tingkat baterai (%)",
+		"labelText": "Tingkat baterai (%): {{value}}"
+	},
+	"batteryVoltage": {
+		"label": "Tegangan baterai (V)",
+		"title": "Tegangan"
+	},
+	"channelUtilization": {
+		"label": "Penggunaan Channel (%)"
+	},
+	"hops": {
+		"direct": "Langsung",
+		"label": "Jumlah hop",
+		"text": "Jumlah hop: {{value}}"
+	},
+	"lastHeard": {
+		"label": "Terakhir terdengar",
+		"labelText": "Terakhir terdengar: {{value}}",
+		"nowLabel": "Sekarang"
+	},
+	"snr": {
+		"label": "SNR (db)"
+	},
+	"favorites": {
+		"label": "Favorit"
+	},
+	"hide": {
+		"label": "Sembunyikan"
+	},
+	"showOnly": {
+		"label": "Tampilkan Hanya"
+	},
+	"viaMqtt": {
+		"label": "Terhubung melalui MQTT"
+	},
+	"hopsUnknown": {
+		"label": "Jumlah hop tidak diketahui"
+	},
+	"showUnheard": {
+		"label": "Belum pernah terdengar"
+	},
+	"language": {
+		"label": "Bahasa",
+		"changeLanguage": "Ubah Bahasa"
+	},
+	"theme": {
+		"dark": "Gelap",
+		"light": "Terang",
+		"system": "Otomatis",
+		"changeTheme": "Ubah Skema Warna"
+	},
+	"errorPage": {
+		"title": "Ini agak memalukan...",
+		"description1": "Kami benar-benar minta maaf, tetapi terjadi kesalahan pada klien web yang menyebabkan crash. <br /> Ini seharusnya tidak terjadi, dan kami sedang bekerja keras untuk memperbaikinya.",
+		"description2": "Cara terbaik untuk mencegah ini terjadi lagi pada Anda atau orang lain adalah dengan melaporkan masalah ini kepada kami.",
+		"reportInstructions": "Silakan sertakan informasi berikut dalam laporan Anda:",
+		"reportSteps": {
+			"step1": "Apa yang Anda lakukan saat kesalahan terjadi",
+			"step2": "Apa yang Anda harapkan terjadi",
+			"step3": "Apa yang sebenarnya terjadi",
+			"step4": "Informasi relevan lainnya"
+		},
+		"reportLink": "Anda dapat melaporkan masalah ini ke <0>GitHub</0> kami",
+		"dashboardLink": "Kembali ke <0>dashboard</0>",
+		"detailsSummary": "Detail Kesalahan",
+		"errorMessageLabel": "Pesan kesalahan:",
+		"stackTraceLabel": "Stack trace:",
+		"fallbackError": "{{error}}"
+	},
+	"footer": {
+		"text": "Didukung oleh <0>▲ Vercel</0> | Meshtastic® adalah merek dagang terdaftar dari Meshtastic LLC. | <1>Informasi Hukum</1>",
+		"commitSha": "Commit SHA: {{sha}}"
+	}
+}

@@ -1,0 +1,112 @@
+{
+	"button": {
+		"apply": "Terapkan",
+		"backupKey": "Backup Key",
+		"cancel": "Batal",
+		"clearMessages": "Hapus Pesan",
+		"close": "Tutup",
+		"confirm": "Konfirmasi",
+		"delete": "Hapus",
+		"dismiss": "Abaikan",
+		"download": "Unduh",
+		"export": "Export",
+		"generate": "Generate",
+		"regenerate": "Generate Ulang",
+		"import": "Import",
+		"message": "Pesan",
+		"now": "Sekarang",
+		"ok": "OK",
+		"print": "Cetak",
+		"rebootOtaNow": "Reboot ke Mode OTA Sekarang",
+		"remove": "Hapus",
+		"requestNewKeys": "Minta Key Baru",
+		"requestPosition": "Minta Posisi",
+		"reset": "Reset",
+		"save": "Simpan",
+		"scanQr": "Pindai Kode QR",
+		"traceRoute": "Trace Route",
+		"submit": "Kirim"
+	},
+	"app": {
+		"title": "Meshtastic",
+		"fullTitle": "Meshtastic Web Client"
+	},
+	"loading": "Memuat...",
+	"unit": {
+		"cps": "CPS",
+		"dbm": "dBm",
+		"hertz": "Hz",
+		"hop": {
+			"one": "Hop",
+			"plural": "Hop"
+		},
+		"hopsAway": {
+			"one": "{{count}} hop dari sini",
+			"plural": "{{count}} hop dari sini",
+			"unknown": "Jarak hop tidak diketahui"
+		},
+		"megahertz": "MHz",
+		"raw": "mentah",
+		"meter": { "one": "Meter", "plural": "Meter", "suffix": "m" },
+		"minute": { "one": "Menit", "plural": "Menit" },
+		"hour": { "one": "Jam", "plural": "Jam" },
+		"millisecond": {
+			"one": "Milidetik",
+			"plural": "Milidetik",
+			"suffix": "ms"
+		},
+		"second": { "one": "Detik", "plural": "Detik" },
+		"day": { "one": "Hari", "plural": "Hari" },
+		"month": { "one": "Bulan", "plural": "Bulan" },
+		"year": { "one": "Tahun", "plural": "Tahun" },
+		"snr": "SNR",
+		"volt": { "one": "Volt", "plural": "Volt", "suffix": "V" },
+		"record": { "one": "Record", "plural": "Record" }
+	},
+	"security": {
+		"0bit": "Kosong",
+		"8bit": "8 bit",
+		"128bit": "128 bit",
+		"256bit": "256 bit"
+	},
+	"unknown": {
+		"longName": "Tidak Diketahui",
+		"shortName": "TDK",
+		"notAvailable": "T/A",
+		"num": "??"
+	},
+	"nodeUnknownPrefix": "!",
+	"unset": "BELUM DIATUR",
+	"fallbackName": "Meshtastic {{last4}}",
+	"node": "Node",
+	"formValidation": {
+		"unsavedChanges": "Perubahan belum disimpan",
+		"tooBig": {
+			"string": "Terlalu panjang, maksimal {{maximum}} karakter.",
+			"number": "Terlalu besar, maksimal {{maximum}}.",
+			"bytes": "Terlalu besar, maksimal {{params.maximum}} bytes."
+		},
+		"tooSmall": {
+			"string": "Terlalu pendek, minimal {{minimum}} karakter.",
+			"number": "Terlalu kecil, minimal {{minimum}}."
+		},
+		"invalidFormat": {
+			"ipv4": "Format tidak valid, harap masukkan alamat IPv4.",
+			"key": "Format tidak valid, harap masukkan pre-shared key (PSK) yang diencode Base64."
+		},
+		"invalidType": {
+			"number": "Tipe tidak valid, harap masukkan angka."
+		},
+		"pskLength": {
+			"0bit": "Key harus dikosongkan.",
+			"8bit": "Key harus berupa pre-shared key (PSK) 8 bit.",
+			"128bit": "Key harus berupa pre-shared key (PSK) 128 bit.",
+			"256bit": "Key harus berupa pre-shared key (PSK) 256 bit."
+		},
+		"required": {
+			"generic": "Field ini wajib diisi.",
+			"managed": "Minimal satu admin key diperlukan jika node dikelola.",
+			"key": "Key wajib diisi."
+		}
+	}
+}

@@ -1,0 +1,51 @@
+{
+  "emptyState": "Tidak ada hasil ditemukan.",
+  "page": {
+    "title": "Menu Perintah"
+  },
+  "pinGroup": {
+    "label": "Pin grup perintah"
+  },
+  "unpinGroup": {
+    "label": "Lepas pin grup perintah"
+  },
+  "goto": {
+    "label": "Pergi ke",
+    "command": {
+      "messages": "Pesan",
+      "map": "Peta",
+      "config": "Konfigurasi",
+      "channels": "Channel",
+      "nodes": "Node"
+    }
+  },
+  "manage": {
+    "label": "Kelola",
+    "command": {
+      "switchNode": "Ganti Node",
+      "connectNewNode": "Hubungkan Node Baru"
+    }
+  },
+  "contextual": {
+    "label": "Kontekstual",
+    "command": {
+      "qrCode": "Kode QR",
+      "qrGenerator": "Generator",
+      "qrImport": "Import",
+      "scheduleShutdown": "Jadwalkan Shutdown",
+      "scheduleReboot": "Jadwalkan Reboot",
+      "rebootToOtaMode": "Reboot ke Mode OTA",
+      "resetNodeDb": "Reset Database Node",
+      "factoryResetDevice": "Factory Reset Perangkat",
+      "factoryResetConfig": "Factory Reset Konfigurasi",
+      "disconnect": "Putus Koneksi"
+    }
+  },
+  "debug": {
+    "label": "Debug",
+    "command": {
+      "reconfigure": "Konfigurasi Ulang",
+      "clearAllStoredMessages": "Hapus Semua Pesan Tersimpan"
+    }
+  }
+}

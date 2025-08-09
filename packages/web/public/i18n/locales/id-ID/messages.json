@@ -1,0 +1,40 @@
+{
+	"page": {
+		"title": "Pesan: {{chatName}}",
+		"placeholder": "Masukkan Pesan"
+	},
+	"emptyState": {
+		"title": "Pilih Chat",
+		"text": "Belum ada pesan."
+	},
+	"selectChatPrompt": {
+		"text": "Pilih channel atau node untuk mulai mengirim pesan."
+	},
+	"sendMessage": {
+		"placeholder": "Masukkan pesan Anda di sini...",
+		"sendButton": "Kirim"
+	},
+	"actionsMenu": {
+		"addReactionLabel": "Tambah Reaksi",
+		"replyLabel": "Balas"
+	},
+
+	"deliveryStatus": {
+		"delivered": {
+			"label": "Pesan terkirim",
+			"displayText": "Pesan terkirim"
+		},
+		"failed": {
+			"label": "Gagal mengirim pesan",
+			"displayText": "Gagal terkirim"
+		},
+		"unknown": {
+			"label": "Status pesan tidak diketahui",
+			"displayText": "Status tidak diketahui"
+		},
+		"waiting": {
+			"label": "Mengirim pesan",
+			"displayText": "Menunggu pengiriman"
+		}
+	}
+}

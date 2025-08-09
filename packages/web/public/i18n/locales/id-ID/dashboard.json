@@ -1,0 +1,12 @@
+{
+	"dashboard": {
+		"title": "Perangkat Terhubung",
+		"description": "Kelola perangkat Meshtastic yang terhubung.",
+		"connectionType_ble": "BLE",
+		"connectionType_serial": "Serial",
+		"connectionType_network": "Jaringan",
+		"noDevicesTitle": "Tidak ada perangkat terhubung",
+		"noDevicesDescription": "Hubungkan perangkat baru untuk memulai.",
+		"button_newConnection": "Koneksi Baru"
+	}
+}
