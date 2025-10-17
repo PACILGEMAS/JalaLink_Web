@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  jalalink_web:
+    image: jalalink_web:latest
+    container_name: jalalink_web
+    ports:
+      - "127.0.0.1:8080:80"

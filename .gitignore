@@ -5,3 +5,5 @@ stats.html
 .vite
 dev-dist
 __screenshots__*
+.idea
+.DS_Store
