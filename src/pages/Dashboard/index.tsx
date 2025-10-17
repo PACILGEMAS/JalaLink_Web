@@ -25,8 +25,8 @@ export const Dashboard = () => {
       <div className="flex flex-col gap-3 p-3">
         <div className="flex items-center justify-between">
           <div className="space-y-1">
-            <Heading as="h3">Connected Devices</Heading>
-            <Subtle>Manage, connect and disconnect devices</Subtle>
+            <Heading as="h3">Perangkat Terhubung</Heading>
+            <Subtle>Kelola, sambungkan, dan putuskan perangkat</Subtle>
           </div>
         </div>
 
@@ -96,15 +96,15 @@ export const Dashboard = () => {
                   size={48}
                   className="mx-auto text-text-secondary"
                 />
-                <Heading as="h3">No Devices</Heading>
-                <Subtle>Connect at least one device to get started</Subtle>
+                <Heading as="h3">Tidak Ada Perangkat</Heading>
+                <Subtle>Hubungkan setidaknya satu perangkat untuk memulai</Subtle>
                 <Button
                   className="gap-2 dark:bg-white dark:text-slate-900 dark:hover:text-slate-100"
                   variant="default"
                   onClick={() => setConnectDialogOpen(true)}
                 >
                   <PlusIcon size={16} />
-                  New Connection
+                  Koneksi Baru
                 </Button>
               </div>
             )}

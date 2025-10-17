@@ -73,7 +73,7 @@ export const HTTP = ({ closeDialog }: TabElementProps) => {
             checked={isURLHTTPS || tlsValue}
             {...register("tls")}
           />
-          <Label>Use HTTPS</Label>
+          <Label>Gunakan HTTPS</Label>
 
         </div>
       </div>
@@ -82,7 +82,7 @@ export const HTTP = ({ closeDialog }: TabElementProps) => {
         disabled={connectionInProgress}
         className="dark:bg-slate-900 dark:text-white"
       >
-        <span>{connectionInProgress ? "Connecting..." : "Connect"}</span>
+        <span>{connectionInProgress ? "Menyambungkan..." : "Sambungkan"}</span>
       </Button>
     </form>
   );

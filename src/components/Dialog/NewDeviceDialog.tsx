@@ -138,7 +138,7 @@ export const NewDeviceDialog = ({
       <DialogContent>
         <DialogClose />
         <DialogHeader>
-          <DialogTitle>Connect New Device</DialogTitle>
+          <DialogTitle>Sambungkan Perangkat Baru</DialogTitle>
         </DialogHeader>
         <Tabs defaultValue="HTTP">
           <TabsList>

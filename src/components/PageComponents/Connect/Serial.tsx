@@ -61,7 +61,7 @@ export const Serial = ({ closeDialog }: TabElementProps) => {
           );
         })}
         {serialPorts.length === 0 && (
-          <Mono className="m-auto select-none">No devices paired yet.</Mono>
+          <Mono className="m-auto select-none">Belum ada perangkat yang terhubung.</Mono>
         )}
       </div>
       <Button
@@ -72,7 +72,7 @@ export const Serial = ({ closeDialog }: TabElementProps) => {
           });
         }}
       >
-        <span>New device</span>
+        <span>Perangkat baru</span>
       </Button>
     </div>
   );

@@ -50,7 +50,7 @@ export const BLE = ({ closeDialog }: TabElementProps) => {
           </Button>
         ))}
         {bleDevices.length === 0 && (
-          <Mono className="m-auto select-none">No devices paired yet.</Mono>
+          <Mono className="m-auto select-none">Belum ada perangkat yang terhubung.</Mono>
         )}
       </div>
       <Button
@@ -68,7 +68,7 @@ export const BLE = ({ closeDialog }: TabElementProps) => {
             });
         }}
       >
-        <span>New device</span>
+        <span>Perangkat baru</span>
       </Button>
     </div>
   );
