@@ -6,7 +6,7 @@ import { Sidebar } from "@components/Sidebar.tsx";
 import { useDevice } from "@core/stores/deviceStore.ts";
 import type { Protobuf } from "@meshtastic/core";
 import { bbox, lineString } from "@turf/turf";
-import { MapPinIcon } from "lucide-react";
+import { MapPinIcon, FishIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   AttributionControl,
@@ -24,6 +24,14 @@ type NodePosition = {
   longitude: number;
 };
 
+const posisiIkan = [
+  { jenis: "Tembang", latitude: -6.0705, longitude: 106.7910 },
+  { jenis: "Cakalang", latitude: -6.0260, longitude: 106.7550 },
+  { jenis: "Kakap Merah", latitude: -6.0180, longitude: 106.8400 },
+  { jenis: "Tongkol", latitude: -6.0100, longitude: 106.7800 },
+  { jenis: "Kerapu", latitude: -6.0300, longitude: 106.8800 },
+]
+
 const convertToLatLng = (position: {
   latitudeI?: number;
   longitudeI?: number;
@@ -36,6 +44,7 @@ const MapPage = () => {
   const { nodes, waypoints } = useDevice();
   const { theme } = useTheme();
   const { default: map } = useMap();
+  const [showIkanMarkers, setShowIkanMarkers] = useState(true);
 
   const darkMode = theme === "dark";
 
@@ -131,6 +140,26 @@ const MapPage = () => {
     [validNodes, handleMarkerClick],
   );
 
+  const ikanMarkers = useMemo(
+    () =>
+      posisiIkan.map((pos, idx) => (
+        <Marker
+          key={`ikan-marker-${idx}`}
+          longitude={pos.longitude}
+          latitude={pos.latitude}
+          anchor="bottom"
+        >
+          <div className="flex flex-col items-center">
+            <div className="bg-blue-600 rounded-full w-4 h-4 border-2 border-white shadow-md" />
+            <span className="text-xs text-black dark:text-white mt-1 bg-white dark:bg-gray-800 px-1 rounded shadow">
+            Ikan {pos.jenis}
+          </span>
+          </div>
+        </Marker>
+      )),
+    []
+  );
+
   useEffect(() => {
     map?.on("load", () => {
       getMapBounds();
@@ -140,7 +169,17 @@ const MapPage = () => {
   return (
     <>
       <Sidebar />
-      <PageLayout label="Map" noPadding actions={[]}>
+      <PageLayout
+        label="Map"
+        noPadding
+        actions={[
+          {
+            icon: FishIcon,
+            iconClasses: showIkanMarkers ? "text-blue-600" : "text-gray-400",
+            onClick: () => setShowIkanMarkers((v) => !v),
+          },
+        ]}
+      >
         <MapGl
           mapStyle="https://raw.githubusercontent.com/hc-oss/maplibre-gl-styles/master/styles/osm-mapnik/v8/default.json"
           attributionControl={false}
@@ -152,9 +191,9 @@ const MapPage = () => {
           dragRotate={false}
           touchZoomRotate={false}
           initialViewState={{
-            zoom: 1.8,
-            latitude: 35,
-            longitude: 0,
+            zoom: 11,
+            latitude: -6.05,
+            longitude: 106.8,
           }}
         >
           <AttributionControl
@@ -184,6 +223,7 @@ const MapPage = () => {
             </Marker>
           ))}
           {markers}
+          {showIkanMarkers && ikanMarkers}
           {selectedNode
             ? (
               <Popup
