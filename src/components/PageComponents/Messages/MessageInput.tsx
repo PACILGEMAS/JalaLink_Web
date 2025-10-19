@@ -101,7 +101,7 @@ export const MessageInput = ({
               autoFocus
               minLength={1}
               name="messageInput"
-              placeholder="Enter Message"
+              placeholder="Tulis pesan"
               value={localDraft}
               onChange={handleInputChange}
             />

@@ -24,44 +24,44 @@ export const CannedMessage = () => {
       defaultValues={moduleConfig.cannedMessage}
       fieldGroups={[
         {
-          label: "Canned Message Settings",
-          description: "Settings for the Canned Message module",
+          label: "Pengaturan Pesan Siap Pakai",
+          description: "Pengaturan untuk modul pesan siap pakai",
           fields: [
             {
               type: "toggle",
               name: "enabled",
-              label: "Module Enabled",
-              description: "Enable Canned Message",
+              label: "Modul Diaktifkan",
+              description: "Aktifkan Pesan Siap Pakai",
             },
             {
               type: "toggle",
               name: "rotary1Enabled",
-              label: "Rotary Encoder #1 Enabled",
-              description: "Enable the rotary encoder",
+              label: "Rotary Encoder #1 Diaktifkan",
+              description: "Aktifkan rotary encoder",
             },
             {
               type: "number",
               name: "inputbrokerPinA",
-              label: "Encoder Pin A",
-              description: "GPIO Pin Value (1-39) For encoder port A",
+              label: "Pin Encoder A",
+              description: "Nilai pin GPIO (1-39) untuk port encoder A",
             },
             {
               type: "number",
               name: "inputbrokerPinB",
-              label: "Encoder Pin B",
-              description: "GPIO Pin Value (1-39) For encoder port B",
+              label: "Pin Encoder B",
+              description: "Nilai pin GPIO (1-39) untuk port encoder B",
             },
             {
               type: "number",
               name: "inputbrokerPinPress",
-              label: "Encoder Pin Press",
-              description: "GPIO Pin Value (1-39) For encoder Press",
+              label: "Pin Tekan Encoder",
+              description: "Nilai pin GPIO (1-39) untuk tombol encoder",
             },
             {
               type: "select",
               name: "inputbrokerEventCw",
-              label: "Clockwise event",
-              description: "Select input event.",
+              label: "Peristiwa searah jarum jam",
+              description: "Pilih peristiwa masukan.",
               properties: {
                 enumValue: Protobuf.ModuleConfig
                   .ModuleConfig_CannedMessageConfig_InputEventChar,
@@ -70,8 +70,8 @@ export const CannedMessage = () => {
             {
               type: "select",
               name: "inputbrokerEventCcw",
-              label: "Counter Clockwise event",
-              description: "Select input event.",
+              label: "Peristiwa berlawanan jarum jam",
+              description: "Pilih peristiwa masukan.",
               properties: {
                 enumValue: Protobuf.ModuleConfig
                   .ModuleConfig_CannedMessageConfig_InputEventChar,
@@ -80,8 +80,8 @@ export const CannedMessage = () => {
             {
               type: "select",
               name: "inputbrokerEventPress",
-              label: "Press event",
-              description: "Select input event",
+              label: "Peristiwa tekan",
+              description: "Pilih peristiwa masukan",
               properties: {
                 enumValue: Protobuf.ModuleConfig
                   .ModuleConfig_CannedMessageConfig_InputEventChar,
@@ -90,21 +90,21 @@ export const CannedMessage = () => {
             {
               type: "toggle",
               name: "updown1Enabled",
-              label: "Up Down enabled",
-              description: "Enable the up / down encoder",
+              label: "Encoder naik turun diaktifkan",
+              description: "Aktifkan encoder naik/turun",
             },
             {
               type: "text",
               name: "allowInputSource",
-              label: "Allow Input Source",
+              label: "Sumber Masukan yang Diizinkan",
               description:
-                "Select from: '_any', 'rotEnc1', 'upDownEnc1', 'cardkb'",
+                "Pilih dari: '_any', 'rotEnc1', 'upDownEnc1', 'cardkb'",
             },
             {
               type: "toggle",
               name: "sendBell",
-              label: "Send Bell",
-              description: "Sends a bell character with each message",
+              label: "Kirim Bel",
+              description: "Kirim karakter bel pada setiap pesan",
             },
           ],
         },

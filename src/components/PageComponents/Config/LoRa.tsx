@@ -24,14 +24,14 @@ export const LoRa = () => {
       defaultValues={config.lora}
       fieldGroups={[
         {
-          label: "Mesh Settings",
-          description: "Settings for the LoRa mesh",
+          label: "Pengaturan Mesh",
+          description: "Pengaturan untuk mesh LoRa",
           fields: [
             {
               type: "select",
               name: "region",
-              label: "Region",
-              description: "Sets the region for your node",
+              label: "Wilayah",
+              description: "Menetapkan wilayah untuk node Anda",
               properties: {
                 enumValue: Protobuf.Config.Config_LoRaConfig_RegionCode,
               },
@@ -39,8 +39,8 @@ export const LoRa = () => {
             {
               type: "select",
               name: "hopLimit",
-              label: "Hop Limit",
-              description: "Maximum number of hops",
+              label: "Batas Lompatan",
+              description: "Jumlah lompatan maksimum",
               properties: {
                 enumValue: { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7 },
               },
@@ -48,39 +48,39 @@ export const LoRa = () => {
             {
               type: "number",
               name: "channelNum",
-              label: "Frequency Slot",
-              description: "LoRa frequency channel number",
+              label: "Slot Frekuensi",
+              description: "Nomor kanal frekuensi LoRa",
             },
             {
               type: "toggle",
               name: "ignoreMqtt",
-              label: "Ignore MQTT",
-              description: "Don't forward MQTT messages over the mesh",
+              label: "Abaikan MQTT",
+              description: "Jangan teruskan pesan MQTT melalui mesh",
             },
             {
               type: "toggle",
               name: "configOkToMqtt",
-              label: "OK to MQTT",
+              label: "OK ke MQTT",
               description:
-                "When set to true, this configuration indicates that the user approves the packet to be uploaded to MQTT. If set to false, remote nodes are requested not to forward packets to MQTT",
+                "Jika diaktifkan, konfigurasi ini menandakan pengguna menyetujui paket diunggah ke MQTT. Jika dinonaktifkan, node lain diminta untuk tidak meneruskan paket ke MQTT",
             },
           ],
         },
         {
-          label: "Waveform Settings",
-          description: "Settings for the LoRa waveform",
+          label: "Pengaturan Gelombang",
+          description: "Pengaturan untuk gelombang LoRa",
           fields: [
             {
               type: "toggle",
               name: "usePreset",
-              label: "Use Preset",
-              description: "Use one of the predefined modem presets",
+              label: "Gunakan Prasetel",
+              description: "Gunakan salah satu prasetel modem bawaan",
             },
             {
               type: "select",
               name: "modemPreset",
-              label: "Modem Preset",
-              description: "Modem preset to use",
+              label: "Prasetel Modem",
+              description: "Prasetel modem yang digunakan",
               disabledBy: [
                 {
                   fieldName: "usePreset",
@@ -94,8 +94,8 @@ export const LoRa = () => {
             {
               type: "number",
               name: "bandwidth",
-              label: "Bandwidth",
-              description: "Channel bandwidth in MHz",
+              label: "Lebar Pita",
+              description: "Lebar pita kanal dalam MHz",
               disabledBy: [
                 {
                   fieldName: "usePreset",
@@ -109,8 +109,8 @@ export const LoRa = () => {
             {
               type: "number",
               name: "spreadFactor",
-              label: "Spreading Factor",
-              description: "Indicates the number of chirps per symbol",
+              label: "Faktor Penyebaran",
+              description: "Menunjukkan jumlah chirp per simbol",
 
               disabledBy: [
                 {
@@ -125,8 +125,8 @@ export const LoRa = () => {
             {
               type: "number",
               name: "codingRate",
-              label: "Coding Rate",
-              description: "The denominator of the coding rate",
+              label: "Laju Pengkodean",
+              description: "Penyebut laju pengkodean",
               disabledBy: [
                 {
                   fieldName: "usePreset",
@@ -137,20 +137,20 @@ export const LoRa = () => {
           ],
         },
         {
-          label: "Radio Settings",
-          description: "Settings for the LoRa radio",
+          label: "Pengaturan Radio",
+          description: "Pengaturan untuk radio LoRa",
           fields: [
             {
               type: "toggle",
               name: "txEnabled",
-              label: "Transmit Enabled",
-              description: "Enable/Disable transmit (TX) from the LoRa radio",
+              label: "Transmit Diaktifkan",
+              description: "Aktifkan/nonaktifkan transmisi (TX) dari radio LoRa",
             },
             {
               type: "number",
               name: "txPower",
-              label: "Transmit Power",
-              description: "Max transmit power",
+              label: "Daya Transmisi",
+              description: "Daya transmisi maksimum",
               properties: {
                 suffix: "dBm",
               },
@@ -158,15 +158,15 @@ export const LoRa = () => {
             {
               type: "toggle",
               name: "overrideDutyCycle",
-              label: "Override Duty Cycle",
-              description: "Override Duty Cycle",
+              label: "Override Siklus Tugas",
+              description: "Override siklus tugas",
             },
             {
               type: "number",
               name: "frequencyOffset",
-              label: "Frequency Offset",
+              label: "Ofset Frekuensi",
               description:
-                "Frequency offset to correct for crystal calibration errors",
+                "Ofset frekuensi untuk mengoreksi kesalahan kalibrasi kristal",
               properties: {
                 suffix: "Hz",
               },
@@ -174,14 +174,14 @@ export const LoRa = () => {
             {
               type: "toggle",
               name: "sx126xRxBoostedGain",
-              label: "Boosted RX Gain",
-              description: "Boosted RX gain",
+              label: "Gain RX Ditingkatkan",
+              description: "Gain RX yang ditingkatkan",
             },
             {
               type: "number",
               name: "overrideFrequency",
-              label: "Override Frequency",
-              description: "Override frequency",
+              label: "Override Frekuensi",
+              description: "Override frekuensi",
               properties: {
                 suffix: "MHz",
                 step: 0.001,

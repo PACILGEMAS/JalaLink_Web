@@ -31,7 +31,7 @@ const MESSAGE_STATUS: Record<MessageState, MessageStatus> = {
 };
 
 const getMessageStatus = (state: MessageState): MessageStatus =>
-  MESSAGE_STATUS[state] || { state: "failed", displayText: "Unknown error", icon: AlertCircle };
+  MESSAGE_STATUS[state] || { state: "failed", displayText: "Kesalahan tidak dikenal", icon: AlertCircle };
 
 const StatusTooltip = ({ status, children }: { status: MessageStatus; children: ReactNode }) => (
   <TooltipProvider>
@@ -106,7 +106,7 @@ export const MessageItem = ({ lastMsgSameUser, message }: MessageProps) => {
         <div className="flex items-center gap-2 mb-2">
           {!lastMsgSameUser && (
             <div className="flex place-items-center gap-2 mb-1">
-              <Avatar text={messageUser?.user?.shortName ?? "UNK"} />
+              <Avatar text={messageUser?.user?.shortName ?? "TDKT"} />
               <div className="flex flex-col">
                 <span className="font-medium text-slate-900 dark:text-white truncate">
                   {messageUser?.user?.longName}

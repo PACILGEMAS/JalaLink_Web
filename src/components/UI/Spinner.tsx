@@ -13,7 +13,7 @@ const sizeClasses = {
 export function Spinner({ className, size = "md", ...props }: SpinnerProps) {
   return (
     <div
-      aria-label="Loading..."
+      aria-label="Memuat..."
       className={cn(
         "flex items-center justify-center fade-in-50 fade-out-50",
         className,
@@ -23,7 +23,7 @@ export function Spinner({ className, size = "md", ...props }: SpinnerProps) {
       <svg
         className={cn("animate-spin-slow stroke-current", sizeClasses[size])}
         role="img"
-        aria-label="Loading spinner"
+        aria-label="Pemintal pemuatan"
         viewBox="0 0 256 256"
       >
         <line

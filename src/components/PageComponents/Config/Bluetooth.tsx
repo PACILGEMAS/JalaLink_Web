@@ -24,7 +24,7 @@ export const Bluetooth = () => {
   const validateBluetoothPin = (pin: string) => {
     // if empty show error they need a pin set
     if (pin === "") {
-      return addError("fixedPin", "Bluetooth Pin is required");
+      return addError("fixedPin", "PIN Bluetooth wajib diisi");
     }
 
     // clear any existing errors
@@ -32,11 +32,11 @@ export const Bluetooth = () => {
 
     // if it starts with 0 show error
     if (pin[0] === "0") {
-      return addError("fixedPin", "Bluetooth Pin cannot start with 0");
+      return addError("fixedPin", "PIN Bluetooth tidak boleh diawali 0");
     }
     // if it's not 6 digits show error
     if (pin.length < 6) {
-      return addError("fixedPin", "Pin must be 6 digits");
+      return addError("fixedPin", "PIN harus 6 digit");
     }
 
     removeError("fixedPin");
@@ -69,22 +69,22 @@ export const Bluetooth = () => {
       defaultValues={config.bluetooth}
       fieldGroups={[
         {
-          label: "Bluetooth Settings",
-          description: "Settings for the Bluetooth module ",
+          label: "Pengaturan Bluetooth",
+          description: "Pengaturan untuk modul Bluetooth ",
           notes:
-            "Note: Some devices (ESP32) cannot use both Bluetooth and WiFi at the same time.",
+            "Catatan: Beberapa perangkat (ESP32) tidak dapat memakai Bluetooth dan WiFi secara bersamaan.",
           fields: [
             {
               type: "toggle",
               name: "enabled",
-              label: "Enabled",
-              description: "Enable or disable Bluetooth",
+              label: "Diaktifkan",
+              description: "Aktifkan atau nonaktifkan Bluetooth",
             },
             {
               type: "select",
               name: "mode",
-              label: "Pairing mode",
-              description: "Pin selection behaviour.",
+              label: "Mode pemasangan",
+              description: "Perilaku pemilihan PIN.",
               selectChange: (e) => {
                 if (e !== "1") {
                   setBluetoothPin("");
@@ -104,8 +104,8 @@ export const Bluetooth = () => {
             {
               type: "number",
               name: "fixedPin",
-              label: "Pin",
-              description: "Pin to use when pairing",
+              label: "PIN",
+              description: "PIN yang digunakan saat pemasangan",
               validationText: hasFieldError("fixedPin")
                 ? getErrorMessage("fixedPin")
                 : "",

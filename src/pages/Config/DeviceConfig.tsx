@@ -16,25 +16,25 @@ import {
 export const DeviceConfig = () => {
   const tabs = [
     {
-      label: "Device",
+      label: "Perangkat",
       element: Device,
       count: 0,
     },
     {
-      label: "Position",
+      label: "Posisi",
       element: Position,
     },
     {
-      label: "Power",
+      label: "Daya",
       element: Power,
     },
     {
-      label: "Network",
+      label: "Jaringan",
       element: Network,
       // disabled: !metadata.get(0)?.hasWifi,
     },
     {
-      label: "Display",
+      label: "Layar",
       element: Display,
     },
     {
@@ -46,13 +46,13 @@ export const DeviceConfig = () => {
       element: Bluetooth,
     },
     {
-      label: "Security",
+      label: "Keamanan",
       element: Security,
     },
   ];
 
   return (
-    <Tabs defaultValue="Device">
+    <Tabs defaultValue={tabs[0]?.label ?? "Perangkat"}>
       <TabsList className="dark:bg-slate-800">
         {tabs.map((tab) => (
           <TabsTrigger

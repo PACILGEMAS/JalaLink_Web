@@ -41,7 +41,7 @@ export const Channel = ({ channel }: SettingsPanelProps) => {
     });
     connection?.setChannel(channel).then(() => {
       toast({
-        title: `Saved Channel: ${channel.settings?.name}`,
+        title: `Kanal disimpan: ${channel.settings?.name}`,
       });
       addChannel(channel);
     });
@@ -66,7 +66,7 @@ export const Channel = ({ channel }: SettingsPanelProps) => {
 
   const validatePass = (input: string, count: number) => {
     if (input.length % 4 !== 0 || toByteArray(input).length !== count) {
-      setValidationText(`Please enter a valid ${count * 8} bit PSK.`);
+      setValidationText(`Masukkan PSK ${count * 8} bit yang valid.`);
     } else {
       setValidationText(undefined);
     }
@@ -104,16 +104,16 @@ export const Channel = ({ channel }: SettingsPanelProps) => {
         }}
         fieldGroups={[
           {
-            label: "Channel Settings",
-            description: "Crypto, MQTT & misc settings",
+            label: "Pengaturan Kanal",
+            description: "Pengaturan kripto, MQTT, dan lainnya",
             fields: [
               {
                 type: "select",
                 name: "role",
-                label: "Role",
+                label: "Peran",
                 disabled: channel.index === 0,
                 description:
-                  "Device telemetry is sent over PRIMARY. Only one PRIMARY allowed",
+                  "Telemetri perangkat dikirim melalui PRIMARY. Hanya satu PRIMARY yang diperbolehkan",
                 properties: {
                   enumValue: channel.index === 0
                     ? { PRIMARY: 1 }
@@ -124,16 +124,16 @@ export const Channel = ({ channel }: SettingsPanelProps) => {
                 type: "passwordGenerator",
                 name: "settings.psk",
                 id: 'channel-psk',
-                label: "Pre-Shared Key",
+                label: "Kunci Pra-bagi",
                 description:
-                  "Supported PSK lengths: 256-bit, 128-bit, 8-bit, Empty (0-bit)",
+                  "Panjang PSK yang didukung: 256-bit, 128-bit, 8-bit, Kosong (0-bit)",
                 validationText: validationText,
                 devicePSKBitCount: bitCount ?? 0,
                 inputChange: inputChangeEvent,
                 selectChange: selectChangeEvent,
                 actionButtons: [
                   {
-                    text: "Generate",
+                    text: "Buat",
                     variant: "success",
                     onClick: preSharedClickEvent,
                   },
@@ -146,57 +146,57 @@ export const Channel = ({ channel }: SettingsPanelProps) => {
               {
                 type: "text",
                 name: "settings.name",
-                label: "Name",
+                label: "Nama",
                 description:
-                  "A unique name for the channel <12 bytes, leave blank for default",
+                  "Nama unik untuk kanal <12 byte, biarkan kosong untuk bawaan",
               },
               {
                 type: "toggle",
                 name: "settings.uplinkEnabled",
-                label: "Uplink Enabled",
-                description: "Send messages from the local mesh to MQTT",
+                label: "Uplink Diaktifkan",
+                description: "Kirim pesan dari mesh lokal ke MQTT",
               },
               {
                 type: "toggle",
                 name: "settings.downlinkEnabled",
-                label: "Downlink Enabled",
-                description: "Send messages from MQTT to the local mesh",
+                label: "Downlink Diaktifkan",
+                description: "Kirim pesan dari MQTT ke mesh lokal",
               },
               {
                 type: "select",
                 name: "settings.moduleSettings.positionPrecision",
-                label: "Location",
+                label: "Lokasi",
                 description:
-                  "The precision of the location to share with the channel. Can be disabled.",
+                  "Tingkat ketelitian lokasi yang dibagikan ke kanal. Dapat dinonaktifkan.",
                 properties: {
                   enumValue: config.display?.units === 0
                     ? {
-                      "Do not share location": 0,
-                      "Within 23 kilometers": 10,
-                      "Within 12 kilometers": 11,
-                      "Within 5.8 kilometers": 12,
-                      "Within 2.9 kilometers": 13,
-                      "Within 1.5 kilometers": 14,
-                      "Within 700 meters": 15,
-                      "Within 350 meters": 16,
-                      "Within 200 meters": 17,
-                      "Within 90 meters": 18,
-                      "Within 50 meters": 19,
-                      "Precise Location": 32,
+                      "Jangan bagikan lokasi": 0,
+                      "Dalam 23 kilometer": 10,
+                      "Dalam 12 kilometer": 11,
+                      "Dalam 5,8 kilometer": 12,
+                      "Dalam 2,9 kilometer": 13,
+                      "Dalam 1,5 kilometer": 14,
+                      "Dalam 700 meter": 15,
+                      "Dalam 350 meter": 16,
+                      "Dalam 200 meter": 17,
+                      "Dalam 90 meter": 18,
+                      "Dalam 50 meter": 19,
+                      "Lokasi Presisi": 32,
                     }
                     : {
-                      "Do not share location": 0,
-                      "Within 15 miles": 10,
-                      "Within 7.3 miles": 11,
-                      "Within 3.6 miles": 12,
-                      "Within 1.8 miles": 13,
-                      "Within 0.9 miles": 14,
-                      "Within 0.5 miles": 15,
-                      "Within 0.2 miles": 16,
-                      "Within 600 feet": 17,
-                      "Within 300 feet": 18,
-                      "Within 150 feet": 19,
-                      "Precise Location": 32,
+                      "Jangan bagikan lokasi": 0,
+                      "Dalam 15 mil": 10,
+                      "Dalam 7,3 mil": 11,
+                      "Dalam 3,6 mil": 12,
+                      "Dalam 1,8 mil": 13,
+                      "Dalam 0,9 mil": 14,
+                      "Dalam 0,5 mil": 15,
+                      "Dalam 0,2 mil": 16,
+                      "Dalam 600 kaki": 17,
+                      "Dalam 300 kaki": 18,
+                      "Dalam 150 kaki": 19,
+                      "Lokasi Presisi": 32,
                     },
                 },
               },

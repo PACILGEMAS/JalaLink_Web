@@ -24,23 +24,23 @@ export const NeighborInfo = () => {
       defaultValues={moduleConfig.neighborInfo}
       fieldGroups={[
         {
-          label: "Neighbor Info Settings",
-          description: "Settings for the Neighbor Info module",
+          label: "Pengaturan Info Tetangga",
+          description: "Pengaturan untuk modul info tetangga",
           fields: [
             {
               type: "toggle",
               name: "enabled",
-              label: "Enabled",
-              description: "Enable or disable Neighbor Info Module",
+              label: "Diaktifkan",
+              description: "Aktifkan atau nonaktifkan modul info tetangga",
             },
             {
               type: "number",
               name: "updateInterval",
-              label: "Update Interval",
+              label: "Interval Pembaruan",
               description:
-                "Interval in seconds of how often we should try to send our Neighbor Info to the mesh",
+                "Interval dalam detik seberapa sering info tetangga dikirim ke mesh",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
               disabledBy: [
                 {

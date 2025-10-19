@@ -42,22 +42,22 @@ export const Position = () => {
       defaultValues={config.position}
       fieldGroups={[
         {
-          label: "Position Settings",
-          description: "Settings for the position module",
+          label: "Pengaturan Posisi",
+          description: "Pengaturan untuk modul posisi",
           fields: [
             {
               type: "toggle",
               name: "positionBroadcastSmartEnabled",
-              label: "Enable Smart Position",
+              label: "Aktifkan Posisi Cerdas",
               description:
-                "Only send position when there has been a meaningful change in location",
+                "Hanya kirim posisi ketika terdapat perubahan lokasi yang signifikan",
             },
             {
               type: "select",
               name: "gpsMode",
-              label: "GPS Mode",
+              label: "Mode GPS",
               description:
-                "Configure whether device GPS is Enabled, Disabled, or Not Present",
+                "Atur apakah GPS perangkat Diaktifkan, Dinonaktifkan, atau Tidak Ada",
               properties: {
                 enumValue: Protobuf.Config.Config_PositionConfig_GpsMode,
               },
@@ -65,9 +65,9 @@ export const Position = () => {
             {
               type: "toggle",
               name: "fixedPosition",
-              label: "Fixed Position",
+              label: "Posisi Tetap",
               description:
-                "Don't report GPS position, but a manually-specified one",
+                "Jangan laporkan posisi GPS, gunakan posisi yang ditentukan manual",
             },
             {
               type: "multiSelect",
@@ -76,10 +76,10 @@ export const Position = () => {
               isChecked: (name: string) =>
                 activeFlags.includes(name as FlagName),
               onValueChange: onPositonFlagChange,
-              label: "Position Flags",
-              placeholder: "Select position flags...",
+              label: "Flag Posisi",
+              placeholder: "Pilih flag posisi...",
               description:
-                "Optional fields to include when assembling position messages. The more fields are selected, the larger the message will be leading to longer airtime usage and a higher risk of packet loss.",
+                "Bidang opsional yang disertakan saat menyusun pesan posisi. Semakin banyak bidang dipilih, semakin besar pesan sehingga durasi airtime lebih panjang dan risiko kehilangan paket meningkat.",
               properties: {
                 enumValue: getAllFlags(),
               },
@@ -87,51 +87,51 @@ export const Position = () => {
             {
               type: "number",
               name: "rxGpio",
-              label: "Receive Pin",
-              description: "GPS module RX pin override",
+              label: "Pin Terima",
+              description: "Override pin RX modul GPS",
             },
             {
               type: "number",
               name: "txGpio",
-              label: "Transmit Pin",
-              description: "GPS module TX pin override",
+              label: "Pin Transmisi",
+              description: "Override pin TX modul GPS",
             },
             {
               type: "number",
               name: "gpsEnGpio",
-              label: "Enable Pin",
-              description: "GPS module enable pin override",
+              label: "Pin Aktif",
+              description: "Override pin enable modul GPS",
             },
           ],
         },
         {
-          label: "Intervals",
-          description: "How often to send position updates",
+          label: "Interval",
+          description: "Seberapa sering mengirim pembaruan posisi",
           fields: [
             {
               type: "number",
               name: "positionBroadcastSecs",
-              label: "Broadcast Interval",
-              description: "How often your position is sent out over the mesh",
+              label: "Interval Siaran",
+              description: "Seberapa sering posisi Anda dikirim melalui mesh",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
             },
             {
               type: "number",
               name: "gpsUpdateInterval",
-              label: "GPS Update Interval",
-              description: "How often a GPS fix should be acquired",
+              label: "Interval Pembaruan GPS",
+              description: "Seberapa sering perbaikan GPS diambil",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
             },
             {
               type: "number",
               name: "broadcastSmartMinimumDistance",
-              label: "Smart Position Minimum Distance",
+              label: "Jarak Minimum Posisi Cerdas",
               description:
-                "Minimum distance (in meters) that must be traveled before a position update is sent",
+                "Jarak minimum (dalam meter) yang harus ditempuh sebelum pembaruan posisi dikirim",
               disabledBy: [
                 {
                   fieldName: "positionBroadcastSmartEnabled",
@@ -141,9 +141,9 @@ export const Position = () => {
             {
               type: "number",
               name: "broadcastSmartMinimumIntervalSecs",
-              label: "Smart Position Minimum Interval",
+              label: "Interval Minimum Posisi Cerdas",
               description:
-                "Minimum interval (in seconds) that must pass before a position update is sent",
+                "Interval minimum (dalam detik) yang harus berlalu sebelum pembaruan posisi dikirim",
               disabledBy: [
                 {
                   fieldName: "positionBroadcastSmartEnabled",

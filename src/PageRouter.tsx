@@ -2,6 +2,7 @@ import MapPage from "@app/pages/Map/index.tsx";
 import { useDevice } from "@core/stores/deviceStore.ts";
 import ChannelsPage from "@pages/Channels.tsx";
 import ConfigPage from "@pages/Config/index.tsx";
+import FishDataPage from "@pages/FishData.tsx";
 import MessagesPage from "@pages/Messages.tsx";
 import NodesPage from "@pages/Nodes.tsx";
 import { ErrorBoundary } from "react-error-boundary";
@@ -22,6 +23,7 @@ export const PageRouter = () => {
       {activePage === "config" && <ConfigPage />}
       {activePage === "channels" && <ChannelsPage />}
       {activePage === "nodes" && <NodesPage />}
+      {activePage === "fishData" && <FishDataPage />}
     </ErrorBoundary>
   );
 };

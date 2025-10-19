@@ -24,20 +24,20 @@ export const StoreForward = () => {
       defaultValues={moduleConfig.storeForward}
       fieldGroups={[
         {
-          label: "Store & Forward Settings",
-          description: "Settings for the Store & Forward module",
+          label: "Pengaturan Simpan & Teruskan",
+          description: "Pengaturan untuk modul Simpan & Teruskan",
           fields: [
             {
               type: "toggle",
               name: "enabled",
-              label: "Module Enabled",
-              description: "Enable Store & Forward",
+              label: "Modul Diaktifkan",
+              description: "Aktifkan Simpan & Teruskan",
             },
             {
               type: "toggle",
               name: "heartbeat",
-              label: "Heartbeat Enabled",
-              description: "Enable Store & Forward heartbeat",
+              label: "Detak Diaktifkan",
+              description: "Aktifkan heartbeat Simpan & Teruskan",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -47,8 +47,8 @@ export const StoreForward = () => {
             {
               type: "number",
               name: "records",
-              label: "Number of records",
-              description: "Number of records to store",
+              label: "Jumlah rekaman",
+              description: "Jumlah rekaman yang disimpan",
 
               disabledBy: [
                 {
@@ -56,14 +56,14 @@ export const StoreForward = () => {
                 },
               ],
               properties: {
-                suffix: "Records",
+                suffix: "Rekaman",
               },
             },
             {
               type: "number",
               name: "historyReturnMax",
-              label: "History return max",
-              description: "Max number of records to return",
+              label: "Maksimum riwayat dikembalikan",
+              description: "Jumlah maksimum rekaman yang dikembalikan",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -73,8 +73,8 @@ export const StoreForward = () => {
             {
               type: "number",
               name: "historyReturnWindow",
-              label: "History return window",
-              description: "Max number of records to return",
+              label: "Jendela pengembalian riwayat",
+              description: "Jumlah maksimum rekaman yang dikembalikan",
               disabledBy: [
                 {
                   fieldName: "enabled",

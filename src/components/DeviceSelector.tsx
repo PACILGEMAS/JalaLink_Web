@@ -39,7 +39,7 @@ export const DeviceSelector = () => {
               <Avatar
                 text={device.nodes
                   .get(device.hardware.myNodeNum)
-                  ?.user?.shortName.toString() ?? "UNK"}
+                  ?.user?.shortName.toString() ?? "TDKT"}
               />
             </DeviceSelectorButton>
           ))}

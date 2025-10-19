@@ -1,5 +1,5 @@
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export interface TableProps {
   headings: Heading[];
@@ -17,18 +17,35 @@ export interface Heading {
  * @returns number of hopsAway or `0` if hopsAway is 'Direct'
  */
 function numericHops(hopsAway: string): number {
-  if(hopsAway.match(/direct/i)){
+  if (hopsAway.match(/direct/i) || hopsAway.match(/langsung/i)) {
     return 0;
   }
-  if ( hopsAway.match(/\d+\s+hop/gi) ) {
-    return Number( hopsAway.match(/(\d+)\s+hop/i)?.[1] );
+  if (hopsAway.match(/\d+\s+(hop|lompatan)/gi)) {
+    return Number(hopsAway.match(/(\d+)\s+(hop|lompatan)/i)?.[1]);
   }
   return Number.MAX_SAFE_INTEGER;
 }
 
 export const Table = ({ headings, rows }: TableProps) => {
-  const [sortColumn, setSortColumn] = useState<string | null>("Last Heard");
+  const getDefaultSortColumn = () => {
+    const preferred = headings.find(
+      (heading) => heading.sortable && heading.title === "Terakhir Terdengar",
+    );
+    if (preferred) {
+      return preferred.title;
+    }
+    const firstSortable = headings.find((heading) => heading.sortable);
+    return firstSortable ? firstSortable.title : null;
+  };
+
+  const [sortColumn, setSortColumn] = useState<string | null>(getDefaultSortColumn);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
+
+  useEffect(() => {
+    if (!sortColumn || !headings.some((heading) => heading.title === sortColumn)) {
+      setSortColumn(getDefaultSortColumn());
+    }
+  }, [headings, sortColumn]);
 
   const headingSort = (title: string) => {
     if (sortColumn === title) {
@@ -43,11 +60,14 @@ export const Table = ({ headings, rows }: TableProps) => {
     if (!sortColumn) return 0;
 
     const columnIndex = headings.findIndex((h) => h.title === sortColumn);
+    if (columnIndex === -1) {
+      return 0;
+    }
     const aValue = a[columnIndex].props.children;
     const bValue = b[columnIndex].props.children;
 
     // Custom comparison for 'Last Heard' column
-    if (sortColumn === "Last Heard") {
+    if (sortColumn === "Terakhir Terdengar") {
       const aTimestamp = aValue.props.timestamp ?? 0;
       const bTimestamp = bValue.props.timestamp ?? 0;
 
@@ -61,7 +81,7 @@ export const Table = ({ headings, rows }: TableProps) => {
     }
 
     // Custom comparison for 'Connection' column
-    if (sortColumn === "Connection") {
+    if (sortColumn === "Koneksi") {
       const aNumHops = numericHops(aValue instanceof Array ? aValue[0] : aValue);
       const bNumHops = numericHops(bValue instanceof Array ? bValue[0] : bValue);
       

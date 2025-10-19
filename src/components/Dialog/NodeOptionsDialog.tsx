@@ -33,9 +33,9 @@ export const NodeOptionsDialog = ({
     setActiveChat,
   } = useAppStore();
   const longName = node?.user?.longName ??
-    (node ? `!${numberToHexUnpadded(node?.num)}` : "Unknown");
+    (node ? `!${numberToHexUnpadded(node?.num)}` : "Tidak diketahui");
   const shortName = node?.user?.shortName ??
-    (node ? `${numberToHexUnpadded(node?.num).substring(0, 4)}` : "UNK");
+    (node ? `${numberToHexUnpadded(node?.num).substring(0, 4)}` : "TDKT");
 
   function handleDirectMessage() {
     if (!node) return;
@@ -47,11 +47,11 @@ export const NodeOptionsDialog = ({
   function handleRequestPosition() {
     if (!node) return;
     toast({
-      title: "Requesting position, please wait...",
+      title: "Meminta posisi, harap tunggu...",
     });
     connection?.requestPosition(node.num).then(() =>
       toast({
-        title: "Position request sent.",
+        title: "Permintaan posisi dikirim.",
       })
     );
     onOpenChange();
@@ -60,11 +60,11 @@ export const NodeOptionsDialog = ({
   function handleTraceroute() {
     if (!node) return;
     toast({
-      title: "Sending Traceroute, please wait...",
+      title: "Mengirim traceroute, harap tunggu...",
     });
     connection?.traceRoute(node.num).then(() =>
       toast({
-        title: "Traceroute sent.",
+        title: "Traceroute dikirim.",
       })
     );
     onOpenChange();
@@ -79,13 +79,13 @@ export const NodeOptionsDialog = ({
         </DialogHeader>
         <div className="flex flex-col space-y-1">
           <div>
-            <Button onClick={handleDirectMessage}>Direct Message</Button>
+            <Button onClick={handleDirectMessage}>Pesan Langsung</Button>
           </div>
           <div>
-            <Button onClick={handleRequestPosition}>Request Position</Button>
+            <Button onClick={handleRequestPosition}>Minta Posisi</Button>
           </div>
           <div>
-            <Button onClick={handleTraceroute}>Trace Route</Button>
+            <Button onClick={handleTraceroute}>Lacak Rute</Button>
           </div>
           <div>
             <Button
@@ -107,7 +107,7 @@ export const NodeOptionsDialog = ({
                 setDialogOpen("nodeDetails", true);
               }}
             >
-              More Details
+              Detail Lainnya
             </Button>
           </div>
         </div>

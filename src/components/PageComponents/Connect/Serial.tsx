@@ -48,14 +48,14 @@ export const Serial = ({ closeDialog }: TabElementProps) => {
           const { usbProductId, usbVendorId } = port.getInfo();
           return (
             <Button
-              key={`${usbVendorId ?? "UNK"}-${usbProductId ?? "UNK"}-${index}`}
+              key={`${usbVendorId ?? "TDKT"}-${usbProductId ?? "TDKT"}-${index}`}
               disabled={port.readable !== null}
               className="dark:bg-slate-900 dark:text-white"
               onClick={async () => {
                 await onConnect(port);
               }}
             >
-              {`# ${index} - ${usbVendorId ?? "UNK"} - ${usbProductId ?? "UNK"
+              {`# ${index} - ${usbVendorId ?? "TDKT"} - ${usbProductId ?? "TDKT"
                 }`}
             </Button>
           );

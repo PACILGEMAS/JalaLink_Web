@@ -46,7 +46,7 @@ export const PkiBackupDialog = ({
       printWindow.document.write(`
         <html>
           <head>
-            <title>=== MESHTASTIC KEYS ===</title>
+            <title>=== KUNCI MESHTASTIC ===</title>
             <style>
               body { font-family: Arial, sans-serif; padding: 20px; }
               h1 { font-size: 18px; }
@@ -54,14 +54,14 @@ export const PkiBackupDialog = ({
             </style>
           </head>
           <body>
-            <h1>=== MESHTASTIC KEYS ===</h1>
+            <h1>=== KUNCI MESHTASTIC ===</h1>
             <br>
-            <h2>Public Key:</h2>
+            <h2>Kunci Publik:</h2>
             <p>${decodeKeyData(publicKey)}</p>
-            <h2>Private Key:</h2>
+            <h2>Kunci Privat:</h2>
             <p>${decodeKeyData(privateKey)}</p>
             <br>
-            <p>=== END OF KEYS ===</p>
+            <p>=== AKHIR DARI KUNCI ===</p>
           </body>
         </html>
       `);
@@ -78,12 +78,12 @@ export const PkiBackupDialog = ({
     const decodedPublicKey = decodeKeyData(publicKey);
 
     const formattedContent = [
-      "=== MESHTASTIC KEYS ===\n\n",
-      "Private Key:\n",
+      "=== KUNCI MESHTASTIC ===\n\n",
+      "Kunci Privat:\n",
       decodedPrivateKey,
-      "\n\nPublic Key:\n",
+      "\n\nKunci Publik:\n",
       decodedPublicKey,
-      "\n\n=== END OF KEYS ===",
+      "\n\n=== AKHIR DARI KUNCI ===",
     ].join("");
 
     const blob = new Blob([formattedContent], { type: "text/plain" });
@@ -105,14 +105,14 @@ export const PkiBackupDialog = ({
       <DialogContent>
         <DialogClose />
         <DialogHeader>
-          <DialogTitle>Backup Keys</DialogTitle>
+          <DialogTitle>Cadangkan Kunci</DialogTitle>
           <DialogDescription>
-            Its important to backup your public and private keys and store your
-            backup securely!
+            Penting untuk mencadangkan kunci publik dan privat Anda serta menyimpan
+            cadangan tersebut dengan aman!
           </DialogDescription>
           <DialogDescription>
             <span className="font-bold break-before-auto">
-              If you lose your keys, you will need to reset your device.
+              Jika Anda kehilangan kunci, Anda harus mereset perangkat.
             </span>
           </DialogDescription>
         </DialogHeader>
@@ -123,11 +123,11 @@ export const PkiBackupDialog = ({
             className=""
           >
             <DownloadIcon size={20} className="mr-2" />
-            Download
+            Unduh
           </Button>
           <Button variant="default" onClick={() => renderPrintWindow()}>
             <PrinterIcon size={20} className="mr-2" />
-            Print
+            Cetak
           </Button>
         </DialogFooter>
       </DialogContent>

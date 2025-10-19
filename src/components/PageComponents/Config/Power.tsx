@@ -24,31 +24,31 @@ export const Power = () => {
       defaultValues={config.power}
       fieldGroups={[
         {
-          label: "Power Config",
-          description: "Settings for the power module",
+          label: "Konfigurasi Daya",
+          description: "Pengaturan untuk modul daya",
           fields: [
             {
               type: "toggle",
               name: "isPowerSaving",
-              label: "Enable power saving mode",
+              label: "Aktifkan mode hemat daya",
               description:
-                "Select if powered from a low-current source (i.e. solar), to minimize power consumption as much as possible.",
+                "Pilih jika menggunakan sumber arus rendah (mis. surya) untuk meminimalkan konsumsi daya.",
             },
             {
               type: "number",
               name: "onBatteryShutdownAfterSecs",
-              label: "Shutdown on battery delay",
+              label: "Penundaan mati saat baterai",
               description:
-                "Automatically shutdown node after this long when on battery, 0 for indefinite",
+                "Matikan node secara otomatis setelah durasi ini ketika menggunakan baterai, 0 untuk tidak terbatas",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
             },
             {
               type: "number",
               name: "adcMultiplierOverride",
-              label: "ADC Multiplier Override ratio",
-              description: "Used for tweaking battery voltage reading",
+              label: "Rasio Override Pengali ADC",
+              description: "Digunakan untuk menyesuaikan pembacaan tegangan baterai",
               properties: {
                 step: 0.0001,
               },
@@ -56,52 +56,52 @@ export const Power = () => {
             {
               type: "number",
               name: "waitBluetoothSecs",
-              label: "No Connection Bluetooth Disabled",
+              label: "Matikan Bluetooth jika tidak ada koneksi",
               description:
-                "If the device does not receive a Bluetooth connection, the BLE radio will be disabled after this long",
+                "Jika perangkat tidak menerima koneksi Bluetooth, radio BLE akan dinonaktifkan setelah durasi ini",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
             },
             {
               type: "number",
               name: "deviceBatteryInaAddress",
-              label: "INA219 Address",
-              description: "Address of the INA219 battery monitor",
+              label: "Alamat INA219",
+              description: "Alamat pemantau baterai INA219",
             },
           ],
         },
         {
-          label: "Sleep Settings",
-          description: "Sleep settings for the power module",
+          label: "Pengaturan Tidur",
+          description: "Pengaturan tidur untuk modul daya",
           fields: [
             {
               type: "number",
               name: "sdsSecs",
-              label: "Super Deep Sleep Duration",
+              label: "Durasi Tidur Super Dalam",
               description:
-                "How long the device will be in super deep sleep for",
+                "Lama perangkat berada pada kondisi tidur super dalam",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
             },
             {
               type: "number",
               name: "lsSecs",
-              label: "Light Sleep Duration",
-              description: "How long the device will be in light sleep for",
+              label: "Durasi Tidur Ringan",
+              description: "Lama perangkat berada pada kondisi tidur ringan",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
             },
             {
               type: "number",
               name: "minWakeSecs",
-              label: "Minimum Wake Time",
+              label: "Waktu Bangun Minimum",
               description:
-                "Minimum amount of time the device will stay awake for after receiving a packet",
+                "Durasi minimum perangkat tetap menyala setelah menerima paket",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
             },
           ],

@@ -24,23 +24,23 @@ export const Paxcounter = () => {
       defaultValues={moduleConfig.paxcounter}
       fieldGroups={[
         {
-          label: "Paxcounter Settings",
-          description: "Settings for the Paxcounter module",
+          label: "Pengaturan Paxcounter",
+          description: "Pengaturan untuk modul Paxcounter",
           fields: [
             {
               type: "toggle",
               name: "enabled",
-              label: "Module Enabled",
-              description: "Enable Paxcounter",
+              label: "Modul Diaktifkan",
+              description: "Aktifkan Paxcounter",
             },
             {
               type: "number",
               name: "paxcounterUpdateInterval",
-              label: "Update Interval (seconds)",
+              label: "Interval Pembaruan (detik)",
               description:
-                "How long to wait between sending paxcounter packets",
+                "Durasi jeda antar pengiriman paket paxcounter",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
               disabledBy: [
                 {

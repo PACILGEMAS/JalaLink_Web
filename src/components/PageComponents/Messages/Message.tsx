@@ -40,9 +40,9 @@ interface StatusIconProps {
 }
 
 const MESSAGE_STATES: Record<string, MessageStateValue> = {
-  ACK: { state: 'ack', icon: CheckCircle2, displayText: "Message delivered" },
-  WAITING: { state: 'waiting', icon: CircleEllipsis, displayText: "Waiting for delivery" },
-  FAILED: { state: 'failed', icon: AlertCircle, displayText: "Delivery failed" },
+  ACK: { state: 'ack', icon: CheckCircle2, displayText: "Pesan terkirim" },
+  WAITING: { state: 'waiting', icon: CircleEllipsis, displayText: "Menunggu pengiriman" },
+  FAILED: { state: 'failed', icon: AlertCircle, displayText: "Pengiriman gagal" },
 };
 
 const getMessageState = (state: MessageState): MessageStateValue => {
@@ -68,7 +68,7 @@ const StatusTooltip = ({ state, children }: StatusTooltipProps) => (
         align="center"
         sideOffset={5}
       >
-        {getMessageState(state).displayText ?? "An unknown error occurred"};
+        {getMessageState(state).displayText ?? "Terjadi kesalahan yang tidak dikenal"};
         <TooltipArrow className="fill-slate-800" />
       </TooltipContent>
     </Tooltip>
@@ -153,7 +153,7 @@ export const Message = memo(({ lastMsgSameUser, message, sender }: MessageProps)
         <div className="flex items-center gap-2 mb-2">
           {!lastMsgSameUser && (
             <div className="flex place-items-center gap-2 mb-1">
-              <Avatar text={messageUser?.shortName ?? "UNK"} />
+              <Avatar text={messageUser?.shortName ?? "Tidak diketahui"} />
               <div className="flex flex-col">
                 <span className="font-medium text-slate-900 dark:text-white truncate">
                   {messageUser?.longName}

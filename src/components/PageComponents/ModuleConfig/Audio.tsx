@@ -24,26 +24,26 @@ export const Audio = () => {
       defaultValues={moduleConfig.audio}
       fieldGroups={[
         {
-          label: "Audio Settings",
-          description: "Settings for the Audio module",
+          label: "Pengaturan Audio",
+          description: "Pengaturan untuk modul audio",
           fields: [
             {
               type: "toggle",
               name: "codec2Enabled",
-              label: "Codec 2 Enabled",
-              description: "Enable Codec 2 audio encoding",
+              label: "Codec 2 Diaktifkan",
+              description: "Aktifkan enkode audio Codec 2",
             },
             {
               type: "number",
               name: "pttPin",
-              label: "PTT Pin",
-              description: "GPIO pin to use for PTT",
+              label: "Pin PTT",
+              description: "Pin GPIO yang digunakan untuk PTT",
             },
             {
               type: "select",
               name: "bitrate",
               label: "Bitrate",
-              description: "Bitrate to use for audio encoding",
+              description: "Bitrate untuk enkode audio",
               properties: {
                 enumValue:
                   Protobuf.ModuleConfig.ModuleConfig_AudioConfig_Audio_Baud,
@@ -53,25 +53,25 @@ export const Audio = () => {
               type: "number",
               name: "i2sWs",
               label: "i2S WS",
-              description: "GPIO pin to use for i2S WS",
+              description: "Pin GPIO yang digunakan untuk i2S WS",
             },
             {
               type: "number",
               name: "i2sSd",
               label: "i2S SD",
-              description: "GPIO pin to use for i2S SD",
+              description: "Pin GPIO yang digunakan untuk i2S SD",
             },
             {
               type: "number",
               name: "i2sDin",
               label: "i2S DIN",
-              description: "GPIO pin to use for i2S DIN",
+              description: "Pin GPIO yang digunakan untuk i2S DIN",
             },
             {
               type: "number",
               name: "i2sSck",
               label: "i2S SCK",
-              description: "GPIO pin to use for i2S SCK",
+              description: "Pin GPIO yang digunakan untuk i2S SCK",
             },
           ],
         },

@@ -35,8 +35,8 @@ export const DeviceNameDialog = ({
 
   const { register, handleSubmit } = useForm<User>({
     values: {
-      longName: myNode?.user?.longName ?? "Unknown",
-      shortName: myNode?.user?.shortName ?? "Unknown",
+      longName: myNode?.user?.longName ?? "Tidak diketahui",
+      shortName: myNode?.user?.shortName ?? "Tidak diketahui",
     },
   });
 
@@ -55,16 +55,16 @@ export const DeviceNameDialog = ({
       <DialogContent>
         <DialogClose />
         <DialogHeader>
-          <DialogTitle>Change Device Name</DialogTitle>
+          <DialogTitle>Ubah Nama Perangkat</DialogTitle>
           <DialogDescription>
-            The Device will restart once the config is saved.
+            Perangkat akan memulai ulang setelah konfigurasi disimpan.
           </DialogDescription>
         </DialogHeader>
         <div className="gap-4">
           <form onSubmit={onSubmit}>
-            <Label>Long Name</Label>
+            <Label>Nama Panjang</Label>
             <Input className="dark:text-slte-900" {...register("longName")} />
-            <Label>Short Name</Label>
+            <Label>Nama Pendek</Label>
             <Input
               className="dark:text-slte-900"
               maxLength={4}
@@ -73,7 +73,7 @@ export const DeviceNameDialog = ({
           </form>
         </div>
         <DialogFooter>
-          <Button onClick={() => onSubmit()}>Save</Button>
+          <Button onClick={() => onSubmit()}>Simpan</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -30,9 +30,9 @@ export const TracerouteResponseDialog = ({
   const snrBack = traceroute?.data.snrBack ?? [];
   const from = nodes.get(traceroute?.from ?? 0);
   const longName = from?.user?.longName ??
-    (from ? `!${numberToHexUnpadded(from?.num)}` : "Unknown");
+    (from ? `!${numberToHexUnpadded(from?.num)}` : "Tidak diketahui");
   const shortName = from?.user?.shortName ??
-    (from ? `${numberToHexUnpadded(from?.num).substring(0, 4)}` : "UNK");
+    (from ? `${numberToHexUnpadded(from?.num).substring(0, 4)}` : "TDKT");
   const to = nodes.get(traceroute?.to ?? 0);
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>

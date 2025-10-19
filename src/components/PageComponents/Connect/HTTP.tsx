@@ -57,7 +57,7 @@ export const HTTP = ({ closeDialog }: TabElementProps) => {
     <form className="flex w-full flex-col gap-2 p-4" onSubmit={onSubmit}>
       <div className="flex h-48 flex-col gap-2">
         <div>
-          <Label>IP Address/Hostname</Label>
+          <Label>Alamat IP/Nama host</Label>
           <Input
             prefix={tlsValue ? "https://" : "http://"}
             placeholder="000.000.000.000 / meshtastic.local"

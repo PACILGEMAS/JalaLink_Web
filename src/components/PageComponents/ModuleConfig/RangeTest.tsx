@@ -24,22 +24,22 @@ export const RangeTest = () => {
       defaultValues={moduleConfig.rangeTest}
       fieldGroups={[
         {
-          label: "Range Test Settings",
-          description: "Settings for the Range Test module",
+          label: "Pengaturan Uji Jarak",
+          description: "Pengaturan untuk modul uji jarak",
           fields: [
             {
               type: "toggle",
               name: "enabled",
-              label: "Module Enabled",
-              description: "Enable Range Test",
+              label: "Modul Diaktifkan",
+              description: "Aktifkan uji jarak",
             },
             {
               type: "number",
               name: "sender",
-              label: "Message Interval",
-              description: "How long to wait between sending test packets",
+              label: "Interval Pesan",
+              description: "Durasi jeda antar pengiriman paket uji",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
               disabledBy: [
                 {
@@ -50,8 +50,8 @@ export const RangeTest = () => {
             {
               type: "toggle",
               name: "save",
-              label: "Save CSV to storage",
-              description: "ESP32 Only",
+              label: "Simpan CSV ke penyimpanan",
+              description: "Hanya untuk ESP32",
               disabledBy: [
                 {
                   fieldName: "enabled",

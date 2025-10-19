@@ -22,9 +22,9 @@ export const RefreshKeysDialog = ({ open, onOpenChange }: RefreshKeysDialogProps
       <DialogContent className="max-w-8 flex flex-col gap-2">
         <DialogClose onClick={handleCloseDialog} />
         <DialogHeader>
-          <DialogTitle>Keys Mismatch</DialogTitle>
+          <DialogTitle>Kunci tidak cocok</DialogTitle>
         </DialogHeader>
-        Your node is unable to send a direct message to this node. This is due to the remote node's current public key not matching the previously stored key for this node.
+        Nelayan Anda tidak dapat mengirim pesan langsung ke nelayan ini karena kunci publik saat ini di nelayan tujuan tidak cocok dengan kunci yang tersimpan sebelumnya.
         <ul className="mt-2">
           <li className="flex place-items-center gap-2 items-start">
             <div className="p-2 bg-slate-500 rounded-lg mt-1">
@@ -32,9 +32,9 @@ export const RefreshKeysDialog = ({ open, onOpenChange }: RefreshKeysDialogProps
             </div>
             <div className="flex flex-col gap-2">
               <div>
-                <p className="font-bold mb-0.5">Accept New Keys</p>
+                <p className="font-bold mb-0.5">Terima kunci baru</p>
                 <p>
-                  This will remove the node from device and request new keys.
+                  Tindakan ini akan menghapus nelayan dari perangkat dan meminta kunci baru.
                 </p>
               </div>
               <Button
@@ -42,14 +42,14 @@ export const RefreshKeysDialog = ({ open, onOpenChange }: RefreshKeysDialogProps
                 onClick={handleNodeRemove}
                 className=""
               >
-                Request New Keys
+                Minta kunci baru
               </Button>
               <Button
                 variant="outline"
                 onClick={handleCloseDialog}
                 className=""
               >
-                Dismiss
+                Tutup
               </Button>
             </div>
           </li>

@@ -30,9 +30,9 @@ export const RebootDialog = ({
       <DialogContent>
         <DialogClose />
         <DialogHeader>
-          <DialogTitle>Schedule Reboot</DialogTitle>
+          <DialogTitle>Jadwalkan Mulai Ulang</DialogTitle>
           <DialogDescription>
-            Reboot the connected node after x minutes.
+            Mulai ulang nelayan yang terhubung setelah x menit.
           </DialogDescription>
         </DialogHeader>
         <div className="flex gap-2 p-4">
@@ -55,7 +55,7 @@ export const RebootDialog = ({
             }}
           >
             <RefreshCwIcon className="mr-2" size={16} />
-            Now
+            Sekarang
           </Button>
         </div>
       </DialogContent>

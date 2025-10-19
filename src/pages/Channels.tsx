@@ -17,8 +17,8 @@ export const getChannelName = (channel: Protobuf.Channel.Channel) =>
   channel.settings?.name.length
     ? channel.settings?.name
     : channel.index === 0
-    ? "Primary"
-    : `Ch ${channel.index}`;
+    ? "Utama"
+    : `Kanal ${channel.index}`;
 
 const ChannelsPage = () => {
   const { channels, setDialogOpen } = useDevice();
@@ -33,8 +33,8 @@ const ChannelsPage = () => {
     <>
       <Sidebar />
       <PageLayout
-        label={`Channel: ${
-          currentChannel ? getChannelName(currentChannel) : "Loading..."
+        label={`Kanal: ${
+          currentChannel ? getChannelName(currentChannel) : "Memuat..."
         }`}
         actions={[
           {

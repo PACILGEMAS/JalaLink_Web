@@ -24,21 +24,21 @@ export const Serial = () => {
       defaultValues={moduleConfig.serial}
       fieldGroups={[
         {
-          label: "Serial Settings",
-          description: "Settings for the Serial module",
+          label: "Pengaturan Serial",
+          description: "Pengaturan untuk modul serial",
           fields: [
             {
               type: "toggle",
               name: "enabled",
-              label: "Module Enabled",
-              description: "Enable Serial output",
+              label: "Modul Diaktifkan",
+              description: "Aktifkan keluaran serial",
             },
             {
               type: "toggle",
               name: "echo",
               label: "Echo",
               description:
-                "Any packets you send will be echoed back to your device",
+                "Setiap paket yang Anda kirim akan dikirim balik ke perangkat",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -48,8 +48,8 @@ export const Serial = () => {
             {
               type: "number",
               name: "rxd",
-              label: "Receive Pin",
-              description: "Set the GPIO pin to the RXD pin you have set up.",
+              label: "Pin Terima",
+              description: "Atur pin GPIO sesuai pin RXD yang digunakan.",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -59,8 +59,8 @@ export const Serial = () => {
             {
               type: "number",
               name: "txd",
-              label: "Transmit Pin",
-              description: "Set the GPIO pin to the TXD pin you have set up.",
+              label: "Pin Transmisi",
+              description: "Atur pin GPIO sesuai pin TXD yang digunakan.",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -70,8 +70,8 @@ export const Serial = () => {
             {
               type: "select",
               name: "baud",
-              label: "Baud Rate",
-              description: "The serial baud rate",
+              label: "Laju Baud",
+              description: "Laju baud serial",
 
               disabledBy: [
                 {
@@ -86,24 +86,24 @@ export const Serial = () => {
             {
               type: "number",
               name: "timeout",
-              label: "Timeout",
+              label: "Batas Waktu",
 
               description:
-                "Seconds to wait before we consider your packet as 'done'",
+                "Waktu tunggu (detik) sebelum paket dianggap selesai",
               disabledBy: [
                 {
                   fieldName: "enabled",
                 },
               ],
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
             },
             {
               type: "select",
               name: "mode",
               label: "Mode",
-              description: "Select Mode",
+              description: "Pilih mode",
 
               disabledBy: [
                 {
@@ -119,9 +119,9 @@ export const Serial = () => {
             {
               type: "toggle",
               name: "overrideConsoleSerialPort",
-              label: "Override Console Serial Port",
+              label: "Override Port Serial Konsol",
               description:
-                "If you have a serial port connected to the console, this will override it.",
+                "Jika ada port serial yang terhubung ke konsol, opsi ini akan menimpanya.",
             },
           ],
         },

@@ -30,21 +30,21 @@ export const MQTT = () => {
       defaultValues={moduleConfig.mqtt}
       fieldGroups={[
         {
-          label: "MQTT Settings",
-          description: "Settings for the MQTT module",
+          label: "Pengaturan MQTT",
+          description: "Pengaturan untuk modul MQTT",
           fields: [
             {
               type: "toggle",
               name: "enabled",
-              label: "Enabled",
-              description: "Enable or disable MQTT",
+              label: "Diaktifkan",
+              description: "Aktifkan atau nonaktifkan MQTT",
             },
             {
               type: "text",
               name: "address",
-              label: "MQTT Server Address",
+              label: "Alamat Server MQTT",
               description:
-                "MQTT server address to use for default/custom servers",
+                "Alamat server MQTT untuk server bawaan atau kustom",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -54,8 +54,8 @@ export const MQTT = () => {
             {
               type: "text",
               name: "username",
-              label: "MQTT Username",
-              description: "MQTT username to use for default/custom servers",
+              label: "Nama Pengguna MQTT",
+              description: "Nama pengguna MQTT untuk server bawaan atau kustom",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -65,8 +65,8 @@ export const MQTT = () => {
             {
               type: "password",
               name: "password",
-              label: "MQTT Password",
-              description: "MQTT password to use for default/custom servers",
+              label: "Kata Sandi MQTT",
+              description: "Kata sandi MQTT untuk server bawaan atau kustom",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -76,9 +76,9 @@ export const MQTT = () => {
             {
               type: "toggle",
               name: "encryptionEnabled",
-              label: "Encryption Enabled",
+              label: "Enkripsi Diaktifkan",
               description:
-                "Enable or disable MQTT encryption. Note: All messages are sent to the MQTT broker unencrypted if this option is not enabled, even when your uplink channels have encryption keys set. This includes position data.",
+                "Aktifkan atau nonaktifkan enkripsi MQTT. Catatan: Semua pesan dikirim ke broker MQTT tanpa enkripsi jika opsi ini tidak diaktifkan, bahkan ketika kanal uplink Anda memiliki kunci enkripsi. Ini termasuk data posisi.",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -88,8 +88,8 @@ export const MQTT = () => {
             {
               type: "toggle",
               name: "jsonEnabled",
-              label: "JSON Enabled",
-              description: "Whether to send/consume JSON packets on MQTT",
+              label: "JSON Diaktifkan",
+              description: "Apakah mengirim/menerima paket JSON di MQTT",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -99,8 +99,8 @@ export const MQTT = () => {
             {
               type: "toggle",
               name: "tlsEnabled",
-              label: "TLS Enabled",
-              description: "Enable or disable TLS",
+              label: "TLS Diaktifkan",
+              description: "Aktifkan atau nonaktifkan TLS",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -110,8 +110,8 @@ export const MQTT = () => {
             {
               type: "text",
               name: "root",
-              label: "Root topic",
-              description: "MQTT root topic to use for default/custom servers",
+              label: "Topik Root",
+              description: "Topik root MQTT untuk server bawaan atau kustom",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -121,9 +121,9 @@ export const MQTT = () => {
             {
               type: "toggle",
               name: "proxyToClientEnabled",
-              label: "Proxy to Client Enabled",
+              label: "Proxy ke Klien Diaktifkan",
               description:
-                "Use the client's internet connection for MQTT (feature only active in mobile apps)",
+                "Gunakan koneksi internet klien untuk MQTT (fitur hanya aktif di aplikasi seluler)",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -133,8 +133,8 @@ export const MQTT = () => {
             {
               type: "toggle",
               name: "mapReportingEnabled",
-              label: "Map Reporting Enabled",
-              description: "Enable or disable map reporting",
+              label: "Pelaporan Peta Diaktifkan",
+              description: "Aktifkan atau nonaktifkan pelaporan peta",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -144,10 +144,10 @@ export const MQTT = () => {
             {
               type: "number",
               name: "mapReportSettings.publishIntervalSecs",
-              label: "Map Report Publish Interval (s)",
-              description: "Interval in seconds to publish map reports",
+              label: "Interval Publikasi Laporan Peta (detik)",
+              description: "Interval dalam detik untuk menerbitkan laporan peta",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
               disabledBy: [
                 {
@@ -161,34 +161,34 @@ export const MQTT = () => {
             {
               type: "select",
               name: "mapReportSettings.positionPrecision",
-              label: "Approximate Location",
+              label: "Perkiraan Lokasi",
               description:
-                "Position shared will be accurate within this distance",
+                "Posisi yang dibagikan akan akurat dalam jarak ini",
               properties: {
                 enumValue: config.display?.units === 0
                   ? {
-                    "Within 23 km": 10,
-                    "Within 12 km": 11,
-                    "Within 5.8 km": 12,
-                    "Within 2.9 km": 13,
-                    "Within 1.5 km": 14,
-                    "Within 700 m": 15,
-                    "Within 350 m": 16,
-                    "Within 200 m": 17,
-                    "Within 90 m": 18,
-                    "Within 50 m": 19,
+                    "Dalam 23 km": 10,
+                    "Dalam 12 km": 11,
+                    "Dalam 5,8 km": 12,
+                    "Dalam 2,9 km": 13,
+                    "Dalam 1,5 km": 14,
+                    "Dalam 700 m": 15,
+                    "Dalam 350 m": 16,
+                    "Dalam 200 m": 17,
+                    "Dalam 90 m": 18,
+                    "Dalam 50 m": 19,
                   }
                   : {
-                    "Within 15 miles": 10,
-                    "Within 7.3 miles": 11,
-                    "Within 3.6 miles": 12,
-                    "Within 1.8 miles": 13,
-                    "Within 0.9 miles": 14,
-                    "Within 0.5 miles": 15,
-                    "Within 0.2 miles": 16,
-                    "Within 600 feet": 17,
-                    "Within 300 feet": 18,
-                    "Within 150 feet": 19,
+                    "Dalam 15 mil": 10,
+                    "Dalam 7,3 mil": 11,
+                    "Dalam 3,6 mil": 12,
+                    "Dalam 1,8 mil": 13,
+                    "Dalam 0,9 mil": 14,
+                    "Dalam 0,5 mil": 15,
+                    "Dalam 0,2 mil": 16,
+                    "Dalam 600 kaki": 17,
+                    "Dalam 300 kaki": 18,
+                    "Dalam 150 kaki": 19,
                   },
               },
               disabledBy: [

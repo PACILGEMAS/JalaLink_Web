@@ -24,23 +24,23 @@ export const Display = () => {
       defaultValues={config.display}
       fieldGroups={[
         {
-          label: "Display Settings",
-          description: "Settings for the device display",
+          label: "Pengaturan Tampilan",
+          description: "Pengaturan untuk tampilan perangkat",
           fields: [
             {
               type: "number",
               name: "screenOnSecs",
-              label: "Screen Timeout",
-              description: "Turn off the display after this long",
+              label: "Waktu tunggu layar",
+              description: "Matikan layar setelah durasi ini",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
             },
             {
               type: "select",
               name: "gpsFormat",
-              label: "GPS Display Units",
-              description: "Coordinate display format",
+              label: "Satuan tampilan GPS",
+              description: "Format tampilan koordinat",
               properties: {
                 enumValue:
                   Protobuf.Config.Config_DisplayConfig_GpsCoordinateFormat,
@@ -49,29 +49,29 @@ export const Display = () => {
             {
               type: "number",
               name: "autoScreenCarouselSecs",
-              label: "Carousel Delay",
-              description: "How fast to cycle through windows",
+              label: "Jeda karusel",
+              description: "Kecepatan pergantian jendela",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
             },
             {
               type: "toggle",
               name: "compassNorthTop",
-              label: "Compass North Top",
-              description: "Fix north to the top of compass",
+              label: "Kompas Utara di Atas",
+              description: "Tetapkan arah utara di bagian atas kompas",
             },
             {
               type: "toggle",
               name: "flipScreen",
-              label: "Flip Screen",
-              description: "Flip display 180 degrees",
+              label: "Balik Layar",
+              description: "Balik tampilan 180 derajat",
             },
             {
               type: "select",
               name: "units",
-              label: "Display Units",
-              description: "Display metric or imperial units",
+              label: "Satuan Tampilan",
+              description: "Tampilkan satuan metrik atau imperial",
               properties: {
                 enumValue: Protobuf.Config.Config_DisplayConfig_DisplayUnits,
                 formatEnumName: true,
@@ -80,8 +80,8 @@ export const Display = () => {
             {
               type: "select",
               name: "oled",
-              label: "OLED Type",
-              description: "Type of OLED screen attached to the device",
+              label: "Jenis OLED",
+              description: "Jenis layar OLED pada perangkat",
               properties: {
                 enumValue: Protobuf.Config.Config_DisplayConfig_OledType,
               },
@@ -89,8 +89,8 @@ export const Display = () => {
             {
               type: "select",
               name: "displaymode",
-              label: "Display Mode",
-              description: "Screen layout variant",
+              label: "Mode Tampilan",
+              description: "Variasi tata letak layar",
               properties: {
                 enumValue: Protobuf.Config.Config_DisplayConfig_DisplayMode,
                 formatEnumName: true,
@@ -99,14 +99,14 @@ export const Display = () => {
             {
               type: "toggle",
               name: "headingBold",
-              label: "Bold Heading",
-              description: "Bolden the heading text",
+              label: "Judul Tebal",
+              description: "Tebalkan teks judul",
             },
             {
               type: "toggle",
               name: "wakeOnTapOrMotion",
-              label: "Wake on Tap or Motion",
-              description: "Wake the device on tap or motion",
+              label: "Bangun saat Ketuk atau Gerakan",
+              description: "Bangunkan perangkat ketika diketuk atau digerakkan",
             },
           ],
         },

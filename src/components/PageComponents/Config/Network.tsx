@@ -51,22 +51,22 @@ export const Network = () => {
       }}
       fieldGroups={[
         {
-          label: "WiFi Config",
-          description: "WiFi radio configuration",
+          label: "Konfigurasi WiFi",
+          description: "Konfigurasi radio WiFi",
           notes:
-            "Note: Some devices (ESP32) cannot use both Bluetooth and WiFi at the same time.",
+            "Catatan: Beberapa perangkat (ESP32) tidak dapat memakai Bluetooth dan WiFi secara bersamaan.",
           fields: [
             {
               type: "toggle",
               name: "wifiEnabled",
-              label: "Enabled",
-              description: "Enable or disable the WiFi radio",
+              label: "Diaktifkan",
+              description: "Aktifkan atau nonaktifkan radio WiFi",
             },
             {
               type: "text",
               name: "wifiSsid",
               label: "SSID",
-              description: "Network name",
+              description: "Nama jaringan",
               disabledBy: [
                 {
                   fieldName: "wifiEnabled",
@@ -77,7 +77,7 @@ export const Network = () => {
               type: "password",
               name: "wifiPsk",
               label: "PSK",
-              description: "Network password",
+              description: "Kata sandi jaringan",
               disabledBy: [
                 {
                   fieldName: "wifiEnabled",
@@ -87,26 +87,26 @@ export const Network = () => {
           ],
         },
         {
-          label: "Ethernet Config",
-          description: "Ethernet port configuration",
+          label: "Konfigurasi Ethernet",
+          description: "Konfigurasi port Ethernet",
           fields: [
             {
               type: "toggle",
               name: "ethEnabled",
-              label: "Enabled",
-              description: "Enable or disable the Ethernet port",
+              label: "Diaktifkan",
+              description: "Aktifkan atau nonaktifkan port Ethernet",
             },
           ],
         },
         {
-          label: "IP Config",
-          description: "IP configuration",
+          label: "Konfigurasi IP",
+          description: "Konfigurasi IP",
           fields: [
             {
               type: "select",
               name: "addressMode",
-              label: "Address Mode",
-              description: "Address assignment selection",
+              label: "Mode Alamat",
+              description: "Pilihan penetapan alamat",
               properties: {
                 enumValue: Protobuf.Config.Config_NetworkConfig_AddressMode,
               },
@@ -115,7 +115,7 @@ export const Network = () => {
               type: "text",
               name: "ipv4Config.ip",
               label: "IP",
-              description: "IP Address",
+              description: "Alamat IP",
               disabledBy: [
                 {
                   fieldName: "addressMode",
@@ -128,7 +128,7 @@ export const Network = () => {
               type: "text",
               name: "ipv4Config.gateway",
               label: "Gateway",
-              description: "Default Gateway",
+              description: "Gateway utama",
               disabledBy: [
                 {
                   fieldName: "addressMode",
@@ -141,7 +141,7 @@ export const Network = () => {
               type: "text",
               name: "ipv4Config.subnet",
               label: "Subnet",
-              description: "Subnet Mask",
+              description: "Masker subnet",
               disabledBy: [
                 {
                   fieldName: "addressMode",
@@ -154,7 +154,7 @@ export const Network = () => {
               type: "text",
               name: "ipv4Config.dns",
               label: "DNS",
-              description: "DNS Server",
+              description: "Server DNS",
               disabledBy: [
                 {
                   fieldName: "addressMode",
@@ -166,8 +166,8 @@ export const Network = () => {
           ],
         },
         {
-          label: "NTP Config",
-          description: "NTP configuration",
+          label: "Konfigurasi NTP",
+          description: "Konfigurasi NTP",
           fields: [
             {
               type: "text",
@@ -177,8 +177,8 @@ export const Network = () => {
           ],
         },
         {
-          label: "Rsyslog Config",
-          description: "Rsyslog configuration",
+          label: "Konfigurasi Rsyslog",
+          description: "Konfigurasi Rsyslog",
           fields: [
             {
               type: "text",

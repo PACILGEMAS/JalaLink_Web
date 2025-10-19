@@ -37,11 +37,10 @@ export const UnsafeRolesDialog = ({ open, onOpenChange }: RouterRoleDialogProps)
       <DialogContent className="max-w-8 flex flex-col">
         <DialogClose onClick={() => handleCloseDialog('dismiss')} />
         <DialogHeader>
-          <DialogTitle>Are you sure?</DialogTitle>
+          <DialogTitle>Apakah Anda yakin?</DialogTitle>
         </DialogHeader>
         <DialogDescription className="text-md">
-          I have read the <Link href={deviceRoleLink} className="">Device Role Documentation</Link>{" "}
-          and the blog post about <Link href={choosingTheRightDeviceRoleLink}>Choosing The Right Device Role</Link> and understand the implications of changing the role.
+          Saya telah membaca <Link href={deviceRoleLink} className="">Dokumentasi Peran Perangkat</Link> dan artikel <Link href={choosingTheRightDeviceRoleLink}>Memilih Peran Perangkat yang Tepat</Link> serta memahami implikasi mengubah peran.
         </DialogDescription>
         <div className="flex items-center gap-2">
           <Checkbox
@@ -49,20 +48,20 @@ export const UnsafeRolesDialog = ({ open, onOpenChange }: RouterRoleDialogProps)
             checked={confirmState}
             onChange={() => setConfirmState(!confirmState)}
           >
-            Yes, I know what I'm doing
+            Ya, saya memahami tindakannya
           </Checkbox>
         </div>
         <DialogFooter className="mt-6">
           <Button
             variant="default"
             name="dismiss"
-            onClick={() => handleCloseDialog('dismiss')}> Dismiss
+            onClick={() => handleCloseDialog('dismiss')}> Tutup
           </Button>
           <Button
             variant="default"
             name="confirm"
             disabled={!confirmState}
-            onClick={() => handleCloseDialog('confirm')}> Confirm
+            onClick={() => handleCloseDialog('confirm')}> Konfirmasi
           </Button>
         </DialogFooter>
       </DialogContent>

@@ -16,6 +16,7 @@ import {
   BugIcon,
   EraserIcon,
   FactoryIcon,
+  FishIcon,
   LayersIcon,
   LinkIcon,
   type LucideIcon,
@@ -65,25 +66,32 @@ export const CommandPalette = () => {
 
   const groups: Group[] = [
     {
-      label: "Goto",
+      label: "Buka",
       icon: LinkIcon,
       commands: [
         {
-          label: "Messages",
+          label: "Pesan",
           icon: MessageSquareIcon,
           action() {
             setActivePage("messages");
           },
         },
         {
-          label: "Map",
+          label: "Peta",
           icon: MapIcon,
           action() {
             setActivePage("map");
           },
         },
         {
-          label: "Config",
+          label: "Data Ikan",
+          icon: FishIcon,
+          action() {
+            setActivePage("fishData");
+          },
+        },
+        {
+          label: "Konfigurasi",
           icon: SettingsIcon,
           action() {
             setActivePage("config");
@@ -91,14 +99,14 @@ export const CommandPalette = () => {
           tags: ["settings"],
         },
         {
-          label: "Channels",
+          label: "Kanal",
           icon: LayersIcon,
           action() {
             setActivePage("channels");
           },
         },
         {
-          label: "Nodes",
+          label: "Nelayan",
           icon: UsersIcon,
           action() {
             setActivePage("nodes");
@@ -107,11 +115,11 @@ export const CommandPalette = () => {
       ],
     },
     {
-      label: "Manage",
+      label: "Kelola",
       icon: SmartphoneIcon,
       commands: [
         {
-          label: "Switch Node",
+          label: "Ganti Nelayan",
           icon: ArrowLeftRightIcon,
           subItems: getDevices().map((device) => {
             return {
@@ -131,7 +139,7 @@ export const CommandPalette = () => {
           }),
         },
         {
-          label: "Connect New Node",
+          label: "Hubungkan Nelayan Baru",
           icon: PlusIcon,
           action() {
             setSelectedDevice(0);
@@ -140,22 +148,22 @@ export const CommandPalette = () => {
       ],
     },
     {
-      label: "Contextual",
+      label: "Kontekstual",
       icon: BoxSelectIcon,
       commands: [
         {
-          label: "QR Code",
+          label: "Kode QR",
           icon: QrCodeIcon,
           subItems: [
             {
-              label: "Generator",
+              label: "Pembuat",
               icon: <QrCodeIcon size={16} />,
               action() {
                 setDialogOpen("QR", true);
               },
             },
             {
-              label: "Import",
+              label: "Impor",
               icon: <QrCodeIcon size={16} />,
               action() {
                 setDialogOpen("import", true);
@@ -164,7 +172,7 @@ export const CommandPalette = () => {
           ],
         },
         {
-          label: "Disconnect",
+          label: "Putuskan Koneksi",
           icon: XCircleIcon,
           action() {
             void connection?.disconnect();
@@ -173,35 +181,35 @@ export const CommandPalette = () => {
           },
         },
         {
-          label: "Schedule Shutdown",
+          label: "Jadwalkan Matikan",
           icon: PowerIcon,
           action() {
             setDialogOpen("shutdown", true);
           },
         },
         {
-          label: "Schedule Reboot",
+          label: "Jadwalkan Mulai Ulang",
           icon: RefreshCwIcon,
           action() {
             setDialogOpen("reboot", true);
           },
         },
         {
-          label: "Reset Nodes",
+          label: "Setel Ulang Nelayan",
           icon: TrashIcon,
           action() {
             connection?.resetNodes();
           },
         },
         {
-          label: "Factory Reset Device",
+          label: "Reset Pabrik Perangkat",
           icon: FactoryIcon,
           action() {
             connection?.factoryResetDevice();
           },
         },
         {
-          label: "Factory Reset Config",
+          label: "Reset Pabrik Konfigurasi",
           icon: FactoryIcon,
           action() {
             connection?.factoryResetConfig();
@@ -214,17 +222,17 @@ export const CommandPalette = () => {
       icon: BugIcon,
       commands: [
         {
-          label: "Reconfigure",
+          label: "Konfigurasi Ulang",
           icon: RefreshCwIcon,
           action() {
             void connection?.configure();
           },
         },
         {
-          label: "[WIP] Clear Messages",
+          label: "[WIP] Hapus Pesan",
           icon: EraserIcon,
           action() {
-            alert("This feature is not implemented");
+            alert("Fitur ini belum tersedia");
           },
         },
       ],
@@ -248,9 +256,9 @@ export const CommandPalette = () => {
       open={commandPaletteOpen}
       onOpenChange={setCommandPaletteOpen}
     >
-      <CommandInput placeholder="Type a command or search..." />
+      <CommandInput placeholder="Ketik perintah atau cari..." />
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandEmpty>Tidak ada hasil.</CommandEmpty>
         {groups.map((group) => (
           <CommandGroup key={group.label} heading={group.label}>
             {group.commands.map((command) => (

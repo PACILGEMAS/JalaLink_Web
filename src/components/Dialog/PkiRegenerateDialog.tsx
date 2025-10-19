@@ -25,14 +25,14 @@ export const PkiRegenerateDialog = ({
       <DialogContent>
         <DialogClose />
         <DialogHeader>
-          <DialogTitle>Regenerate Key pair?</DialogTitle>
+          <DialogTitle>Buat ulang pasangan kunci?</DialogTitle>
           <DialogDescription>
-            Are you sure you want to regenerate key pair?
+            Apakah Anda yakin ingin membuat ulang pasangan kunci?
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
           <Button variant="destructive" onClick={() => onSubmit()}>
-            Regenerate
+            Buat ulang
           </Button>
         </DialogFooter>
       </DialogContent>

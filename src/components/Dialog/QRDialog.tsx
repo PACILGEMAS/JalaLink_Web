@@ -65,9 +65,9 @@ export const QRDialog = ({
       <DialogContent>
         <DialogClose />
         <DialogHeader>
-          <DialogTitle>Generate QR Code</DialogTitle>
+          <DialogTitle>Buat Kode QR</DialogTitle>
           <DialogDescription>
-            The current LoRa configuration will also be shared.
+            Konfigurasi LoRa saat ini juga akan dibagikan.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
@@ -78,9 +78,9 @@ export const QRDialog = ({
                   <Label>
                     {channel.settings?.name.length
                       ? channel.settings.name
-                      : channel.role === Protobuf.Channel.Channel_Role.PRIMARY
-                        ? "Primary"
-                        : `Channel: ${channel.index}`}
+                      : channel.role === Protobuf.Channel.Channel_Role.Utama
+                        ? "Utama"
+                        : `Kanal: ${channel.index}`}
                   </Label>
                   <Checkbox
                     key={channel.index}
@@ -114,7 +114,7 @@ export const QRDialog = ({
                 }`}
               onClick={() => setQrCodeAdd(true)}
             >
-              Add Channels
+              Tambah Kanal
             </button>
             <button
               type="button"
@@ -124,12 +124,12 @@ export const QRDialog = ({
                 }`}
               onClick={() => setQrCodeAdd(false)}
             >
-              Replace Channels
+              Ganti Kanal
             </button>
           </div>
         </div>
         <DialogFooter>
-          <Label>Sharable URL</Label>
+          <Label>URL yang dapat dibagikan</Label>
           <Input
             value={qrCodeUrl}
             disabled

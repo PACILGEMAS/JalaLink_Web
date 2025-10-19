@@ -39,25 +39,25 @@ export const NodeDetailsDialog = ({
   const deviceMetricsMap = [
     {
       key: "airUtilTx",
-      label: "Air TX utilization",
+      label: "Utilisasi TX udara",
       value: device.deviceMetrics?.airUtilTx,
       format: (val: number) => `${val.toFixed(2)}%`,
     },
     {
       key: "channelUtilization",
-      label: "Channel utilization",
+      label: "Utilisasi kanal",
       value: device.deviceMetrics?.channelUtilization,
       format: (val: number) => `${val.toFixed(2)}%`,
     },
     {
       key: "batteryLevel",
-      label: "Battery level",
+      label: "Tingkat baterai",
       value: device.deviceMetrics?.batteryLevel,
       format: (val: number) => `${val.toFixed(2)}%`,
     },
     {
       key: "voltage",
-      label: "Voltage",
+      label: "Tegangan",
       value: device.deviceMetrics?.voltage,
       format: (val: number) => `${val.toFixed(2)}V`,
     },
@@ -69,8 +69,8 @@ export const NodeDetailsDialog = ({
         <DialogClose />
         <DialogHeader>
           <DialogTitle>
-            Node Details for {device.user?.longName ?? "UNKNOWN"} (
-            {device.user?.shortName ?? "UNK"})
+            Detail Nelayan untuk {device.user?.longName ?? "Tidak diketahui"} (
+            {device.user?.shortName ?? "TDKT"})
           </DialogTitle>
         </DialogHeader>
         <DialogFooter>
@@ -83,15 +83,15 @@ export const NodeDetailsDialog = ({
                 }
               />
               <div className="bg-slate-100 text-slate-900 dark:text-slate-100 dark:bg-slate-800 p-3 rounded-lg mt-3">
-                <p className="text-lg font-semibold">Details:</p>
+                <p className="text-lg font-semibold">Detail:</p>
                 <p>
-                  Hardware:{" "}
+                  Perangkat keras:{" "}
                   {Protobuf.Mesh.HardwareModel[device.user?.hwModel ?? 0]}
                 </p>
-                <p>Node Number: {device.num}</p>
-                <p>Node Hex: !{numberToHexUnpadded(device.num)}</p>
+                <p>Nomor Nelayan: {device.num}</p>
+                <p>Hex Nelayan: !{numberToHexUnpadded(device.num)}</p>
                 <p>
-                  Role:{" "}
+                  Peran:{" "}
                   {
                     Protobuf.Config.Config_DeviceConfig_Role[
                     device.user?.role ?? 0
@@ -99,17 +99,17 @@ export const NodeDetailsDialog = ({
                   }
                 </p>
                 <p>
-                  Last Heard:{" "}
-                  {device.lastHeard === 0 ? "Never" : <TimeAgo timestamp={device.lastHeard * 1000} />}
+                  Terakhir terdengar:{" "}
+                  {device.lastHeard === 0 ? "Tidak pernah" : <TimeAgo timestamp={device.lastHeard * 1000} />}
                 </p>
               </div>
 
               {device.position && (
                 <div className="text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 p-3 rounded-lg mt-3">
-                  <p className="text-lg font-semibold">Position:</p>
+                  <p className="text-lg font-semibold">Posisi:</p>
                   {device.position.latitudeI && device.position.longitudeI && (
                     <p>
-                      Coordinates:{" "}
+                      Koordinat:{" "}
                       <a
                         className="text-blue-500 dark:text-blue-400"
                         href={`https://www.openstreetmap.org/?mlat=${device.position.latitudeI / 1e7
@@ -124,7 +124,7 @@ export const NodeDetailsDialog = ({
                     </p>
                   )}
                   {device.position.altitude && (
-                    <p>Altitude: {device.position.altitude}m</p>
+                    <p>Ketinggian: {device.position.altitude}m</p>
                   )}
                 </div>
               )}
@@ -132,7 +132,7 @@ export const NodeDetailsDialog = ({
               {device.deviceMetrics && (
                 <div className="text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 p-3 rounded-lg mt-3">
                   <p className="text-lg font-semibold text-slate-900 dark:text-slate-50">
-                    Device Metrics:
+                    Metrik perangkat:
                   </p>
                   {deviceMetricsMap.map(
                     (metric) =>
@@ -144,7 +144,7 @@ export const NodeDetailsDialog = ({
                   )}
                   {device.deviceMetrics.uptimeSeconds && (
                     <p>
-                      Uptime:{" "}
+                      Waktu berjalan:{" "}
                       <Uptime seconds={device.deviceMetrics.uptimeSeconds} />
                     </p>
                   )}
@@ -158,7 +158,7 @@ export const NodeDetailsDialog = ({
                 <AccordionItem className="AccordionItem" value="item-1">
                   <AccordionTrigger>
                     <p className="text-lg font-semibold text-slate-900 dark:text-slate-50">
-                      All Raw Metrics:
+                      Semua metrik mentah:
                     </p>
                   </AccordionTrigger>
                   <AccordionContent className="overflow-x-scroll">

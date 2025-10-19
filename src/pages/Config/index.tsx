@@ -23,8 +23,8 @@ const ConfigPage = () => {
   const handleSave = async () => {
     if (hasErrors()) {
       return toast({
-        title: "Config Errors Exist",
-        description: "Please fix the configuration errors before saving.",
+        title: "Terdapat kesalahan konfigurasi",
+        description: "Perbaiki kesalahan konfigurasi sebelum menyimpan.",
       });
     }
 
@@ -35,9 +35,9 @@ const ConfigPage = () => {
           workingConfig.map((config) =>
             connection?.setConfig(config).then(() =>
               toast({
-                title: "Saving Config",
+                title: "Menyimpan konfigurasi",
                 description:
-                  `The configuration change ${config.payloadVariant.case} has been saved.`,
+                  `Perubahan konfigurasi ${config.payloadVariant.case} telah disimpan.`,
               })
             )
           ),
@@ -47,9 +47,9 @@ const ConfigPage = () => {
           workingModuleConfig.map((moduleConfig) =>
             connection?.setModuleConfig(moduleConfig).then(() =>
               toast({
-                title: "Saving Config",
+                title: "Menyimpan konfigurasi",
                 description:
-                  `The configuration change ${moduleConfig.payloadVariant.case} has been saved.`,
+                  `Perubahan konfigurasi ${moduleConfig.payloadVariant.case} telah disimpan.`,
               })
             )
           ),
@@ -58,8 +58,8 @@ const ConfigPage = () => {
       await connection?.commitEditSettings();
     } catch (_error) {
       toast({
-        title: "Error Saving Config",
-        description: "An error occurred while saving the configuration.",
+        title: "Terjadi kesalahan saat menyimpan",
+        description: "Terjadi kesalahan ketika menyimpan konfigurasi.",
       });
     } finally {
       setIsSaving(false);
@@ -69,15 +69,15 @@ const ConfigPage = () => {
   return (
     <>
       <Sidebar>
-        <SidebarSection label="Config Sections">
+        <SidebarSection label="Bagian Konfigurasi">
           <SidebarButton
-            label="Radio Config"
+            label="Konfigurasi Radio"
             active={activeConfigSection === "device"}
             onClick={() => setActiveConfigSection("device")}
             Icon={SettingsIcon}
           />
           <SidebarButton
-            label="Module Config"
+            label="Konfigurasi Modul"
             active={activeConfigSection === "module"}
             onClick={() => setActiveConfigSection("module")}
             Icon={BoxesIcon}
@@ -86,8 +86,8 @@ const ConfigPage = () => {
       </Sidebar>
       <PageLayout
         label={activeConfigSection === "device"
-          ? "Radio Config"
-          : "Module Config"}
+          ? "Konfigurasi Radio"
+          : "Konfigurasi Modul"}
         actions={[
           {
             icon: isError ? SaveOff : SaveIcon,

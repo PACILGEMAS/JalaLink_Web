@@ -86,7 +86,7 @@ const NodesPage = (): JSX.Element => {
         <div className="p-4">
           <input
             type="text"
-            placeholder="Search nodes..."
+            placeholder="Cari nelayan..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full p-2 border border-slate-300 rounded-sm bg-white text-slate-900"
@@ -96,13 +96,13 @@ const NodesPage = (): JSX.Element => {
           <Table
             headings={[
               { title: "", type: "blank", sortable: false },
-              { title: "Long Name", type: "normal", sortable: true },
+              { title: "Nama Panjang", type: "normal", sortable: true },
               // { title: "Model", type: "normal", sortable: true },
               // { title: "MAC Address", type: "normal", sortable: true },
-              { title: "Last Heard", type: "normal", sortable: true },
+              { title: "Terakhir Terdengar", type: "normal", sortable: true },
               // { title: "SNR", type: "normal", sortable: true },
-              { title: "Encryption", type: "normal", sortable: false },
-              { title: "Connection", type: "normal", sortable: true },
+              { title: "Enkripsi", type: "normal", sortable: false },
+              { title: "Koneksi", type: "normal", sortable: true },
             ]}
             rows={filteredNodes.map((node) => [
               <div key={node.num}>
@@ -135,7 +135,7 @@ const NodesPage = (): JSX.Element => {
               // </Mono>,
               <Mono key="lastHeard">
                 {node.lastHeard === 0 ? (
-                  <p>Never</p>
+                  <p>Tidak pernah</p>
                 ) : (
                   <TimeAgo timestamp={node.lastHeard * 1000} />
                 )}
@@ -155,11 +155,10 @@ const NodesPage = (): JSX.Element => {
               <Mono key="hops">
                 {node.lastHeard !== 0
                   ? node.viaMqtt === false && node.hopsAway === 0
-                    ? "Direct"
-                    : `${node.hopsAway?.toString()} ${node.hopsAway > 1 ? "hops" : "hop"
-                    } away`
+                    ? "Langsung"
+                    : `${node.hopsAway?.toString()} lompatan jauhnya`
                   : "-"}
-                {node.viaMqtt === true ? ", via MQTT" : ""}
+                {node.viaMqtt === true ? ", melalui MQTT" : ""}
               </Mono>,
             ])}
           />

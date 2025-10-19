@@ -4,13 +4,108 @@ import { produce } from "immer";
 import { createContext, useContext } from "react";
 import { create as createStore } from "zustand";
 
-export type Page = "messages" | "map" | "config" | "channels" | "nodes";
+export type Page =
+  | "messages"
+  | "map"
+  | "config"
+  | "channels"
+  | "nodes"
+  | "fishData";
 
 export interface MessageWithState extends Types.PacketMetadata<string> {
   state: MessageState;
 }
 
 export type MessageState = "ack" | "waiting" | Protobuf.Mesh.Routing_Error;
+
+export interface SosAlert {
+  id: string;
+  messageId?: number;
+  nodeNum: number;
+  nodeName: string;
+  receivedAt: number;
+  location?: {
+    latitude: number;
+    longitude: number;
+  };
+  raw: string;
+}
+
+export interface FishDataEntry {
+  id: string;
+  messageId?: number;
+  nodeNum?: number;
+  nodeName?: string;
+  species: string;
+  quantity: string;
+  pressure?: number;
+  temperature?: number;
+  timestamp: string;
+  latitude?: number;
+  longitude?: number;
+  source: "dummy" | "message";
+}
+
+const REQFN_RESPONSE_COORDS = "-6.0872222222, 106.7333333333";
+const REQGB_RESPONSE_STATUS = "Tidak Bagus";
+
+const INITIAL_FISH_DATA_SEED: Array<Omit<FishDataEntry, "id" | "source">> = [
+  {
+    species: "Tembang",
+    quantity: "Melimpah",
+    pressure: 1011.2,
+    temperature: 27.3,
+    timestamp: "2025-10-18 20:45:00",
+    latitude: -6.0705,
+    longitude: 106.791,
+  },
+  {
+    species: "Cakalang",
+    quantity: "Sedang",
+    pressure: 1009.8,
+    temperature: 26.9,
+    timestamp: "2025-10-18 21:15:00",
+    latitude: -6.026,
+    longitude: 106.755,
+  },
+  {
+    species: "Kakap Merah",
+    quantity: "Cukup",
+    pressure: 1012.6,
+    temperature: 27.8,
+    timestamp: "2025-10-18 21:30:00",
+    latitude: -6.018,
+    longitude: 106.84,
+  },
+  {
+    species: "Tongkol",
+    quantity: "Terbatas",
+    pressure: 1008.5,
+    temperature: 26.4,
+    timestamp: "2025-10-18 21:05:00",
+    latitude: -6.01,
+    longitude: 106.78,
+  },
+  {
+    species: "Kerapu",
+    quantity: "Sedikit",
+    pressure: 1013.1,
+    temperature: 27.1,
+    timestamp: "2025-10-18 21:25:00",
+    latitude: -6.03,
+    longitude: 106.88,
+  },
+];
+
+const createInitialFishData = (): FishDataEntry[] =>
+  INITIAL_FISH_DATA_SEED.map((entry, index) => ({
+    ...entry,
+    id: `dummy-${index}`,
+    source: "dummy",
+  }));
+
+const createId = (prefix: string): string =>
+  `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 
 export interface ProcessPacketParams {
   from: number;
@@ -59,6 +154,8 @@ export interface Device {
     Types.PacketMetadata<Protobuf.Mesh.RouteDiscovery>[]
   >;
   nodeErrors: Map<number, NodeError>;
+  fishData: FishDataEntry[];
+  sosAlerts: SosAlert[];
   connection?: MeshDevice;
   activePage: Page;
   activeNode: number;
@@ -120,7 +217,8 @@ export interface Device {
   setNodeError: (nodeNum: number, error: string) => void;
   clearNodeError: (nodeNum: number) => void;
   getNodeError: (nodeNum: number) => NodeError | undefined;
-  hasNodeError: (nodeNum: number) => boolean
+  hasNodeError: (nodeNum: number) => boolean;
+  removeSosAlert: (id: string) => void;
 }
 
 export interface DeviceState {
@@ -179,6 +277,8 @@ export const useDeviceStore = createStore<DeviceState>((set, get) => ({
           pendingSettingsChanges: false,
           messageDraft: "",
           nodeErrors: new Map(),
+          fishData: createInitialFishData(),
+          sosAlerts: [],
 
 
           setStatus: (status: Types.DeviceStatusEnum) => {
@@ -508,6 +608,107 @@ export const useDeviceStore = createStore<DeviceState>((set, get) => ({
             );
           },
           addMessage: (message) => {
+            const deviceSnapshot = get().devices.get(id);
+            const text = (message.data ?? "").trim();
+            const fromSelf =
+              deviceSnapshot?.hardware?.myNodeNum === message.from;
+
+            let newSosAlert: SosAlert | null = null;
+            let newFishEntry: FishDataEntry | null = null;
+            let shouldRespondFn = false;
+            let shouldRespondGb = false;
+            const responseChannel: Types.ChannelNumber = message.channel ??
+              Types.ChannelNumber.Primary;
+
+            if (deviceSnapshot && !fromSelf) {
+              const nodeInfo = deviceSnapshot.nodes.get(message.from);
+              const nodeName = nodeInfo?.user?.longName ??
+                nodeInfo?.user?.shortName ??
+                `Node ${message.from}`;
+
+              if (text.startsWith("SOS:")) {
+                const payload = text.slice(4).trim();
+                let location: SosAlert["location"];
+                if (payload && payload.toLowerCase() !== "nolocation") {
+                  const [latStr, lonStr] = payload.split(",").map((part) =>
+                    part.trim()
+                  );
+                  const latitude = Number.parseFloat(latStr);
+                  const longitude = Number.parseFloat(lonStr);
+                  if (
+                    Number.isFinite(latitude) &&
+                    Number.isFinite(longitude)
+                  ) {
+                    location = { latitude, longitude };
+                  }
+                }
+                newSosAlert = {
+                  id: message.id !== undefined
+                    ? `sos-${message.id}`
+                    : createId("sos"),
+                  messageId: message.id,
+                  nodeNum: message.from,
+                  nodeName,
+                  receivedAt: message.rxTime ?? Date.now(),
+                  location,
+                  raw: text,
+                };
+              }
+
+              if (
+                message.type === "direct" &&
+                text.startsWith("DATA:")
+              ) {
+                const payload = text.slice(5).trim();
+                const parts = payload.split(",").map((part) => part.trim());
+                if (parts.length >= 7) {
+                  const [
+                    species,
+                    quantity,
+                    pressureStr,
+                    temperatureStr,
+                    timestamp,
+                    latitudeStr,
+                    longitudeStr,
+                  ] = parts;
+
+                  const pressure = Number.parseFloat(pressureStr);
+                  const temperature = Number.parseFloat(temperatureStr);
+                  const latitude = Number.parseFloat(latitudeStr);
+                  const longitude = Number.parseFloat(longitudeStr);
+
+                  newFishEntry = {
+                    id: message.id !== undefined
+                      ? `fish-${message.id}`
+                      : createId("fish"),
+                    messageId: message.id,
+                    nodeNum: message.from,
+                    nodeName,
+                    species,
+                    quantity,
+                    pressure: Number.isFinite(pressure) ? pressure : undefined,
+                    temperature: Number.isFinite(temperature)
+                      ? temperature
+                      : undefined,
+                    timestamp,
+                    latitude: Number.isFinite(latitude) ? latitude : undefined,
+                    longitude: Number.isFinite(longitude)
+                      ? longitude
+                      : undefined,
+                    source: "message",
+                  };
+                }
+              }
+
+              if (message.type === "direct" && text.startsWith("REQFN:")) {
+                shouldRespondFn = true;
+              }
+
+              if (message.type === "direct" && text.startsWith("REQGB:")) {
+                shouldRespondGb = true;
+              }
+            }
+
             set(
               produce<DeviceState>((draft) => {
                 const device = draft.devices.get(id);
@@ -528,8 +729,55 @@ export const useDeviceStore = createStore<DeviceState>((set, get) => ({
                 } else {
                   messageGroup.set(messageIndex, [message]);
                 }
+
+                if (newSosAlert) {
+                  const exists = device.sosAlerts.some((alert) =>
+                    alert.messageId !== undefined &&
+                      newSosAlert?.messageId !== undefined
+                      ? alert.messageId === newSosAlert.messageId
+                      : alert.id === newSosAlert.id
+                  );
+                  if (!exists) {
+                    device.sosAlerts.push(newSosAlert);
+                  }
+                }
+
+                if (newFishEntry) {
+                  const exists = device.fishData.some((entry) =>
+                    entry.messageId !== undefined &&
+                      newFishEntry?.messageId !== undefined
+                      ? entry.messageId === newFishEntry.messageId
+                      : entry.id === newFishEntry.id
+                  );
+                  if (!exists) {
+                    device.fishData.push(newFishEntry);
+                  }
+                }
               }),
             );
+
+            const deviceAfter = get().devices.get(id);
+            if (!deviceAfter?.connection) {
+              return;
+            }
+
+            if (shouldRespondFn) {
+              void deviceAfter.connection.sendText(
+                `RESFN:${REQFN_RESPONSE_COORDS}`,
+                message.from,
+                true,
+                responseChannel,
+              ).catch((error) => console.error("Failed to send RESFN:", error));
+            }
+
+            if (shouldRespondGb) {
+              void deviceAfter.connection.sendText(
+                `RESGB:${REQGB_RESPONSE_STATUS}`,
+                message.from,
+                true,
+                responseChannel,
+              ).catch((error) => console.error("Failed to send RESGB:", error));
+            }
           },
 
           addMetadata: (from, metadata) => {
@@ -708,6 +956,19 @@ export const useDeviceStore = createStore<DeviceState>((set, get) => ({
               throw new Error("Device not found");
             }
             return device.nodeErrors.has(nodeNum);
+          },
+          removeSosAlert: (alertId: string) => {
+            set(
+              produce<DeviceState>((draft) => {
+                const device = draft.devices.get(id);
+                if (!device) {
+                  return;
+                }
+                device.sosAlerts = device.sosAlerts.filter(
+                  (alert) => alert.id !== alertId,
+                );
+              }),
+            );
           },
 
         });

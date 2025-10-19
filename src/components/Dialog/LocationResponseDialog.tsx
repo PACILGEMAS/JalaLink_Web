@@ -11,7 +11,7 @@ import type { Protobuf, Types } from "@meshtastic/core";
 import { numberToHexUnpadded } from "@noble/curves/abstract/utils";
 
 export interface LocationResponseDialogProps {
-  location: Types.PacketMetadata<Protobuf.Mesh.location> | undefined;
+  Lokasi: Types.PacketMetadata<Protobuf.Mesh.location> | undefined;
   open: boolean;
   onOpenChange: () => void;
 }
@@ -25,22 +25,22 @@ export const LocationResponseDialog = ({
 
   const from = nodes.get(location?.from ?? 0);
   const longName = from?.user?.longName ??
-    (from ? `!${numberToHexUnpadded(from?.num)}` : "Unknown");
+    (from ? `!${numberToHexUnpadded(from?.num)}` : "Tidak diketahui");
   const shortName = from?.user?.shortName ??
-    (from ? `${numberToHexUnpadded(from?.num).substring(0, 4)}` : "UNK");
+    (from ? `${numberToHexUnpadded(from?.num).substring(0, 4)}` : "TDKT");
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
         <DialogClose />
         <DialogHeader>
-          <DialogTitle>{`Location: ${longName} (${shortName})`}</DialogTitle>
+          <DialogTitle>{`Lokasi: ${longName} (${shortName})`}</DialogTitle>
         </DialogHeader>
         <DialogDescription>
           <div className="ml-5 flex">
             <span className="ml-4 border-l-2 border-l-backgroundPrimary pl-2 text-textPrimary">
               <p>
-                Coordinates:{" "}
+                Koordinat:{" "}
                 <a
                   className="text-blue-500 dark:text-blue-400"
                   href={`https://www.openstreetmap.org/?mlat=${location?.data.latitudeI / 1e7
@@ -52,7 +52,7 @@ export const LocationResponseDialog = ({
                   {location?.data.longitudeI / 1e7}
                 </a>
               </p>
-              <p>Altitude: {location?.data.altitude}m</p>
+              <p>Ketinggian: {location?.data.altitude}m</p>
             </span>
           </div>
         </DialogDescription>

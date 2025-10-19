@@ -34,7 +34,7 @@ export const NodeDetail = ({ node }: NodeDetailProps) => {
     <div className="dark:text-slate-900 p-1">
       <div className="flex gap-2">
         <div className="flex flex-col items-center gap-2 min-w-6 pt-1">
-          <Avatar text={node.user?.shortName ?? "UNK"} />
+          <Avatar text={node.user?.shortName ?? "Tidak diketahui"} />
 
           <div>
             {node.user?.publicKey && node.user?.publicKey.length > 0
@@ -43,7 +43,7 @@ export const NodeDetail = ({ node }: NodeDetailProps) => {
                   className="text-green-600"
                   size={12}
                   strokeWidth={3}
-                  aria-label="Public Key Enabled"
+                  aria-label="Kunci publik aktif"
                 />
               )
               : (
@@ -51,7 +51,7 @@ export const NodeDetail = ({ node }: NodeDetailProps) => {
                   className="text-yellow-500"
                   size={12}
                   strokeWidth={3}
-                  aria-label="No Public Key"
+                  aria-label="Tidak ada kunci publik"
                 />
               )}
           </div>
@@ -71,11 +71,11 @@ export const NodeDetail = ({ node }: NodeDetailProps) => {
           {!!node.deviceMetrics?.batteryLevel && (
             <div
               className="flex items-center gap-1"
-              title={`${node.deviceMetrics?.voltage?.toPrecision(3) ?? "Unknown"
+              title={`${node.deviceMetrics?.voltage?.toPrecision(3) ?? "Tidak diketahui"
                 } volts`}
             >
               {node.deviceMetrics?.batteryLevel > 100
-                ? <BatteryChargingIcon size={22} />
+                ? <BatteryMengisi dayaIcon size={22} />
                 : node.deviceMetrics?.batteryLevel > 80
                   ? <BatteryFullIcon size={22} />
                   : node.deviceMetrics?.batteryLevel > 20
@@ -83,7 +83,7 @@ export const NodeDetail = ({ node }: NodeDetailProps) => {
                     : <BatteryLowIcon size={22} />}
               <Subtle aria-label="Battery">
                 {node.deviceMetrics?.batteryLevel > 100
-                  ? "Charging"
+                  ? "Mengisi daya"
                   : `${node.deviceMetrics?.batteryLevel}%`}
               </Subtle>
             </div>
@@ -103,7 +103,7 @@ export const NodeDetail = ({ node }: NodeDetailProps) => {
             <div>
               {node.lastHeard > 0 && (
                 <div>
-                  Heard <TimeAgo timestamp={node.lastHeard * 1000} />
+                  Didengar <TimeAgo timestamp={node.lastHeard * 1000} />
                 </div>
               )}
             </div>

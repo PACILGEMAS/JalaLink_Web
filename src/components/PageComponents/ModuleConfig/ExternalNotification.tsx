@@ -24,20 +24,20 @@ export const ExternalNotification = () => {
       defaultValues={moduleConfig.externalNotification}
       fieldGroups={[
         {
-          label: "External Notification Settings",
-          description: "Configure the external notification module",
+          label: "Pengaturan Notifikasi Eksternal",
+          description: "Konfigurasikan modul notifikasi eksternal",
           fields: [
             {
               type: "toggle",
               name: "enabled",
-              label: "Module Enabled",
-              description: "Enable External Notification",
+              label: "Modul Diaktifkan",
+              description: "Aktifkan notifikasi eksternal",
             },
             {
               type: "number",
               name: "outputMs",
-              label: "Output MS",
-              description: "Output MS",
+              label: "Output (ms)",
+              description: "Output dalam milidetik",
 
               disabledBy: [
                 {
@@ -52,7 +52,7 @@ export const ExternalNotification = () => {
               type: "number",
               name: "output",
               label: "Output",
-              description: "Output",
+              description: "Nilai output",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -62,8 +62,8 @@ export const ExternalNotification = () => {
             {
               type: "number",
               name: "outputVibra",
-              label: "Output Vibrate",
-              description: "Output Vibrate",
+              label: "Output Getar",
+              description: "Nilai output getar",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -74,7 +74,7 @@ export const ExternalNotification = () => {
               type: "number",
               name: "outputBuzzer",
               label: "Output Buzzer",
-              description: "Output Buzzer",
+              description: "Nilai output buzzer",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -84,8 +84,8 @@ export const ExternalNotification = () => {
             {
               type: "toggle",
               name: "active",
-              label: "Active",
-              description: "Active",
+              label: "Aktif",
+              description: "Status aktif",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -95,8 +95,8 @@ export const ExternalNotification = () => {
             {
               type: "toggle",
               name: "alertMessage",
-              label: "Alert Message",
-              description: "Alert Message",
+              label: "Pesan Peringatan",
+              description: "Pesan peringatan",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -106,8 +106,8 @@ export const ExternalNotification = () => {
             {
               type: "toggle",
               name: "alertMessageVibra",
-              label: "Alert Message Vibrate",
-              description: "Alert Message Vibrate",
+              label: "Pesan Peringatan (Getar)",
+              description: "Pesan peringatan dengan getaran",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -117,8 +117,8 @@ export const ExternalNotification = () => {
             {
               type: "toggle",
               name: "alertMessageBuzzer",
-              label: "Alert Message Buzzer",
-              description: "Alert Message Buzzer",
+              label: "Pesan Peringatan (Buzzer)",
+              description: "Pesan peringatan dengan buzzer",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -128,9 +128,9 @@ export const ExternalNotification = () => {
             {
               type: "toggle",
               name: "alertBell",
-              label: "Alert Bell",
+              label: "Bel Peringatan",
               description:
-                "Should an alert be triggered when receiving an incoming bell?",
+                "Apakah peringatan harus dipicu ketika menerima bel masuk?",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -140,8 +140,8 @@ export const ExternalNotification = () => {
             {
               type: "toggle",
               name: "alertBellVibra",
-              label: "Alert Bell Vibrate",
-              description: "Alert Bell Vibrate",
+              label: "Bel Peringatan (Getar)",
+              description: "Bel peringatan dengan getaran",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -151,8 +151,8 @@ export const ExternalNotification = () => {
             {
               type: "toggle",
               name: "alertBellBuzzer",
-              label: "Alert Bell Buzzer",
-              description: "Alert Bell Buzzer",
+              label: "Bel Peringatan (Buzzer)",
+              description: "Bel peringatan dengan buzzer",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -162,8 +162,8 @@ export const ExternalNotification = () => {
             {
               type: "toggle",
               name: "usePwm",
-              label: "Use PWM",
-              description: "Use PWM",
+              label: "Gunakan PWM",
+              description: "Gunakan PWM",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -173,8 +173,8 @@ export const ExternalNotification = () => {
             {
               type: "number",
               name: "nagTimeout",
-              label: "Nag Timeout",
-              description: "Nag Timeout",
+              label: "Batas Waktu Pengingat",
+              description: "Durasi pengingat",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -184,8 +184,8 @@ export const ExternalNotification = () => {
             {
               type: "toggle",
               name: "useI2sAsBuzzer",
-              label: "Use I²S Pin as Buzzer",
-              description: "Designate I²S Pin as Buzzer Output",
+              label: "Gunakan pin I2S sebagai Buzzer",
+              description: "Gunakan pin I2S sebagai output buzzer",
               disabledBy: [
                 {
                   fieldName: "enabled",

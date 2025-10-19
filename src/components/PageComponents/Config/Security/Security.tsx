@@ -47,7 +47,7 @@ export const Security = () => {
       removeError(fieldName);
 
       if (fieldName === "privateKey" && input === "") {
-        addError(fieldName, "Private Key is required");
+        addError(fieldName, "Kunci privat wajib diisi");
         return;
       }
 
@@ -58,23 +58,23 @@ export const Security = () => {
       if (input.length % 4 !== 0) {
         addError(
           fieldName,
-          `${fieldName === "privateKey" ? "Private" : "Admin"
-          } Key is required to be a 256 bit pre-shared key (PSK)`,
+          `${fieldName === "privateKey" ? "Kunci privat" : "Kunci admin"
+          } harus berupa PSK 256 bit`,
         );
         return;
       }
 
       const decoded = toByteArray(input);
       if (decoded.length !== count) {
-        addError(fieldName, `Please enter a valid ${count * 8} bit PSK`);
+        addError(fieldName, `Masukkan PSK ${count * 8} bit yang valid`);
         return;
       }
     } catch (e) {
       console.error(e);
       addError(
         fieldName,
-        `Invalid ${fieldName === "privateKey" ? "Private" : "Admin"
-        } Key format`,
+        `Format ${fieldName === "privateKey" ? "kunci privat" : "kunci admin"
+        } tidak valid`,
       );
     }
   };
@@ -160,15 +160,15 @@ export const Security = () => {
         }}
         fieldGroups={[
           {
-            label: "Security Settings",
-            description: "Settings for the Security configuration",
+            label: "Pengaturan Keamanan",
+            description: "Pengaturan untuk konfigurasi keamanan",
             fields: [
               {
                 type: "passwordGenerator",
                 id: "pskInput",
                 name: "privateKey",
-                label: "Private Key",
-                description: "Used to create a shared key with a remote device",
+                label: "Kunci Privat",
+                description: "Digunakan untuk membuat kunci bersama dengan perangkat jarak jauh",
                 bits: [{ text: "256 bit", value: "32", key: "bit256" }],
                 validationText: hasFieldError("privateKey")
                   ? getErrorMessage("privateKey")
@@ -179,7 +179,7 @@ export const Security = () => {
                 hide: !state.privateKeyVisible,
                 actionButtons: [
                   {
-                    text: "Generate",
+                    text: "Buat",
                     onClick: () =>
                       dispatch({
                         type: "SHOW_PRIVATE_KEY_DIALOG",
@@ -188,7 +188,7 @@ export const Security = () => {
                     variant: "success",
                   },
                   {
-                    text: "Backup Key",
+                    text: "Cadangkan Kunci",
                     onClick: () => setDialogOpen("pkiBackup", true),
                     variant: "subtle",
                   },
@@ -205,10 +205,10 @@ export const Security = () => {
               {
                 type: "text",
                 name: "publicKey",
-                label: "Public Key",
+                label: "Kunci Publik",
                 disabled: true,
                 description:
-                  "Sent out to other nodes on the mesh to allow them to compute a shared secret key",
+                  "Dikirim ke node lain pada mesh agar mereka dapat menghitung kunci rahasia bersama",
                 properties: {
                   value: state.publicKey,
                 },
@@ -216,30 +216,30 @@ export const Security = () => {
             ],
           },
           {
-            label: "Admin Settings",
-            description: "Settings for Admin",
+            label: "Pengaturan Admin",
+            description: "Pengaturan untuk admin",
             fields: [
               {
                 type: "toggle",
                 name: "adminChannelEnabled",
-                label: "Allow Legacy Admin",
+                label: "Izinkan Admin Lama",
                 description:
-                  "Allow incoming device control over the insecure legacy admin channel",
+                  "Izinkan kendali perangkat yang masuk melalui kanal admin lama yang tidak aman",
               },
               {
                 type: "toggle",
                 name: "isManaged",
-                label: "Managed",
+                label: "Dikelola",
                 description:
-                  "If true, device configuration options are only able to be changed remotely by a Remote Admin node via admin messages. Do not enable this option unless a suitable Remote Admin node has been setup, and the public key stored in the field below.",
+                  "Jika diaktifkan, opsi konfigurasi perangkat hanya dapat diubah jarak jauh oleh node Admin Jarak Jauh melalui pesan admin. Jangan aktifkan opsi ini kecuali node Admin Jarak Jauh telah disiapkan dan kunci publiknya disimpan pada kolom di bawah.",
               },
               {
                 type: "passwordGenerator",
                 name: "adminKey",
                 id: "adminKeyInput",
-                label: "Admin Key",
+                label: "Kunci Admin",
                 description:
-                  "The public key authorized to send admin messages to this node",
+                  "Kunci publik yang diizinkan mengirim pesan admin ke node ini",
                 validationText: hasFieldError("adminKey")
                   ? getErrorMessage("adminKey")
                   : "",
@@ -250,7 +250,7 @@ export const Security = () => {
                 hide: !state.adminKeyVisible,
                 actionButtons: [
                   {
-                    text: "Generate",
+                    text: "Buat",
                     variant: "success",
                     onClick: () => {
                       const adminKey = getX25519PrivateKey();
@@ -281,21 +281,21 @@ export const Security = () => {
             ],
           },
           {
-            label: "Logging Settings",
-            description: "Settings for Logging",
+            label: "Pengaturan Log",
+            description: "Pengaturan untuk pencatatan",
             fields: [
               {
                 type: "toggle",
                 name: "debugLogApiEnabled",
-                label: "Enable Debug Log API",
+                label: "Aktifkan API Log Debug",
                 description:
-                  "Output live debug logging over serial, view and export position-redacted device logs over Bluetooth",
+                  "Keluarkan log debug langsung melalui serial, lihat dan ekspor log perangkat yang disamarkan posisinya lewat Bluetooth",
               },
               {
                 type: "toggle",
                 name: "serialEnabled",
-                label: "Serial Output Enabled",
-                description: "Serial Console over the Stream API",
+                label: "Keluaran Serial Diaktifkan",
+                description: "Konsol serial melalui Stream API",
               },
             ],
           },

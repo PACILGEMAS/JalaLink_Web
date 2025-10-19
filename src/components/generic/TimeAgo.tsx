@@ -12,7 +12,7 @@ export interface TimeAgoProps {
 
 const getTimeAgo = (
   unixTimestamp: number,
-  locale: Intl.LocalesArgument = "en",
+  locale: Intl.LocalesArgument = "id",
 ): string => {
   const timestamp = new Date(unixTimestamp);
   const diff = (new Date().getTime() - timestamp.getTime()) / 1000;

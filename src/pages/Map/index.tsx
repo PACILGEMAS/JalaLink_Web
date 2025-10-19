@@ -4,6 +4,7 @@ import { useTheme } from "../../core/hooks/useTheme.ts";
 import { PageLayout } from "@components/PageLayout.tsx";
 import { Sidebar } from "@components/Sidebar.tsx";
 import { useDevice } from "@core/stores/deviceStore.ts";
+import type { FishDataEntry } from "@core/stores/deviceStore.ts";
 import type { Protobuf } from "@meshtastic/core";
 import { bbox, lineString } from "@turf/turf";
 import { MapPinIcon, FishIcon } from "lucide-react";
@@ -24,14 +25,6 @@ type NodePosition = {
   longitude: number;
 };
 
-const posisiIkan = [
-  { jenis: "Tembang", latitude: -6.0705, longitude: 106.7910 },
-  { jenis: "Cakalang", latitude: -6.0260, longitude: 106.7550 },
-  { jenis: "Kakap Merah", latitude: -6.0180, longitude: 106.8400 },
-  { jenis: "Tongkol", latitude: -6.0100, longitude: 106.7800 },
-  { jenis: "Kerapu", latitude: -6.0300, longitude: 106.8800 },
-]
-
 const convertToLatLng = (position: {
   latitudeI?: number;
   longitudeI?: number;
@@ -41,10 +34,11 @@ const convertToLatLng = (position: {
 });
 
 const MapPage = () => {
-  const { nodes, waypoints } = useDevice();
+  const { nodes, waypoints, fishData } = useDevice();
   const { theme } = useTheme();
   const { default: map } = useMap();
   const [showIkanMarkers, setShowIkanMarkers] = useState(true);
+  const [selectedFish, setSelectedFish] = useState<FishDataEntry | null>(null);
 
   const darkMode = theme === "dark";
 
@@ -140,24 +134,32 @@ const MapPage = () => {
     [validNodes, handleMarkerClick],
   );
 
-  const ikanMarkers = useMemo(
+  const fishMarkers = useMemo(
     () =>
-      posisiIkan.map((pos, idx) => (
-        <Marker
-          key={`ikan-marker-${idx}`}
-          longitude={pos.longitude}
-          latitude={pos.latitude}
-          anchor="bottom"
-        >
-          <div className="flex flex-col items-center">
-            <div className="bg-blue-600 rounded-full w-4 h-4 border-2 border-white shadow-md" />
-            <span className="text-xs text-black dark:text-white mt-1 bg-white dark:bg-gray-800 px-1 rounded shadow">
-            Ikan {pos.jenis}
-          </span>
-          </div>
-        </Marker>
-      )),
-    []
+      fishData
+        .filter((entry): entry is FishDataEntry & { latitude: number; longitude: number } =>
+          entry.latitude !== undefined && entry.longitude !== undefined
+        )
+        .map((entry) => (
+          <Marker
+            key={`ikan-marker-${entry.id}`}
+            longitude={entry.longitude}
+            latitude={entry.latitude}
+            anchor="bottom"
+            onClick={(event) => {
+              event?.originalEvent?.stopPropagation();
+              setSelectedFish(entry);
+            }}
+          >
+            <div className="flex flex-col items-center">
+              <div className="bg-blue-600 rounded-full w-4 h-4 border-2 border-white shadow-md" />
+              <span className="text-xs text-black dark:text-white mt-1 bg-white dark:bg-gray-800 px-1 rounded shadow">
+                Ikan {entry.species}
+              </span>
+            </div>
+          </Marker>
+        )),
+    [fishData]
   );
 
   useEffect(() => {
@@ -166,11 +168,17 @@ const MapPage = () => {
     });
   }, [map, getMapBounds]);
 
+  useEffect(() => {
+    if (!showIkanMarkers) {
+      setSelectedFish(null);
+    }
+  }, [showIkanMarkers]);
+
   return (
     <>
       <Sidebar />
       <PageLayout
-        label="Map"
+        label="Peta"
         noPadding
         actions={[
           {
@@ -223,7 +231,7 @@ const MapPage = () => {
             </Marker>
           ))}
           {markers}
-          {showIkanMarkers && ikanMarkers}
+          {showIkanMarkers && fishMarkers}
           {selectedNode
             ? (
               <Popup
@@ -236,6 +244,40 @@ const MapPage = () => {
               </Popup>
             )
             : null}
+          {showIkanMarkers && selectedFish && selectedFish.latitude !== undefined &&
+            selectedFish.longitude !== undefined && (
+            <Popup
+              anchor="top"
+              longitude={selectedFish.longitude}
+              latitude={selectedFish.latitude}
+              onClose={() => setSelectedFish(null)}
+            >
+              <div className="text-sm text-slate-900 dark:text-black space-y-1">
+                <h3 className="font-semibold text-base">Data Ikan: {selectedFish.species}</h3>
+                <p>Kuantitas: {selectedFish.quantity}</p>
+                <p>
+                  Tekanan Udara:{" "}
+                  {selectedFish.pressure !== undefined
+                    ? `${selectedFish.pressure.toFixed(2)} hPa`
+                    : "Tidak tersedia"}
+                </p>
+                <p>
+                  Temperatur:{" "}
+                  {selectedFish.temperature !== undefined
+                    ? `${selectedFish.temperature.toFixed(1)} °C`
+                    : "Tidak tersedia"}
+                </p>
+                <p>Waktu: {selectedFish.timestamp}</p>
+                <p>
+                  Lokasi: {selectedFish.latitude.toFixed(5)},{" "}
+                  {selectedFish.longitude.toFixed(5)}
+                </p>
+                {selectedFish.nodeName && (
+                  <p>Sumber: {selectedFish.nodeName}</p>
+                )}
+              </div>
+            </Popup>
+          )}
         </MapGl>
       </PageLayout>
     </>

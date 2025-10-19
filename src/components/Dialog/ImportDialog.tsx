@@ -44,7 +44,7 @@ export const ImportDialog = ({
           channelsUrl.pathname !== "/e/") ||
         !channelsUrl.hash
       ) {
-        throw "Invalid Meshtastic URL";
+        throw "URL Meshtastic tidak valid";
       }
 
       const encodedChannelConfig = channelsUrl.hash.substring(1);
@@ -99,13 +99,13 @@ export const ImportDialog = ({
       <DialogContent>
         <DialogClose />
         <DialogHeader>
-          <DialogTitle>Import Channel Set</DialogTitle>
+          <DialogTitle>Impor Set Kanal</DialogTitle>
           <DialogDescription>
-            The current LoRa configuration will be overridden.
+            Konfigurasi LoRa saat ini akan ditimpa.
           </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col gap-3">
-          <Label>Channel Set/QR Code URL</Label>
+          <Label>URL Set Kanal/Kode QR</Label>
           <Input
             value={importDialogInput}
             suffix={validUrl ? "✅" : "❌"}
@@ -118,7 +118,7 @@ export const ImportDialog = ({
             <div className="flex flex-col gap-3">
               <div className="flex w-full gap-2">
                 <div className="w-36">
-                  <Label>Use Preset?</Label>
+                  <Label>Gunakan prasetel?</Label>
                   <Switch
                     disabled
                     checked={channelSet?.loraConfig?.usePreset ?? true}
@@ -145,7 +145,7 @@ export const ImportDialog = ({
               }
 
               <span className="text-md block font-medium text-text-primary">
-                Channels:
+                Kanal:
               </span>
               <div className="flex w-40 flex-col gap-1">
                 {channelSet?.settings.map((channel) => (
@@ -153,7 +153,7 @@ export const ImportDialog = ({
                     <Label>
                       {channel.name.length
                         ? channel.name
-                        : `Channel: ${channel.id}`}
+                        : `Kanal: ${channel.id}`}
                     </Label>
                     <Checkbox key={channel.id} />
                   </div>

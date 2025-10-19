@@ -24,23 +24,23 @@ export const DetectionSensor = () => {
       defaultValues={moduleConfig.detectionSensor}
       fieldGroups={[
         {
-          label: "Detection Sensor Settings",
-          description: "Settings for the Detection Sensor module",
+          label: "Pengaturan Sensor Deteksi",
+          description: "Pengaturan untuk modul sensor deteksi",
           fields: [
             {
               type: "toggle",
               name: "enabled",
-              label: "Enabled",
-              description: "Enable or disable Detection Sensor Module",
+              label: "Diaktifkan",
+              description: "Aktifkan atau nonaktifkan modul sensor deteksi",
             },
             {
               type: "number",
               name: "minimumBroadcastSecs",
-              label: "Minimum Broadcast Seconds",
+              label: "Detik Siaran Minimum",
               description:
-                "The interval in seconds of how often we can send a message to the mesh when a state change is detected",
+                "Interval dalam detik seberapa sering pesan dikirim ke mesh ketika perubahan status terdeteksi",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
               disabledBy: [
                 {
@@ -51,9 +51,9 @@ export const DetectionSensor = () => {
             {
               type: "number",
               name: "stateBroadcastSecs",
-              label: "State Broadcast Seconds",
+              label: "Detik Siaran Status",
               description:
-                "The interval in seconds of how often we should send a message to the mesh with the current state regardless of changes",
+                "Interval dalam detik untuk mengirim pesan ke mesh dengan status saat ini terlepas dari perubahan",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -64,7 +64,7 @@ export const DetectionSensor = () => {
               type: "toggle",
               name: "sendBell",
               label: "Send Bell",
-              description: "Send ASCII bell with alert message",
+              description: "Kirim karakter bel ASCII dengan pesan peringatan",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -74,9 +74,9 @@ export const DetectionSensor = () => {
             {
               type: "text",
               name: "name",
-              label: "Friendly Name",
+              label: "Nama Tampilan",
               description:
-                "Used to format the message sent to mesh, max 20 Characters",
+                "Digunakan untuk memformat pesan yang dikirim ke mesh, maksimal 20 karakter",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -86,8 +86,8 @@ export const DetectionSensor = () => {
             {
               type: "number",
               name: "monitorPin",
-              label: "Monitor Pin",
-              description: "The GPIO pin to monitor for state changes",
+              label: "Pin Monitor",
+              description: "Pin GPIO yang diawasi untuk perubahan status",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -97,9 +97,9 @@ export const DetectionSensor = () => {
             {
               type: "toggle",
               name: "detectionTriggeredHigh",
-              label: "Detection Triggered High",
+              label: "Deteksi Dipicu High",
               description:
-                "Whether or not the GPIO pin state detection is triggered on HIGH (1), otherwise LOW (0)",
+                "Apakah deteksi status pin GPIO dipicu pada HIGH (1), jika tidak maka LOW (0)",
               disabledBy: [
                 {
                   fieldName: "enabled",
@@ -109,8 +109,8 @@ export const DetectionSensor = () => {
             {
               type: "toggle",
               name: "usePullup",
-              label: "Use Pullup",
-              description: "Whether or not use INPUT_PULLUP mode for GPIO pin",
+              label: "Gunakan Pull-up",
+              description: "Gunakan atau tidak mode INPUT_PULLUP untuk pin GPIO",
               disabledBy: [
                 {
                   fieldName: "enabled",

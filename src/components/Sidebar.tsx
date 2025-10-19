@@ -7,6 +7,7 @@ import {
   BatteryMediumIcon,
   CpuIcon,
   EditIcon,
+  FishIcon,
   LayersIcon,
   type LucideIcon,
   MapIcon,
@@ -38,27 +39,27 @@ export const Sidebar = ({ children }: SidebarProps) => {
 
   const pages: NavLink[] = [
     {
-      name: "Messages",
+      name: "Pesan",
       icon: MessageSquareIcon,
       page: "messages",
     },
     {
-      name: "Map",
+      name: "Peta",
       icon: MapIcon,
       page: "map",
     },
     {
-      name: "Config",
+      name: "Data Ikan",
+      icon: FishIcon,
+      page: "fishData",
+    },
+    {
+      name: "Konfigurasi",
       icon: SettingsIcon,
       page: "config",
     },
     {
-      name: "Channels",
-      icon: LayersIcon,
-      page: "channels",
-    },
-    {
-      name: `Nodes (${nodes.size})`,
+      name: `Nelayan (${nodes.size})`,
       icon: UsersIcon,
       page: "nodes",
     },
@@ -70,9 +71,9 @@ export const Sidebar = ({ children }: SidebarProps) => {
         <div className="flex justify-between px-8 pt-6">
           <div>
             <span className="text-lg font-medium">
-              {myNode?.user?.shortName ?? "UNK"}
+              {myNode?.user?.shortName ?? "Tidak diketahui"}
             </span>
-            <Subtle>{myNode?.user?.longName ?? "UNK"}</Subtle>
+            <Subtle>{myNode?.user?.longName ?? "Tidak diketahui"}</Subtle>
           </div>
           <button
             type="button"
@@ -91,20 +92,20 @@ export const Sidebar = ({ children }: SidebarProps) => {
             <Subtle>
               {myNode?.deviceMetrics?.batteryLevel
                 ? myNode?.deviceMetrics?.batteryLevel > 100
-                  ? "Charging"
+                  ? "Mengisi daya"
                   : `${myNode?.deviceMetrics?.batteryLevel}%`
-                : "UNK"}
+                : "TDKT"}
             </Subtle>
           </div>
           <div className="flex items-center">
             <ZapIcon size={24} viewBox="0 0 36 24" />
             <Subtle>
-              {myNode?.deviceMetrics?.voltage?.toPrecision(3) ?? "UNK"} volts
+              {myNode?.deviceMetrics?.voltage?.toPrecision(3) ?? "TDKT"} volt
             </Subtle>
           </div>
           <div className="flex items-center">
             <CpuIcon size={24} viewBox="0 0 36 24" />
-            <Subtle>v{myMetadata?.firmwareVersion ?? "UNK"}</Subtle>
+            <Subtle>v{myMetadata?.firmwareVersion ?? "TDKT"}</Subtle>
           </div>
         </div> */}
 

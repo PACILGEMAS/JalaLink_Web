@@ -30,9 +30,9 @@ export const ShutdownDialog = ({
       <DialogContent>
         <DialogClose />
         <DialogHeader>
-          <DialogTitle>Schedule Shutdown</DialogTitle>
+          <DialogTitle>Jadwalkan Matikan</DialogTitle>
           <DialogDescription>
-            Turn off the connected node after x minutes.
+            Matikan nelayan yang terhubung setelah x menit.
           </DialogDescription>
         </DialogHeader>
 
@@ -42,7 +42,7 @@ export const ShutdownDialog = ({
             value={time}
             onChange={(e) => setTime(Number.parseInt(e.target.value))}
             className="dark:text-slate-900"
-            suffix="Minutes"
+            suffix="Menit"
           />
           <Button
             className="w-24"
@@ -59,7 +59,7 @@ export const ShutdownDialog = ({
             }}
           >
             <PowerIcon className="mr-2" size={16} />
-            Now
+            Sekarang
           </Button>
         </div>
       </DialogContent>

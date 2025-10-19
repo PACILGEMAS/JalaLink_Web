@@ -68,10 +68,10 @@ export const Avatar: React.FC<AvatarProps> = ({
     };
   };
 
-  const bgColor = getColorFromText(text ?? "UNK");
+  const bgColor = getColorFromText(text ?? "TDKT");
   const isLight = ColorUtils.isLight(bgColor);
   const textColor = isLight ? "#000000" : "#FFFFFF";
-  const initials = text?.toUpperCase().slice(0, 4) ?? "UNK";
+  const initials = text?.toUpperCase().slice(0, 4) ?? "TDKT";
 
   return (
     <div

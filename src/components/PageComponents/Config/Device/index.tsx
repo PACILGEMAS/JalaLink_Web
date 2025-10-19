@@ -25,14 +25,14 @@ export const Device = () => {
       defaultValues={config.device}
       fieldGroups={[
         {
-          label: "Device Settings",
-          description: "Settings for the device",
+          label: "Pengaturan Perangkat",
+          description: "Pengaturan untuk perangkat",
           fields: [
             {
               type: "select",
               name: "role",
-              label: "Role",
-              description: "What role the device performs on the mesh",
+              label: "Peran",
+              description: "Peran perangkat pada mesh",
               validate: validateRoleSelection,
               properties: {
                 enumValue: Protobuf.Config.Config_DeviceConfig_Role,
@@ -42,20 +42,20 @@ export const Device = () => {
             {
               type: "number",
               name: "buttonGpio",
-              label: "Button Pin",
-              description: "Button pin override",
+              label: "Pin Tombol",
+              description: "Override pin tombol",
             },
             {
               type: "number",
               name: "buzzerGpio",
-              label: "Buzzer Pin",
-              description: "Buzzer pin override",
+              label: "Pin Buzzer",
+              description: "Override pin buzzer",
             },
             {
               type: "select",
               name: "rebroadcastMode",
-              label: "Rebroadcast Mode",
-              description: "How to handle rebroadcasting",
+              label: "Mode Siar Ulang",
+              description: "Cara menangani siaran ulang",
               properties: {
                 enumValue: Protobuf.Config.Config_DeviceConfig_RebroadcastMode,
                 formatEnumName: true,
@@ -64,29 +64,29 @@ export const Device = () => {
             {
               type: "number",
               name: "nodeInfoBroadcastSecs",
-              label: "Node Info Broadcast Interval",
-              description: "How often to broadcast node info",
+              label: "Interval Siaran Info Node",
+              description: "Seberapa sering menyiarkan info node",
               properties: {
-                suffix: "Seconds",
+                suffix: "Detik",
               },
             },
             {
               type: "toggle",
               name: "doubleTapAsButtonPress",
-              label: "Double Tap as Button Press",
-              description: "Treat double tap as button press",
+              label: "Ketuk Ganda sebagai Tekan Tombol",
+              description: "Anggap ketuk ganda sebagai tombol ditekan",
             },
             {
               type: "toggle",
               name: "disableTripleClick",
-              label: "Disable Triple Click",
-              description: "Disable triple click",
+              label: "Nonaktifkan Klik Tiga Kali",
+              description: "Nonaktifkan klik tiga kali",
             },
             {
               type: "toggle",
               name: "ledHeartbeatDisabled",
-              label: "LED Heartbeat Disabled",
-              description: "Disable default blinking LED",
+              label: "Detak LED Dinonaktifkan",
+              description: "Nonaktifkan LED berkedip bawaan",
             },
           ],
         },

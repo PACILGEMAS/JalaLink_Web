@@ -10,7 +10,7 @@ export interface ChannelChatProps {
 const EmptyState = () => (
   <div className="flex flex-col place-content-center place-items-center p-8 text-white">
     <InboxIcon className="h-8 w-8 mb-2" />
-    <span className="text-sm">No Messages</span>
+    <span className="text-sm">Tidak ada pesan</span>
   </div>
 );
 

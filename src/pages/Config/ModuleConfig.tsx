@@ -28,23 +28,23 @@ export const ModuleConfig = () => {
       element: Serial,
     },
     {
-      label: "Ext Notif",
+      label: "Notifikasi Eksternal",
       element: ExternalNotification,
     },
     {
-      label: "S&F",
+      label: "Simpan & Teruskan",
       element: StoreForward,
     },
     {
-      label: "Range Test",
+      label: "Uji Jarak",
       element: RangeTest,
     },
     {
-      label: "Telemetry",
+      label: "Telemetri",
       element: Telemetry,
     },
     {
-      label: "Canned",
+      label: "Pesan Siap Pakai",
       element: CannedMessage,
     },
     {
@@ -52,15 +52,15 @@ export const ModuleConfig = () => {
       element: Audio,
     },
     {
-      label: "Neighbor Info",
+      label: "Info Tetangga",
       element: NeighborInfo,
     },
     {
-      label: "Ambient Lighting",
+      label: "Pencahayaan Sekitar",
       element: AmbientLighting,
     },
     {
-      label: "Detection Sensor",
+      label: "Sensor Deteksi",
       element: DetectionSensor,
     },
     {
@@ -70,7 +70,7 @@ export const ModuleConfig = () => {
   ];
 
   return (
-    <Tabs defaultValue="MQTT">
+    <Tabs defaultValue={tabs[0]?.label ?? "MQTT"}>
       <TabsList className="dark:bg-slate-800">
         {tabs.map((tab) => (
           <TabsTrigger

@@ -51,7 +51,7 @@ const links: { [key: string]: string } = {
     "https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts",
 };
 
-const listFormatter = new Intl.ListFormat("en", {
+const listFormatter = new Intl.ListFormat("id", {
   style: "long",
   type: "conjunction",
 });
@@ -86,18 +86,16 @@ const ErrorMessage = ({ missingFeatures }: FeatureErrorProps) => {
           <p className="text-sm">
             {browserFeatures.length > 0 && (
               <>
-                This application requires{" "}
-                {formatFeatureList(browserFeatures)}. Please use a
-                Chromium-based browser like Chrome or Edge.
+                Aplikasi ini memerlukan{" "}
+                {formatFeatureList(browserFeatures)}. Silakan gunakan peramban berbasis Chromium seperti Chrome atau Edge.
               </>
             )}
             {needsSecureContext && (
               <>
-                {browserFeatures.length > 0 && " Additionally, it"}
-                {browserFeatures.length === 0 && "This application"} requires a
-                {" "}
-                <Link href={links["Secure Context"]}>secure context</Link>.
-                Please connect using HTTPS or localhost.
+                {browserFeatures.length > 0 && " Selain itu, aplikasi ini"}
+                {browserFeatures.length === 0 && "Aplikasi ini"} memerlukan{" "}
+                <Link href={links["Secure Context"]}>konteks aman</Link>.
+                Silakan terhubung menggunakan HTTPS atau localhost.
               </>
             )}
           </p>

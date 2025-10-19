@@ -35,9 +35,9 @@ export const RemoveNodeDialog = ({
       <DialogContent>
         <DialogClose />
         <DialogHeader>
-          <DialogTitle>Remove Node?</DialogTitle>
+          <DialogTitle>Hapus Nelayan?</DialogTitle>
           <DialogDescription>
-            Are you sure you want to remove this Node?
+            Apakah Anda yakin ingin menghapus nelayan ini?
           </DialogDescription>
         </DialogHeader>
         <div className="gap-4">

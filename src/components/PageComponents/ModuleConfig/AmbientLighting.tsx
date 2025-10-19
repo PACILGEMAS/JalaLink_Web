@@ -24,38 +24,38 @@ export const AmbientLighting = () => {
       defaultValues={moduleConfig.ambientLighting}
       fieldGroups={[
         {
-          label: "Ambient Lighting Settings",
-          description: "Settings for the Ambient Lighting module",
+          label: "Pengaturan Pencahayaan Sekitar",
+          description: "Pengaturan untuk modul pencahayaan sekitar",
           fields: [
             {
               type: "toggle",
               name: "ledState",
-              label: "LED State",
-              description: "Sets LED to on or off",
+              label: "Status LED",
+              description: "Atur LED aktif atau mati",
             },
             {
               type: "number",
               name: "current",
-              label: "Current",
-              description: "Sets the current for the LED output. Default is 10",
+              label: "Arus",
+              description: "Atur arus keluaran LED. Bawaan adalah 10",
             },
             {
               type: "number",
               name: "red",
-              label: "Red",
-              description: "Sets the red LED level. Values are 0-255",
+              label: "Merah",
+              description: "Atur level LED merah. Nilai 0-255",
             },
             {
               type: "number",
               name: "green",
-              label: "Green",
-              description: "Sets the green LED level. Values are 0-255",
+              label: "Hijau",
+              description: "Atur level LED hijau. Nilai 0-255",
             },
             {
               type: "number",
               name: "blue",
-              label: "Blue",
-              description: "Sets the blue LED level. Values are 0-255",
+              label: "Biru",
+              description: "Atur level LED biru. Nilai 0-255",
             },
           ],
         },
